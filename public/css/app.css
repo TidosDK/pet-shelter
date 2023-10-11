@@ -1,0 +1,27 @@
+.lilita-one-font {
+	font-family: 'Lilita One', sans-serif;
+}
+
+.nav-bar-main-link {
+	color: #BADEE3!important;
+	font-size: 24px!important;
+}
+
+.nav-bar-link {
+	color: #FAFAFA!important;
+	font-size: 18px!important;
+}
+
+.navbar {
+	background-color: #33658A!important;
+}
+
+.login-button {
+	background-color: #85C7F2!important;
+	color: #FAFAFA!important;
+}
+
+.login-button-div {
+	margin-left: auto;
+	margin-right: 0;
+}
