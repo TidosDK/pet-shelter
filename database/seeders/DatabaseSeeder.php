@@ -31,15 +31,5 @@ class DatabaseSeeder extends Seeder {
 		Users::factory(10)->create();
 
 		Pets::factory(30)->create();
-
-		$all_users = Users::all();
-		$i = 0;
-		foreach(Pets::all() as $pet) {
-			UsersPets::create([
-				'users_id' => $all_users[$i % count($all_users)]['id'],
-				'pets_id' => $pet['id']
-			]);
-			$i++;
-		}
 	}
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Users;
 use App\Models\Breeds;
 use App\Models\TypeOfPets;
 use Illuminate\Support\Facades\File;
@@ -23,6 +24,7 @@ class PetsFactory extends Factory {
 			'age_in_months' => rand(0, 100),
 			'sex' => fake()->randomElement(['Male', 'Female']),
 			'price' => rand(500, 10000),
+			'users_id' => Users::all()->random()->id,
 			'type_of_pets_id' => TypeOfPets::all()->random()->id,
 			'breeds_id' => Breeds::all()->random()->id
 		];
