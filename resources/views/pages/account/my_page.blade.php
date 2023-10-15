@@ -1,5 +1,3 @@
-@extends('components/layout')
-
-@section('content')
-	<p>Under construction</p>
-@endsection
+<x-layout>
+    <p>Under construction</p>
+</x-layout>
