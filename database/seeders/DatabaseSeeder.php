@@ -30,6 +30,14 @@ class DatabaseSeeder extends Seeder {
 
 		Users::factory(10)->create();
 
-		Pets::factory(30)->create();
+		Pets::factory(10)->create([
+			'type_of_pets_id' => 1
+		]);
+
+		Pets::factory(10)->create([
+			'type_of_pets_id' => 2
+		]);
+
+		Pets::factory(20)->create();
 	}
 }
