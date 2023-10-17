@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Patrick+Hand&display=swap');
+
+/*rgb(225, 255, 255)*/
+/*rgba(60, 85, 90, 0.85)*/
+
+html, body {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.title-text {
+    text-align: center;
+    font-size: 120px;
+    font-family: "Kalam";
+    letter-spacing: -2px;
+
+    margin: auto;
+    margin-top: 80px;
+}
+
+.panel {
+    background-color: rgba(50, 90, 100, 0.85);
+    border-radius: 30px;
+    width: 520px;
+    margin: auto;
+    margin-top: 40px;
+
+    padding: 10px;
+}
+
+.flair-text {
+    margin: auto;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+
+    font-size: 36px;
+    font-family: "Patrick Hand";
+    color: rgb(210, 210, 210);
+
+    width: 400px;
+}
+
+.hr-break {
+    width: 440px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 1);
+    height: 6px;
+}
+
+.prompt-text {
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+
+    font-size: 26px;
+    font-family: "Kalam";
+    color: rgb(210, 210, 210);
+
+    width: 400px;
+}
+
+.input-field {
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 30px;
+    display: flex;
+    
+    padding-left: 10px;
+
+    width: 400px;
+    height: 46px;
+    
+    background-color: rgb(40, 50, 55);
+    color: rgb(210, 210, 210);
+    font-size: 22px;
+
+    border: none;
+    border-radius: 6px;
+}
+
+.input-field:hover{ /*HOVER EFFECT FOR INPUT FIELDS*/
+    border: 2px solid rgb(210, 210, 210);
+}
+
+.submit-holder {
+    margin: auto;
+    margin-bottom: 0px;
+    display: flex;
+
+    width: 400px;
+}
+
+.submit-button {
+    width: 160px;
+    height: 40px;
+
+    border-radius: 5px;
+    border: none;
+
+
+    background-color: rgb(40, 50, 55);
+
+    font-size: 26px;
+    font-weight: bold;
+    font-family: "Kalam";
+    letter-spacing: 1px;
+    color: rgb(210, 210, 210);
+}
+
+.submit-button:hover {
+    border: 2px solid rgb(210, 210, 210);
+}
+
+.submit-button-only-text {
+    height: 40px;
+
+    border: none;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    font-size: 24px;
+    font-family: "Patrick Hand";
+    font-weight: bold;
+    color: rgb(210, 210, 210);
+    text-decoration: underline;
+    letter-spacing: 2px;
+
+    text-align: left;
+}
+
+.submit-button-only-text:hover {
+    color: rgb(135, 200, 220);
+}
+
+.small-text {
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+
+    font-size: 22px;
+    font-family: "Kalam";
+    color: rgb(210, 210, 210);
+
+    width: 400px;
+}
