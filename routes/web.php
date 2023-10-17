@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [NavigationController::class, 'frontPageView']);
 
-
-Route::get('/signup', function () {
-    return view('pages/signup');
-});
-
 // /pets/type
 Route::get('/pets/{type}', [NavigationController::class, 'pets']);
 

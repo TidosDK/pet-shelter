@@ -1,9 +1,7 @@
-@extends('components/layout')
 
 <link rel="stylesheet" href="{{ asset('css/form.css') }}">
 
-
-@section('content')
+<x-layout>
     <div>
         <h1 class="title-text">Happy Tails !</h1>
         <div class="panel">
@@ -36,4 +34,4 @@
 
         </div>
     </div>
-@endsection
+</x-layout>
