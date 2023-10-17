@@ -1,12 +1,5 @@
-@font-face {
-    font-family: "handmade";
-    src: url("fonts/Handmade.otf");
-}
-
-@font-face {
-    font-family: "mondayrain";
-    src: url("fonts/Monday\ Rain.ttf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Patrick+Hand&display=swap');
 
 /*rgb(225, 255, 255)*/
 /*rgba(60, 85, 90, 0.85)*/
@@ -20,8 +13,8 @@ html, body {
 .title-text {
     text-align: center;
     font-size: 120px;
-    font-family: "handmade";
-    letter-spacing: 2px;
+    font-family: "Kalam";
+    letter-spacing: -2px;
 
     margin: auto;
     margin-top: 80px;
@@ -43,8 +36,8 @@ html, body {
     margin-bottom: 30px;
     display: flex;
 
-    font-size: 30px;
-    font-family: "mondayrain";
+    font-size: 36px;
+    font-family: "Patrick Hand";
     color: rgb(210, 210, 210);
 
     width: 400px;
@@ -69,8 +62,7 @@ html, body {
     display: flex;
 
     font-size: 26px;
-    font-family: "handmade";
-    letter-spacing: 2px;
+    font-family: "Kalam";
     color: rgb(210, 210, 210);
 
     width: 400px;
@@ -119,8 +111,8 @@ html, body {
 
     font-size: 26px;
     font-weight: bold;
-    font-family: "handmade";
-    letter-spacing: 2px;
+    font-family: "Kalam";
+    letter-spacing: 1px;
     color: rgb(210, 210, 210);
 }
 
@@ -136,7 +128,7 @@ html, body {
     background-color: rgba(0, 0, 0, 0);
 
     font-size: 24px;
-    font-family: "mondayrain";
+    font-family: "Patrick Hand";
     font-weight: bold;
     color: rgb(210, 210, 210);
     text-decoration: underline;
@@ -149,35 +141,13 @@ html, body {
     color: rgb(135, 200, 220);
 }
 
-.submit-button-small-text {
-    height: 40px;
-
-    border: none;
-
-    background-color: rgba(0, 0, 0, 0);
-
-    font-size: 18px;
-    font-family: "mondayrain";
-    font-weight: bold;
-    color: rgb(210, 210, 210);
-    text-decoration: underline;
-    letter-spacing: 1px;
-
-    text-align: left;
-}
-
-.submit-button-small-text:hover {
-    color: rgb(135, 200, 220);
-}
-
 .small-text {
     margin: auto;
     margin-top: 30px;
     display: flex;
 
     font-size: 22px;
-    font-family: "handmade";
-    letter-spacing: 2px;
+    font-family: "Kalam";
     color: rgb(210, 210, 210);
 
     width: 400px;

@@ -11,7 +11,7 @@
             
             <hr class="hr-break">
             
-            <form method="POST" action="/"> <!-- Form for submiting login information (Email field, Password field, Login button) -->
+            <form method="POST" action="/login"> <!-- Form for submiting login information (Email field, Password field, Login button) -->
                 <p class="prompt-text">Email :</p>
                 <input type="email" class="input-field">
                 <p class="prompt-text">Password :</p>
@@ -23,7 +23,7 @@
 
             <form method="GET" action="/reset_password"> <!-- Redirection to forgot password page -->
                 <div class="submit-holder">
-                    <input type="submit" class="submit-button-small-text" value="Forgot password">
+                    <input type="submit" class="submit-button-only-text" value="Forgot password">
                 </div>
             </form>
             <hr class="hr-break">
