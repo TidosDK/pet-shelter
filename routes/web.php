@@ -12,6 +12,9 @@ Route::get('/pets/{type}', [NavigationController::class, 'pets']);
 // /pets
 Route::get('/pets', [NavigationController::class, 'otherPets']);
 
+// /pet/*
+Route::get('/pet/{id}', [NavigationController::class, 'singlePet']);
+
 //User Controller
 Route::get('/login', [UserController::class, 'loginView']);
 

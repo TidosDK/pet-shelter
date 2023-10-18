@@ -26,4 +26,10 @@ class NavigationController extends Controller {
 	public function otherPets() {
 		return $this->pets("");
 	}
+
+	public function singlePet(string $pet_id) {
+		return view('pages.pet', [
+			'pet' => Pets::find($pet_id)
+		]);
+	}
 }
