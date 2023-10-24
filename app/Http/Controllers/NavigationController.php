@@ -26,4 +26,8 @@ class NavigationController extends Controller {
 	public function otherPets() {
 		return $this->pets("");
 	}
+
+	public function aboutUsView(){
+		return view('pages.aboutus');
+	}
 }
