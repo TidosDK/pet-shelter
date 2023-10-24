@@ -14,6 +14,10 @@ return new class extends Migration {
 			$table->string('sex')->nullable(false);
 			$table->double('price')->nullable(false);
 			$table->string('location')->default(null);
+			$table->double('weight')->nullable(false);
+			$table->string('kidFriendly')->nullable(false);
+			$table->string('multipleAnimalsFriendly')->nullable(false);
+			$table->string('castrated')->nullable(false);
 			$table->unsignedInteger('users_id')->nullable(false);
 			$table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
 			$table->unsignedInteger('type_of_pets_id')->nullable(false);

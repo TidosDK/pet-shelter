@@ -57,8 +57,32 @@
 	aspect-ratio: 1 / 1;
 	object-fit: cover;
 }
-/***** ABOUT US PIC *****/
+
+/***** CROPS *****/
 .about-img-crop {
-	max-width: 800px!important;
-	width: 100%!important;
+	max-width: 800px !important;
+	width: 100% !important;
 }
+
+/***** CAROUSEL *****/
+.carousel-crop {
+	max-width: 700px !important;
+	width: 100% !important;
+}
+
+/***** 	ALIGNMENTS *****/
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-size24 {
+	font-size: 24;
+}
+.center {
+	margin: auto;
+	width: 50%;
+  }
