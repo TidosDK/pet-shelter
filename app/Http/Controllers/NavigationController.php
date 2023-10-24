@@ -11,7 +11,7 @@ use PhpParser\Node\Expr\BinaryOp\NotEqual;
 class NavigationController extends Controller {
 
 	public function frontPageView() {
-		return view ('pages.frontpage');
+		return view('pages.frontpage');
 	}
 
 	public function pets(string $type) {
@@ -27,9 +27,10 @@ class NavigationController extends Controller {
 		return $this->pets("");
 	}
 
-	public function aboutUsView(){
+	public function aboutUsView() {
 		return view('pages.aboutus');
-  }
+	}
+	
 	public function singlePet(string $pet_id) {
 		return view('pages.pet', [
 			'pet' => Pets::find($pet_id)

@@ -21,5 +21,5 @@ Route::get('/login', [UserController::class, 'loginView']);
 
 Route::get('/signup', [UserController::class, 'signupView']);
 
-//Amalie? 
+//About us
 Route::get('/aboutUs',[NavigationController::class, 'aboutUsView']);
