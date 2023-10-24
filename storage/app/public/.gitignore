@@ -1,2 +1,4 @@
 *
+!pet_images/
+!pet_images/.gitkeep
 !.gitignore
