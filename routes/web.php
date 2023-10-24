@@ -19,3 +19,10 @@ Route::get('/pet/{id}', [NavigationController::class, 'singlePet']);
 Route::get('/login', [UserController::class, 'loginView']);
 
 Route::get('/signup', [UserController::class, 'signupView']);
+
+
+Route::post('/login', [UserController::class, 'login']);
+
+Route::post('/signup', [UserController::class, 'signUp']);
+
+Route::post('/logout', [UserController::class, 'logOut']);

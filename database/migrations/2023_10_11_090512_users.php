@@ -10,7 +10,7 @@ return new class extends Migration {
 			$table->increments('id')->unique();
 			$table->string('name')->nullable(false);
 			$table->string('email')->unique()->nullable(false);
-			$table->string('phone')->unique()->default(null);
+			$table->string('phone')->nullable(true);
 			$table->string('password')->nullable(false);
 			$table->timestamps();
 		});
