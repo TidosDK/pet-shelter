@@ -4,11 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Breeds;
 use App\Models\Pets;
 use App\Models\TypeOfPets;
-use App\Models\UsersPets;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 
@@ -28,7 +27,7 @@ class DatabaseSeeder extends Seeder {
 			]);
 		}
 
-		Users::factory(10)->create();
+		User::factory(10)->create();
 
 		Pets::factory(10)->create([
 			'type_of_pets_id' => 1

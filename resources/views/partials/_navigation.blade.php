@@ -25,15 +25,31 @@
                         href="/aboutUs">ABOUT US</a>
                 </li>
             </ul>
-            <div class="login-button-div">
-                <ul class="navbar-nav">
-                    <li>
-                        <button type="button" class="btn btn-primary nav-bar-link login-button lilita-one-font">
-                            <p class="lilita-one-font mb-0">Login</p>
-                        </button>
-                    </li>
-                </ul>
-            </div>
+            @auth
+                <div class="login-button-div">
+                    <ul class="navbar-nav">
+                        <li>
+                            <form method="POST" action="/logout" class="mb-0">
+                                @csrf
+                                <button type="submit" class="btn btn-primary nav-bar-link login-button lilita-one-font">
+                                    <p class="lilita-one-font mb-0">Log out</p>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            @else
+                <div class="login-button-div">
+                    <ul class="navbar-nav">
+                        <li>
+                            <button onclick="window.location.href='/login';"
+                                class="btn btn-primary nav-bar-link login-button lilita-one-font">
+                                <p class="lilita-one-font mb-0">Login</p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            @endauth
         </div>
     </div>
 </nav>
