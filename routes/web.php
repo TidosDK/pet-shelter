@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\UserController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,7 +16,8 @@ Route::get('/', [NavigationController::class, 'frontPageView']);
 Route::get('/pets/{type}', [NavigationController::class, 'pets']);
 
 // Other types of pet from above
-Route::get('/pets', [NavigationController::class, 'otherPets']);
+Route::get('/pets', [NavigationController::class, 'otherPets'])
+->middleware('auth');
 
 // Specific pet (any kind)
 Route::get('/pet/{id}', [NavigationController::class, 'singlePet']);
@@ -27,16 +29,22 @@ Route::get('/aboutUs',[NavigationController::class, 'aboutUsView']);
 // USER CONTROLLER //
 
 // Login page
-Route::get('/login', [UserController::class, 'loginView']);
+Route::get('/login', [UserController::class, 'loginView'])
+->middleware('guest');
 
 // Signup page
-Route::get('/signup', [UserController::class, 'signupView']);
+Route::get('/signup', [UserController::class, 'signupView'])
+->middleware('guest');
 
 // Authentication/Login handling
-Route::post('/login', [UserController::class, 'login']);
+Route::post('/login', [UserController::class, 'login'])
+->name('login')
+->middleware('guest');
 
 // User creation handling
-Route::post('/signup', [UserController::class, 'signUp']);
+Route::post('/signup', [UserController::class, 'signUp'])
+->middleware('guest');
 
 // Session destroyer / Logout handling
-Route::post('/logout', [UserController::class, 'logOut']);
+Route::post('/logout', [UserController::class, 'logOut'])
+->middleware('auth');
