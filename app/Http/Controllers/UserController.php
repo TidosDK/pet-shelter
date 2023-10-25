@@ -4,63 +4,71 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller {
-    public function loginView() {
-        return view('pages.login');
-    }
+	// Login page
+	public function loginView() {
+		return view('pages.login');
+	}
 
-    public function signupView() {
-        return view('pages.signup');
-    }
+	// Signup page
+	public function signupView() {
+		return view('pages.signup');
+	}
 
-    public function signUp(Request $request) {
-        $credentials = $request->validate([
-            'name' => ['required'],
-            'email' => ['required', 'email', Rule::unique('users', 'email')], # Must be unqiue!
-            'password' => 'required|confirmed|min:6'
-        ]);
+	// Login handling
+	public function login(Request $request) {
+		$credentials = $request->validate([
+			'email' => ['required', 'email'],
+			'password' => 'required',
+		]);
 
-        //HASH PASSWORD
-        $credentials['password'] = bcrypt($credentials['password']);
+		// Checks if login information was correct
+		if (auth()->attempt($credentials)) {
+			// Generates a session
+			$request->session()->regenerate();
 
-        //SAVE TO DATABASE
-        $user = User::create($credentials);
+			// Redirects user to frontpage
+			return redirect('/')->with('message', 'You have been logged in');
+		}
 
-        //LOGIN NEW USER
-        auth()->login($user);
+		// Login information was wrong. Returns user to login page
+		return back()->withErrors([
+			'email' => 'Invalid credentials',
+		])->onlyInput('email');
+	}
 
-        return redirect('/');
-    }
+	// Signup handling
+	public function signUp(Request $request) {
+		$credentials = $request->validate([
+			'name' => ['required'],
+			'email' => ['required', 'email', Rule::unique('users', 'email')],
+			'password' => 'required|confirmed|min:6'
+		]);
 
-    public function login(Request $request) {
-        // dd($request);
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => 'required',
-        ]);
+		// Hash password
+		$credentials['password'] = bcrypt($credentials['password']);
 
-        if (auth()->attempt($credentials)) {
-            $request->session()->regenerate();
- 
-            return redirect('/pets/dog'); //Checkup on intended
-        }
- 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
-    }
+		// Save to database
+		$user = User::create($credentials);
 
-    public function logOut(Request $request) {
+		// Login the user
+		auth()->login($user);
+
+		// Signup was successful. Redirects user to frontpage.
+		return redirect('/')->with('message', 'You have been logged in');
+	}
+
+	// Logout handling
+	public function logOut(Request $request) {
 		auth()->logout();
 
+		// Destroys sessions
 		$request->session()->invalidate();
 		$request->session()->regenerateToken();
 
+		// Redirects user to login page.
 		return redirect('/login')->with('message', 'You have been logged out!');
 	}
 }

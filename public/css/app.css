@@ -40,6 +40,10 @@
 	color: #FAFAFA !important;
 }
 
+.login-button:hover {
+	color: #1E3A4F!important;
+}
+
 .nav-link-selected {
 	text-shadow: 2px 4px 4px #00000052;
 	color: #fff !important;
