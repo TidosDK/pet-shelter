@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,9 @@ Route::get('/pets', [NavigationController::class, 'otherPets']);
 // Specific pet (any kind)
 Route::get('/pet/{id}', [NavigationController::class, 'singlePet']);
 
+// About us page
+Route::get('/aboutUs',[NavigationController::class, 'aboutUsView']);
+
 
 // USER CONTROLLER //
 
@@ -27,7 +31,6 @@ Route::get('/login', [UserController::class, 'loginView']);
 
 // Signup page
 Route::get('/signup', [UserController::class, 'signupView']);
-
 
 // Authentication/Login handling
 Route::post('/login', [UserController::class, 'login']);

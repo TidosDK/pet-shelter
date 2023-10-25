@@ -61,3 +61,8 @@
 	aspect-ratio: 1 / 1;
 	object-fit: cover;
 }
+/***** ABOUT US PIC *****/
+.about-img-crop {
+	max-width: 800px!important;
+	width: 100%!important;
+}
