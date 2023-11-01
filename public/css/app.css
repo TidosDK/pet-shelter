@@ -53,6 +53,10 @@
 	margin-left: auto;
 	margin-right: 0;
 }
+.blue-white{
+	background-color: #85C7F2 !important;
+	color: #FAFAFA !important;
+}
 
 
 /***** CARD LISTINGS *****/

@@ -1,5 +1,5 @@
 <?php use App\Models\Pets; ?>
-
+<script src="{{ asset ('js/scripts.js')}}"></script>
 <x-layout>
     <div class="row mt-5">
         <div class="col">
@@ -34,11 +34,11 @@
             <h4>Description</h4>
             <p>{{$pet->description}}</p>
             <br>
-            <button type="button" class="btn login-button">Contact seller</button>
+            <button onclick="goToSellerFunction()" id="scrollDownBtn" class="btn login-button">Contact seller</button>
         </div>
         <h2 class="text-center mt-5">Information</h2>
         <div class="about-img-crop center mt-3">
-            <div class="row login-button lilita-one-font text-size24">
+            <div class="row blue-white lilita-one-font text-size24">
                 <div class="col-8">Price</div>
                 <div class="col-4 text-right">{{ $pet->price }}</div>
             </div>
@@ -46,7 +46,7 @@
                 <div class="col-8">Age</div>
                 <div class="col-4 text-right">{{ $pet->age_in_months }} months</div>
             </div>
-            <div class="row login-button lilita-one-font text-size24">
+            <div class="row blue-white lilita-one-font text-size24">
                 <div class="col-8">Sex</div>
                 <div class="col-4 text-right">{{ $pet->sex }}</div>
             </div>
@@ -54,7 +54,7 @@
                 <div class="col-8">Breed</div>
                 <div class="col-4 text-right">{{ $pet->breed->breed }}</div>
             </div>
-            <div class="row login-button lilita-one-font text-size24">
+            <div class="row blue-white lilita-one-font text-size24">
                 <div class="col-8">Weight</div>
                 <div class="col-4 text-right">{{ $pet->weight }} kg</div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="col-8">Castrated/Neutered</div>
                 <div class="col-4 text-right">{{ $pet->castrated }}</div>
             </div>
-            <div class="row login-button lilita-one-font text-size24">
+            <div class="row blue-white lilita-one-font text-size24">
                 <div class="col-8">Can live with other animals</div>
                 <div class="col-4 text-right">{{ $pet->multipleAnimalsFriendly }}</div>
             </div>
@@ -72,16 +72,16 @@
             </div>
         </div>
         <h2 class="text-center mt-5">Contact seller</h2>
-        <div class="center about-img-crop mt-3">
+        <div id="contactFormDiv" class="center about-img-crop mt-3">
             <form>
-                <div class="form-group">
-                    <label>Message:</label>
-                    <textarea class="form-control" id="message" rows="3"></textarea>
-                </div>
-                <br>
                 <div class="form-group">
                     <label>Email you wish to recive response:</label>
                     <input class="form-control" id="email">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Message:</label>
+                    <textarea class="form-control" id="message" rows="3"></textarea>
                 </div>
             </form>
         </div>
