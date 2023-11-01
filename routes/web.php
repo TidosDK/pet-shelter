@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
+use Illuminate\Mail\SentMessage;
 
 // NAVIGATION CONTROLLER //
 
