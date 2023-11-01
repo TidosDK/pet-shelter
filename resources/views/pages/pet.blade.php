@@ -1,11 +1,10 @@
 <?php use App\Models\Pets; ?>
-<script src="{{ asset ('js/scripts.js')}}"></script>
+<script src="{{ asset('js/scripts.js') }}"></script>
 <x-layout>
     <div class="row mt-5">
         <div id="carouselExampleControls" class="carousel slide carousel-crop" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @if (($images = Pets::getImages($pet->id)) != null)
-                    {{-- <?php dd($images); ?> --}}
                     <?php $active = 'active'; ?>
                     @for ($i = 0; $i < count($images); $i++)
                         <div class="carousel-item <?php echo $active; ?>">
