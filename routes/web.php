@@ -40,3 +40,6 @@ Route::post('/signup', [UserController::class, 'signUp']);
 
 // Session destroyer / Logout handling
 Route::post('/logout', [UserController::class, 'logOut']);
+
+// Create post page
+Route::get('/create', [UserController::class, 'createPostView']);

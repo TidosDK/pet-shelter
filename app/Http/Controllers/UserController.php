@@ -17,6 +17,11 @@ class UserController extends Controller {
 		return view('pages.signup');
 	}
 
+	// Create page
+	public function createPostView(){
+		return view('pages.createpost');
+	}
+
 	// Login handling
 	public function login(Request $request) {
 		$credentials = $request->validate([
