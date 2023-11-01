@@ -2,37 +2,40 @@
 <script src="{{ asset ('js/scripts.js')}}"></script>
 <x-layout>
     <div class="row mt-5">
-        <div class="col">
-            <div id="carouselExampleIndicators" class="carousel slide carousel-crop" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    @if (($images = Pets::getImages($pet->id)) != null)
-                        @for ($i = 0; $i < count($images); $i++)
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="{{ asset($images[$i]) }}" alt="Image of pet">
-                            </div>
-                        @endfor
-                    @endif
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+        <div id="carouselExampleControls" class="carousel slide carousel-crop" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @if (($images = Pets::getImages($pet->id)) != null)
+                    {{-- <?php dd($images); ?> --}}
+                    <?php $active = 'active'; ?>
+                    @for ($i = 0; $i < count($images); $i++)
+                        <div class="carousel-item <?php echo $active; ?>">
+                            <img class="d-block w-100" src="{{ asset($images[$i]) }}" alt="Image of pet">
+                        </div>
+                        <?php $active = ''; ?>
+                    @endfor
+                @else
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{ asset('storage/pet_images/placeholder.jpg') }}"
+                            alt="Image of pet">
+                    </div>
+                @endif
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
         <div class="col">
             <h2>{{ $pet->name }}</h2>
             <br>
             <h4>Description</h4>
-            <p>{{$pet->description}}</p>
+            <p>{{ $pet->description }}</p>
             <br>
             <button onclick="goToSellerFunction()" id="scrollDownBtn" class="btn login-button">Contact seller</button>
         </div>
@@ -85,6 +88,7 @@
                 </div>
             </form>
         </div>
-        <button type="button" class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send message</button>
-        
+        <button type="button" class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
+            message</button>
+
 </x-layout>
