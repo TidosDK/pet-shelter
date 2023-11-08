@@ -14,16 +14,22 @@
 
                 <form method="POST" action="/signup">
                     @csrf
-                    <label for="name" class="playpen-font card-text">Display name :</label>
+                    <label class="playpen-font card-text">Display name :</label>
+                    <p class="card-error-text">{{$errors->first('name')}}</p>
                     <br>
-                    <input type="text" class="form-control" name="name">
-                    <label for="email" class="playpen-font card-text">Email :</label>
+                    <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+
+                    <label class="playpen-font card-text">Email :</label>
+                    <p class="card-error-text">{{$errors->first('email')}}</p>
                     <br>
-                    <input type="email" class="form-control" name="email">
-                    <label for="password" class="playpen-font card-text">Password :</label>
+                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+
+                    <label class="playpen-font card-text">Password :</label>
+                    <p class="card-error-text">{{$errors->first('password')}}</p>
                     <br>
                     <input type="password" class="form-control" name="password">
-                    <label for="password_confirmation" class="playpen-font card-text">Repeat password :</label>
+
+                    <label class="playpen-font card-text">Repeat password :</label>
                     <br>
                     <input type="password" class="form-control" name="password_confirmation">
                     <div class="submit-holder">
@@ -38,4 +44,5 @@
             </div>
         </div>
     </div>
-</x-layout>
+
+</x-layout> 

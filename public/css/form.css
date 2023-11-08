@@ -21,7 +21,7 @@ html, body {
     width: 400px !important;
     padding-left: 15px !important;
     padding-right: 15px !important;
-    height: 70vh !important;
+    min-height: 30vh !important;
 }
 
 @media screen and (max-width: 480px) {
@@ -34,7 +34,7 @@ html, body {
         width: 240px !important;
         padding-left: 8px !important;
         padding-right: 8px !important;
-        height: 74vh !important;
+        min-height: 35vh !important;
     }
 }
 
@@ -44,6 +44,13 @@ html, body {
 
 .card-text {
     color: rgb(240, 240, 240) !important;
+}
+
+.card-error-text {
+    color: rgb(255, 145, 120) !important;
+    display: inline-block;
+    margin: 0px;
+    margin-left: 5px;
 }
 
 .btn-primary {
