@@ -32,7 +32,7 @@
 
                 <hr class="form-hr">
 
-                <p class="playpen-font card-text" style="margin-bottom: 0px">Already have an account?</p>
+                <p class="playpen-font card-text" style="margin-bottom: 0px">Already have an account ?</p>
                 <a href="/login" class="link">Log in</a>
             </div>
         </div>

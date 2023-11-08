@@ -32,6 +32,9 @@ Route::get('/login', [UserController::class, 'loginView']);
 // Signup page
 Route::get('/signup', [UserController::class, 'signupView']);
 
+// Reset password page
+Route::get('/reset-password', [UserController::class, 'resetPasswordView']);
+
 // Authentication/Login handling
 Route::post('/login', [UserController::class, 'login']);
 
