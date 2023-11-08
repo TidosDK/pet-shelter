@@ -17,6 +17,11 @@ class UserController extends Controller {
 		return view('pages.signup');
 	}
 
+	// Reset password page
+	public function resetPasswordView() {
+		return view('pages.passwordreset');
+	}
+
 	// Login handling
 	public function login(Request $request) {
 		$credentials = $request->validate([
