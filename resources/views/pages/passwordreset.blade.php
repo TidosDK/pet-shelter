@@ -24,7 +24,7 @@
                 <hr class="form-hr">
                 
                 <p class="playpen-font card-text" style="margin-bottom: 0px">Divine intervention made you remember ?</p>
-                <a href="/signup" class="link">Return to login</a>
+                <a href="/login" class="link">Return to login</a>
 
                 <hr class="form-hr">
 

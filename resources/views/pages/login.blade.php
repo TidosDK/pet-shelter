@@ -14,7 +14,8 @@
                 <form method="POST" action="/login">
                     @csrf
                     <label for="email" class="playpen-font card-text">Email :</label>
-                    <input type="email" class="form-control" name="email">
+                    <p class="card-error-text">{{$errors->first('email')}}</p>
+                    <input type="email" class="form-control" name="email" value="{{ old('email') }}"> 
                     <label for="password" class="playpen-font card-text">Password :</label>
                     <input type="password" class="form-control" name="password">
                     <input type="submit" class="btn btn-primary" value="Log in">
