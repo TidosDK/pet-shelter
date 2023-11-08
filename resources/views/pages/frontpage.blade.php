@@ -1,4 +1,5 @@
-<x-layout>
+<?php $title = "Frontpage" ?>
+<x-layout :title="$title">
 
     <div class="text-center cropped mt-5" style="background-color: #BADEE3">
         <img src="https://www.americanhumane.org/app/uploads/2016/08/shutterstock_162633491.jpg" class="img-fluid cropped-img"
