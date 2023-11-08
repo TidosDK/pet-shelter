@@ -19,11 +19,11 @@
                     <input type="password" class="form-control" name="password">
                     <input type="submit" class="btn btn-primary" value="Log in">
                 </form>
-                <a href="/signup" class="link">Forgot password</a>
+                <a href="/reset-password" class="link">Forgot password</a>
 
                 <hr class="form-hr">
 
-                <p class="playpen-font card-text" style="margin-bottom: 0px">Don't already have an account?</p>
+                <p class="playpen-font card-text" style="margin-bottom: 0px">Don't already have an account ?</p>
                 <a href="/signup" class="link">Create account</a>
             </div>
         </div>
