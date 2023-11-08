@@ -16,8 +16,7 @@ Route::get('/', [NavigationController::class, 'frontPageView']);
 Route::get('/pets/{type}', [NavigationController::class, 'pets']);
 
 // Other types of pet from above
-Route::get('/pets', [NavigationController::class, 'otherPets'])
-->middleware('auth');
+Route::get('/pets', [NavigationController::class, 'otherPets']);
 
 // Specific pet (any kind)
 Route::get('/pet/{id}', [NavigationController::class, 'singlePet']);
