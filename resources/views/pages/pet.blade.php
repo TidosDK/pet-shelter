@@ -1,6 +1,10 @@
 <?php use App\Models\Pets; ?>
 <script src="{{ asset('js/scripts.js') }}"></script>
 <x-layout>
+    <div id="alert-message-area">
+
+    </div>
+
     <div id="topColums" class="row mt-5">
         <div id="carouselExampleControls" class="carousel slide carousel-crop" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -87,7 +91,8 @@
                 </div>
             </form>
         </div>
-        <button onclick="sendContactMail()" type="button" class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
+        <button onclick="sendContactMail()" type="button"
+            class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
             message</button>
 
 </x-layout>
