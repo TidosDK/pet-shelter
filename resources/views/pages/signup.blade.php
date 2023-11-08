@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{ asset('css/form.css') }}">
 
-<x-layout>
+<?php $title = "Signup" ?>
+<x-layout :title="$title">
     <div class="form-container">
         <h1 class="lilita-one-font text-center">Happy Tails !</h1>
         <div class="card">
@@ -43,4 +44,5 @@
             </div>
         </div>
     </div>
+
 </x-layout> 
