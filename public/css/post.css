@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kalam&family=Patrick+Hand&display=swap');
 
+
 .page-title {
     text-align: center;
     font-size: 50px;
@@ -21,8 +22,36 @@
     margin: auto;
 }
 
+.animal-info {
+    margin-bottom: 10px;
+}
 
+/** Bootstrap Changes **/
 
+.input-group-text-naw{
+    width: 75px !important;
+    text-align: center !important;
+}
+
+.form-list{
+    margin-top: 20px !important;
+}
+
+.form-check{
+    margin: 10px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.form-check-label{
+    float: left !important;
+}
+
+.outside{
+    margin: 10px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
 
 /** Alignment **/
 

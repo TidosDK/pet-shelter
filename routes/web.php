@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,6 @@ Route::get('/pet/{id}', [NavigationController::class, 'singlePet']);
 // About us page
 Route::get('/aboutUs',[NavigationController::class, 'aboutUsView']);
 
-
 // USER CONTROLLER //
 
 // Login page
@@ -41,5 +41,7 @@ Route::post('/signup', [UserController::class, 'signUp']);
 // Session destroyer / Logout handling
 Route::post('/logout', [UserController::class, 'logOut']);
 
+// POST CONTROLLER //
+
 // Create post page
-Route::get('/create', [UserController::class, 'createPostView']);
+Route::get('/create', [PostController::class, 'createPostView']);
