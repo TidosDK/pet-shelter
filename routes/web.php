@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
-
 
 // NAVIGATION CONTROLLER //
 
@@ -22,7 +22,7 @@ Route::get('/pets', [NavigationController::class, 'otherPets']);
 Route::get('/pet/{id}', [NavigationController::class, 'singlePet']);
 
 // About us page
-Route::get('/aboutUs',[NavigationController::class, 'aboutUsView']);
+Route::get('/aboutUs', [NavigationController::class, 'aboutUsView']);
 
 
 // USER CONTROLLER //
@@ -50,3 +50,4 @@ Route::post('/signup', [UserController::class, 'signUp'])
 // Session destroyer / Logout handling
 Route::post('/logout', [UserController::class, 'logOut'])
 ->middleware('auth');
+;
