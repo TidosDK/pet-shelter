@@ -1,10 +1,9 @@
-<?php use App\Models\Pets; ?>
+<?php $title = "Pet" ?>
 <script src="{{ asset('js/scripts.js') }}"></script>
-<x-layout>
-    <div id="alert-message-area">
+<x-layout :title="$title">
+<div id="alert-message-area">
 
-    </div>
-
+    </div>   
     <div id="topColums" class="row mt-5">
         <div id="carouselExampleControls" class="carousel slide carousel-crop" data-bs-ride="carousel">
             <div class="carousel-inner">
