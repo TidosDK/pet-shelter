@@ -5,8 +5,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use Illuminate\Mail\SentMessage;
 
 // NAVIGATION CONTROLLER //
 
@@ -23,7 +21,7 @@ Route::get('/pets', [NavigationController::class, 'otherPets']);
 Route::get('/pet/{id}', [NavigationController::class, 'singlePet']);
 
 // About us page
-Route::get('/aboutUs',[NavigationController::class, 'aboutUsView']);
+Route::get('/aboutUs', [NavigationController::class, 'aboutUsView']);
 
 
 // USER CONTROLLER //
