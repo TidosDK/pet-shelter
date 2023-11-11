@@ -28,6 +28,9 @@
             @auth
                 <div class="login-button-div">
                     <ul class="navbar-nav">
+                        <li style="display: table; margin-right: 20px;"> <!-- Inline CSS, should probably be fixed later -->
+                            <p class="nav-bar-link lilita-one-font mb-0" style="vertical-align:middle; display:table-cell;">{{{auth()->user()->name}}}</p> <!-- Inline CSS, should probably be fixed later -->
+                        </li>
                         <li>
                             <form method="POST" action="/logout" class="mb-0">
                                 @csrf
