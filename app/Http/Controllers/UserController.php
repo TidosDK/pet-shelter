@@ -17,9 +17,9 @@ class UserController extends Controller {
 		return view('pages.signup');
 	}
 
-	// Create page
-	public function createPostView(){
-		return view('pages.createpost');
+	// Reset password page
+	public function resetPasswordView() {
+		return view('pages.passwordreset');
 	}
 
 	// Login handling
@@ -47,7 +47,7 @@ class UserController extends Controller {
 	// Signup handling
 	public function signUp(Request $request) {
 		$credentials = $request->validate([
-			'name' => ['required'],
+			'name' => 'required',
 			'email' => ['required', 'email', Rule::unique('users', 'email')],
 			'password' => 'required|confirmed|min:6'
 		]);
