@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{ asset('css/form.css') }}">
 
-<x-layout>
+<?php $title = "Password reset" ?>
+<x-layout :title="$title">
     <div class="form-container">
         <h1 class="lilita-one-font text-center">Happy Tails !</h1>
         <div class="card">
@@ -24,7 +25,7 @@
                 <hr class="form-hr">
                 
                 <p class="playpen-font card-text" style="margin-bottom: 0px">Divine intervention made you remember ?</p>
-                <a href="/signup" class="link">Return to login</a>
+                <a href="/login" class="link">Return to login</a>
 
                 <hr class="form-hr">
 
