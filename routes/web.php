@@ -36,6 +36,10 @@ Route::get('/login', [UserController::class, 'loginView'])
 Route::get('/signup', [UserController::class, 'signupView'])
 ->middleware('guest');
 
+//Post management page
+Route::get('/postmanagement', [UserController::class, 'postManagementView']);
+//->middleware('auth');
+
 // Reset password page
 Route::get('/reset-password', [UserController::class, 'resetPasswordView']);
 

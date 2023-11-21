@@ -22,6 +22,11 @@ class UserController extends Controller {
 		return view('pages.passwordreset');
 	}
 
+	// Post management page
+	public function postManagementView() {
+		return view('pages.postmanagement');
+	}
+
 	// Login handling
 	public function login(Request $request) {
 		$credentials = $request->validate([
