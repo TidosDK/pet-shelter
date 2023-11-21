@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pets;
 use Illuminate\Http\Request;
 
     class PostController extends Controller{
@@ -26,5 +27,6 @@ use Illuminate\Http\Request;
                 'pet-price' => ['required', 'numeric'],
             ]);
             // Database post create incomming
+            $pets = Pets::create($pet_credentials);
         }
     }
