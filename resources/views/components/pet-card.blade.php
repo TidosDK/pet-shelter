@@ -13,7 +13,6 @@
 		@endif
         <div class="col">
             <div class="card">
-                {{-- <?php dd($pet); ?> --}}
                 <img src="{{ asset('storage/pet_images/placeholder.jpg') }}" class="card-img-top" alt="Image of pet">
                 <div class="card-body">
                     <h4 class="card-title"><a href="/pet/{{ $pet->id }}"
