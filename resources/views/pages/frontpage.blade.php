@@ -7,7 +7,7 @@
     </div>
     <h2 class="text-center mt-5">View a selection of all our pets</h2>
     <hr class="hr-new mt-5">
-    <div class="container text-center mt-5">
+    <div class="container text-center mt-5 mb-5">
         <div class="row">
             <div class="col"> <a class="btn view-button btn-lg" href="/pets/dog">View dogs</a>
             </div>
