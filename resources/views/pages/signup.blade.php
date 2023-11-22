@@ -3,7 +3,7 @@
 <?php $title = "Signup" ?>
 <x-layout :title="$title">
     <div class="form-container">
-        <h1 class="lilita-one-font text-center color-navy">Happy Tails !</h1>
+        <h1 class="lilita-one-font text-center color-blackgreen">Happy Tails !</h1>
         <div class="card">
             <div class="card-body">
                 <h5 class="lilita-one-font card-title text-center">Welcome to Happy Tails !</h5>
@@ -33,7 +33,7 @@
                     <br>
                     <input type="password" class="form-control" name="password_confirmation">
                     <div class="submit-holder">
-                        <input type="submit" class="btn btn-primary" value="Sign up">
+                        <input type="submit" class="btn btn-primary btn-edge" value="Sign up">
                     </div>
                 </form>
 

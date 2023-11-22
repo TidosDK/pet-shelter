@@ -16,11 +16,11 @@
     <style>
         :root {
             --white: F0F0F0;
-            --lightgray: CCDBDC;
-            --cyan: 9AD1D4;
-            --lightblue: 80CED7;
-            --blue: 007EA7;
-            --navy: 003249;
+            --blue: 9CAFB7 ;
+            --lightgreen: D0D38F ;
+            --green: ADB993;
+            --darkgreen: 949D6A;
+            --blackgreen: 626944;
             --black: 1E1E1E;
         }
     </style>

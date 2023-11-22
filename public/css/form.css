@@ -15,7 +15,7 @@ html, body {
 .card {
     margin: auto;
     margin-top: 40px !important;
-    background-color: var(--blue) !important;
+    background-color: var(--darkgreen) !important;
     border-radius: 20px !important;
     border: none !important;
     width: 400px !important;
@@ -28,7 +28,7 @@ html, body {
     .card {
         margin: auto;
         margin-top: 20px !important;
-        background-color: var(--blue) !important;
+        background-color: var(--darkgreen) !important;
         border-radius: 20px !important;
         border: none !important;
         width: 240px !important;
@@ -47,28 +47,28 @@ html, body {
 }
 
 .card-error-text {
-    color: var(--navy) !important;
+    color: var(--blackgreen) !important;
     display: inline-block;
     margin: 0px;
     margin-left: 5px;
 }
 
-.btn-primary {
-    background-color: var(--lightblue) !important;
+.btn-edge {
+    background-color: var(--green) !important;
     border: 2px solid #00000000 !important;
 }
 
-.btn-primary:hover {
+.btn-edge:hover {
     border: 2px solid !important;
     color: var(--white);
 }
 
 .link {
-    color: var(--white) !important;
+    color: var(--lightgreen) !important;
 }
 
 .form-control {
-    background-color: var(--navy)!important;
+    background-color: var(--blackgreen)!important;
     border: 2px solid #00000000 !important;
     color: rgb(240, 240, 240) !important;
     margin-bottom: 10px !important;
@@ -88,12 +88,12 @@ html, body {
     width: 100%;
     margin: auto;
 
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 25px;
+    margin-top: 25px;
 
     border: none;
     border-radius: 5px;
-    background-color: var(--lightgray);
+    background-color: var(--blackgreen);
     height: 4px;
     opacity: 1;
 }

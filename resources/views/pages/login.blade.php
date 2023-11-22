@@ -3,7 +3,7 @@
 <?php $title = "Login" ?>
 <x-layout :title="$title">
     <div class="form-container">
-        <h1 class="lilita-one-font text-center color-navy">Happy Tails !</h1>
+        <h1 class="lilita-one-font text-center color-blackgreen">Happy Tails !</h1>
         <div class="card">
             <div class="card-body">
                 <h5 class="lilita-one-font card-title text-center">Happy tails make happy tales !</h5>
@@ -22,7 +22,7 @@
                     <p class="card-error-text">{{$errors->first('password')}}</p>
                     <input type="password" class="form-control" name="password">
                     
-                    <input type="submit" class="btn btn-primary" value="Log in">
+                    <input type="submit" class="btn btn-primary btn-edge" value="Log in">
                 </form>
                 <a href="/reset-password" class="link">Forgot password</a>
 
