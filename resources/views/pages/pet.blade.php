@@ -20,7 +20,7 @@ use App\Models\Pets;
                     @endfor
                 @else
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ asset('storage/pet_images/placeholder.jpg') }}"
+                        <img class="d-block w-100" src="{{ asset('storage/pet_images/placeholder.webp') }}"
                             alt="Image of pet">
                     </div>
                 @endif
