@@ -1,4 +1,5 @@
-*
+pet_images/*
 !pet_images/
-!pet_images/.gitkeep
+!pet_images/placeholder.webp
+!static/*
 !.gitignore
