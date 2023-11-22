@@ -14,48 +14,80 @@
 	font-weight: 500;
 }
 
+
+/***** COLORS *****/
+.color-white {
+	color: var(--white);
+}
+
+.color-lightgray {
+	color: var(--lightgray);
+}
+
+.color-cyan {
+	color: var(--cyan);
+}
+
+.color-lightblue {
+	color: var(--lightblue);
+}
+
+.color-blue {
+	color: var(--blue);
+}
+
+.color-navy {
+	color: var(--navy);
+}
+
+.color-black {
+	color: var(--black);
+}
+
+
 /***** NAVBAR *****/
 
 .nav-bar-main-link {
-	color: #BADEE3 !important;
+	color: var(--white) !important;
 	font-size: 24px !important;
 }
 
 .nav-bar-link {
-	color: #FAFAFA !important;
+	color: var(--white) !important;
 	font-size: 18px !important;
 }
 
 .navbar {
-	background-color: #33658A !important;
+	background-color: var(--blue) !important;
 }
 
 .nav-link:hover {
-	color: #FFF !important;
-	text-shadow: 2px 4px 4px #2222228A;
+	color: var(--lightblue) !important;
+	text-shadow: var(--white) 2px 4px 4px #2222228A;
 }
 
 .navbar-brand:hover {
-	color: rgb(199, 227, 230) !important;
+	color: var(--lightblue) !important;
 	text-shadow: 2px 4px 4px #2222228A;
 }
 
 .nav-link {
-	color: #EEEEEE !important;
+	color: var(--white) !important;
 }
 
 .login-button {
-	background-color: #85C7F2 !important;
-	color: #FAFAFA !important;
+	background-color: var(--navy) !important;
+	color: var(--white) !important;
+	border: none !important;
 }
 
 .login-button:hover {
-	color: #1E3A4F!important;
+	color: var(--cyan) !important;
 }
 
 .nav-link-selected {
-	text-shadow: 2px 4px 4px #00000052;
-	color: #fff !important;
+	text-shadow: 2px 4px 4px var(--black);
+	color: var(--lightblue) !important;
 }
 
 .login-button-div {
@@ -63,8 +95,8 @@
 	margin-right: 0;
 }
 .blue-white{
-	background-color: #85C7F2 !important;
-	color: #FAFAFA !important;
+	background-color: red !important;
+	color: red !important;
 }
 
 
@@ -116,12 +148,13 @@
 }
 
 .hr-new {
-	border: 10px solid #33658A;
+	border: 6px solid;
+	color: var(--blue);
 	border-radius: 5px;
 	opacity: 1;
 }
 
 .view-button {
-	background-color: #33658A !important;
-	color: #FAFAFA !important;
+	background-color: var(--blue) !important;
+	color: var(--white) !important;
 }

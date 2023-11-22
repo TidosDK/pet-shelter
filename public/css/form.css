@@ -15,7 +15,7 @@ html, body {
 .card {
     margin: auto;
     margin-top: 40px !important;
-    background-color: rgba(50, 90, 100, 0.85) !important;
+    background-color: var(--blue) !important;
     border-radius: 20px !important;
     border: none !important;
     width: 400px !important;
@@ -28,7 +28,7 @@ html, body {
     .card {
         margin: auto;
         margin-top: 20px !important;
-        background-color: rgba(50, 90, 100, 0.85) !important;
+        background-color: var(--blue) !important;
         border-radius: 20px !important;
         border: none !important;
         width: 240px !important;
@@ -39,46 +39,49 @@ html, body {
 }
 
 .card-title {
-    color: rgb(240, 240, 240) !important;
+    color: var(--white) !important;
 }
 
 .card-text {
-    color: rgb(240, 240, 240) !important;
+    color: var(--white) !important;
 }
 
 .card-error-text {
-    color: rgb(255, 145, 120) !important;
+    color: var(--navy) !important;
     display: inline-block;
     margin: 0px;
     margin-left: 5px;
 }
 
 .btn-primary {
-    background-color: rgb(40, 50, 55) !important;
+    background-color: var(--lightblue) !important;
     border: 2px solid #00000000 !important;
 }
 
 .btn-primary:hover {
-    border: 2px solid rgb(240, 240, 240) !important;
+    border: 2px solid !important;
+    color: var(--white);
 }
 
 .link {
-    color: rgb(240, 240, 240) !important;
+    color: var(--white) !important;
 }
 
 .form-control {
-    background-color: rgb(40, 50, 55)!important;
+    background-color: var(--navy)!important;
     border: 2px solid #00000000 !important;
     color: rgb(240, 240, 240) !important;
     margin-bottom: 10px !important;
 }
 
 .form-control:hover {
-    border: 2px solid rgb(240, 240, 240) !important ;
+    border: 2px solid !important;
+    color: var(--white)M
 }
 
 .form-control:focus {
-    border: 2px solid rgb(240, 240, 240) !important ;
+    border: 2px solid !important ;
+    color: var(--white);
 }
 
 .form-hr {
@@ -90,6 +93,7 @@ html, body {
 
     border: none;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: var(--lightgray);
     height: 4px;
+    opacity: 1;
 }
