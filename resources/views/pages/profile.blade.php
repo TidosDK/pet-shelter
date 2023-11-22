@@ -22,6 +22,5 @@
         </form>
     </div>
     
-    <a class="btn view-button btn-lg" href="/pets">View my posts</a>
-    <a class="btn view-button btn-lg" href="/update-info">Update credentials</a>
+    <a class="btn view-button btn-lg" href="/post-management">View my posts</a>
 </x-layout>
