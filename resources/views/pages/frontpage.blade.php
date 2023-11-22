@@ -1,8 +1,9 @@
 <?php $title = 'Frontpage'; ?>
 <x-layout :title="$title">
 
-    <div class="text-center cropped mt-5" style="background-color: #BADEE3">
-        <img src="{{ asset('storage/static/front-page.webp') }}" class="img-fluid cropped-img" alt="front pic">
+    <div class="text-center cropped mt-5">
+        <img src="https://www.americanhumane.org/app/uploads/2016/08/shutterstock_162633491.jpg" class="img-fluid cropped-img"
+            alt="front pic">
     </div>
     <h2 class="text-center mt-5">View a selection of all our pets</h2>
     <hr class="hr-new mt-5">
