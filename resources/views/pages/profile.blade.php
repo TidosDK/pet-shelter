@@ -3,9 +3,23 @@
     <h1 class="title-text">{{$title}}</h1>
     
     <div class="Profile data">
-        <h2>Name: {{{auth()->user()->name}}} </h2> 
-        <h2>E-mail: {{{auth()->user()->email}}}</h2>
-        <h2>Phone: {{{auth()->user()->phone}}}</h2>
+        <form>
+            <label>Display name: </label>
+            <label>{{{auth()->user()->name}}}</label><br>
+            <br>
+            <label>E-mail: </label>
+            <label>{{{auth()->user()->email}}} </label><br>
+        </form>
+    </div>
+
+    <div class="Edit profile">
+        <form>
+            <label>Display name: </label>
+            <input type="text" value={{{auth()->user()->name}}}><br>
+            <br>
+            <label>E-mail: </label>
+            <input type="text" value={{{auth()->user()->email}}}><br>
+        </form>
     </div>
     
     <a class="btn view-button btn-lg" href="/pets">View my posts</a>
