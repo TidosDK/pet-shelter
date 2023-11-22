@@ -1,9 +1,12 @@
-<?php $title = "Pet" ?>
+<?php
+$title = 'Pet';
+use App\Models\Pets;
+?>
 <script src="{{ asset('js/scripts.js') }}"></script>
 <x-layout :title="$title">
-<div id="alert-message-area">
+    <div id="alert-message-area">
 
-    </div>   
+    </div>
     <div id="topColums" class="row mt-5">
         <div id="carouselExampleControls" class="carousel slide carousel-crop" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -17,7 +20,7 @@
                     @endfor
                 @else
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ asset('storage/pet_images/placeholder.jpg') }}"
+                        <img class="d-block w-100" src="{{ asset('storage/pet_images/placeholder.webp') }}"
                             alt="Image of pet">
                     </div>
                 @endif
