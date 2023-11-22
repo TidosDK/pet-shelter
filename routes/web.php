@@ -44,9 +44,6 @@ Route::get('/profile', [UserController::class, 'profileView']);
 //Update information page
 Route::get('/update-info', [UserController::class, 'updateView']);
 
-//update information handling
-//Route::post('/update-info' [UserController::class, 'update']);
-
 // Authentication/Login handling
 Route::post('/login', [UserController::class, 'login'])
 ->name('login')

@@ -86,10 +86,4 @@ class UserController extends Controller {
 		// Redirects user to login page.
 		return redirect('/login')->with('message', 'You have been logged out!');
 	}
-
-	//Update handling
-	public function update(Request $request){
-		
-	}
-	
 }
