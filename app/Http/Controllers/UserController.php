@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use PhpParser\Node\Expr\FuncCall;
 
 class UserController extends Controller {
 	// Login page
@@ -20,6 +21,15 @@ class UserController extends Controller {
 	// Reset password page
 	public function resetPasswordView() {
 		return view('pages.passwordreset');
+	}
+	
+	//Profile page
+	public function profileView(){
+		return view('pages.profile');
+	}
+	//Update information
+	public function updateView(){
+		return view('pages.update');
 	}
 
 	// Login handling
@@ -76,4 +86,10 @@ class UserController extends Controller {
 		// Redirects user to login page.
 		return redirect('/login')->with('message', 'You have been logged out!');
 	}
+
+	//Update handling
+	public function update(Request $request){
+		
+	}
+	
 }
