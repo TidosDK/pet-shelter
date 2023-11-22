@@ -5,6 +5,12 @@
             ($type == '' &&
                 strtolower($typeOfPets->find($pet->type_of_pets_id)->type) != strtolower('Dog') &&
                 strtolower($typeOfPets->find($pet->type_of_pets_id)->type) != strtolower('Cat')))
+		@if (isset($_GET['gender']) && $pet->sex != $_GET['gender'])
+			@continue
+		@endif
+		@if (isset($_GET['breed']) && $pet->breed->breed != $_GET['breed'])
+			@continue
+		@endif
         <div class="col">
             <div class="card">
                 {{-- <?php dd($pet); ?> --}}
