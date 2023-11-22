@@ -13,6 +13,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;500&display=swap" rel="stylesheet">
     <title>Happy Tails | {{$title}}</title>
+    <style>
+        :root {
+            --white: F0F0F0;
+            --lightgray: CCDBDC;
+            --cyan: 9AD1D4;
+            --lightblue: 80CED7;
+            --blue: 007EA7;
+            --navy: 003249;
+            --black: 1E1E1E;
+        }
+    </style>
 </head>
 
 <body>
