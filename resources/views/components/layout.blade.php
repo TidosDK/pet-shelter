@@ -17,7 +17,7 @@
         :root {
             --white: F0F0F0;
             --lightgray: CCDBDC;
-            --cyan: 9AD1D4;
+            --whiteblue: afdadb;
             --lightblue: 80CED7;
             --blue: 007EA7;
             --navy: 003249;

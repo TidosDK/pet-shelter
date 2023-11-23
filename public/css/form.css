@@ -15,7 +15,7 @@ html, body {
 .card {
     margin: auto;
     margin-top: 40px !important;
-    background-color: var(--blue) !important;
+    background-color: var(--navy) !important;
     border-radius: 20px !important;
     border: none !important;
     width: 400px !important;
@@ -28,7 +28,7 @@ html, body {
     .card {
         margin: auto;
         margin-top: 20px !important;
-        background-color: var(--blue) !important;
+        background-color: var(--navy) !important;
         border-radius: 20px !important;
         border: none !important;
         width: 240px !important;
@@ -47,7 +47,7 @@ html, body {
 }
 
 .card-error-text {
-    color: var(--navy) !important;
+    color: var(--lightblue) !important;
     display: inline-block;
     margin: 0px;
     margin-left: 5px;
@@ -64,24 +64,24 @@ html, body {
 }
 
 .link {
-    color: var(--white) !important;
+    color: var(--lightblue) !important;
 }
 
 .form-control {
-    background-color: var(--navy)!important;
+    background-color: var(--white) !important;
     border: 2px solid #00000000 !important;
-    color: rgb(240, 240, 240) !important;
+    color: var(--black) !important;
     margin-bottom: 10px !important;
 }
 
 .form-control:hover {
     border: 2px solid !important;
-    color: var(--white)M
+    color: var(--lightblue) !important;
 }
 
 .form-control:focus {
-    border: 2px solid !important ;
-    color: var(--white);
+    border: 2px solid #80CED7 !important;
+    color: var(--navy) !important;
 }
 
 .form-hr {

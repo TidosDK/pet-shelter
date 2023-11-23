@@ -24,8 +24,8 @@
 	color: var(--lightgray);
 }
 
-.color-cyan {
-	color: var(--cyan);
+.color-whiteblue {
+	color: var(--whiteblue);
 }
 
 .color-lightblue {
@@ -58,16 +58,16 @@
 }
 
 .navbar {
-	background-color: var(--blue) !important;
+	background-color: var(--navy) !important;
 }
 
 .nav-link:hover {
-	color: var(--lightblue) !important;
+	color: var(--whiteblue) !important;
 	text-shadow: var(--white) 2px 4px 4px #2222228A;
 }
 
 .navbar-brand:hover {
-	color: var(--lightblue) !important;
+	color: var(--whiteblue) !important;
 	text-shadow: 2px 4px 4px #2222228A;
 }
 
@@ -76,18 +76,18 @@
 }
 
 .login-button {
-	background-color: var(--navy) !important;
+	background-color: var(--blue) !important;
 	color: var(--white) !important;
 	border: none !important;
 }
 
 .login-button:hover {
-	color: var(--cyan) !important;
+	color: var(--whiteblue) !important;
 }
 
 .nav-link-selected {
 	text-shadow: 2px 4px 4px var(--black);
-	color: var(--lightblue) !important;
+	color: var(--whiteblue) !important;
 }
 
 .login-button-div {
@@ -95,7 +95,7 @@
 	margin-right: 0;
 }
 .blue-white{
-	background-color: var(--cyan) !important;
+	background-color: var(--whiteblue) !important;
 	color: var(--black) !important;
 }
 
@@ -155,6 +155,6 @@
 }
 
 .view-button {
-	background-color: var(--blue) !important;
+	background-color: var(--navy) !important;
 	color: var(--white) !important;
 }
