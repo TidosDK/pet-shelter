@@ -30,8 +30,11 @@
 
 .input-group-text-naw{
     width: 75px !important;
-    display: inline-block !important;
+    display: flex !important;
     text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-items: center !important;
 }
 
 .input-group-text{

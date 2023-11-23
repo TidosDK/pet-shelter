@@ -51,10 +51,12 @@ Route::post('/signup', [UserController::class, 'signUp'])
 // Session destroyer / Logout handling
 Route::post('/logout', [UserController::class, 'logOut'])
 ->middleware('auth');
-;
 
 
 // POST CONTROLLER //
 
 // Create post page
-Route::get('/create', [PostController::class, 'createPostView']);
+Route::post('/create', [PostController::class, 'createPost'])
+->middleware('auth');
+
+Route::get('/create', [PostController::class, 'postCreate']);
