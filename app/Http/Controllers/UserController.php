@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Validation\Rule;
 use PhpParser\Node\Expr\FuncCall;
 
@@ -27,9 +28,29 @@ class UserController extends Controller {
 	public function profileView(){
 		return view('pages.profile');
 	}
-	//Update information
+
+	//Update information page
 	public function updateView(){
 		return view('pages.update');
+	}
+
+	//Update information
+	public function profileEdit(Request $request){
+		$user = User::where('email', 'prevName')->first();
+		if($request['email'] != auth()->user()->email){
+			$credentials = $request->validate([
+				'name' => 'required',
+				'email' => ['required', 'email', Rule::unique('users, email')]
+			]);
+			$user->name = $credentials['name'];
+			$user->email = $credentials['email'];
+		}
+		else{
+			$credentials = $request->validate(['name' => 'required']);
+			$user->name = $credentials['name'];
+		}
+		$user->save();
+		return back();
 	}
 
 	// Login handling

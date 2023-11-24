@@ -41,8 +41,8 @@ Route::get('/reset-password', [UserController::class, 'resetPasswordView']);
 //Profile page
 Route::get('/profile', [UserController::class, 'profileView']);
 
-//Update information page
-Route::get('/update-info', [UserController::class, 'updateView']);
+//Edit information handling
+Route::post('/profile', [UserController::class, 'profileEdit']);
 
 // Authentication/Login handling
 Route::post('/login', [UserController::class, 'login'])
