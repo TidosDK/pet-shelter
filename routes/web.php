@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -50,4 +51,10 @@ Route::post('/signup', [UserController::class, 'signUp'])
 // Session destroyer / Logout handling
 Route::post('/logout', [UserController::class, 'logOut'])
 ->middleware('auth');
-;
+
+
+//POST CONTROLLER
+
+//Delete route
+Route::post('/delete-post', [PostController::class, 'deletePost'])
+->middleware('auth');

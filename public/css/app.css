@@ -45,6 +45,35 @@
 }
 
 
+.bg-color-white {
+	background-color: var(--white);
+}
+
+.bg-color-lightgray {
+	background-color: var(--lightgray);
+}
+
+.bg-color-cyan {
+	background-color: var(--cyan);
+}
+
+.bg-color-lightblue {
+	background-color: var(--lightblue);
+}
+
+.bg-color-blue {
+	background-color: var(--blue);
+}
+
+.bg-color-navy {
+	background-color: var(--navy);
+}
+
+.bg-color-black {
+	background-color: var(--black);
+}
+
+
 /***** NAVBAR *****/
 
 .nav-bar-main-link {
@@ -157,4 +186,8 @@
 .view-button {
 	background-color: var(--blue) !important;
 	color: var(--white) !important;
+}
+
+.inline {
+	display: inline !important;
 }
