@@ -13,6 +13,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;500&display=swap" rel="stylesheet">
     <title>Happy Tails | {{$title}}</title>
+    <style>
+        :root {
+            --white: F0F0F0;
+            --lightgray: CCDBDC;
+            --cyan: 9AD1D4;
+            --lightblue: 80CED7;
+            --blue: 007EA7;
+            --navy: 003249;
+            --black: 1E1E1E;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,9 +35,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
     </script>
 </body>
 

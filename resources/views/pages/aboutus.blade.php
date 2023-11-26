@@ -2,7 +2,7 @@
 <x-layout :title="$title">
     <p class="text-center" style="margin-top: 30px; font-size: 30px">The Concept</p>
     <div class="text-center">
-        <img src="https://nypost.com/wp-content/uploads/sites/2/2021/04/adoption-1.jpg?quality=75&strip=all"
+        <img src="{{ asset('storage/static/about-us.webp') }}"
             class="about-img-crop img-fluid" alt="Dog getting a family">
     </div>
     <br>
