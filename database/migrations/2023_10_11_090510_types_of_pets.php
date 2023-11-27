@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
 	public function up(): void {
-		Schema::create('type_of_pets', function (Blueprint $table) {
+		Schema::create('types_of_pets', function (Blueprint $table) {
 			$table->increments('id')->unique();
 			$table->string('type')->nullable(false);
 			$table->timestamps();

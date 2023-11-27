@@ -9,19 +9,19 @@ return new class extends Migration {
 		Schema::create('pets', function (Blueprint $table) {
 			$table->increments('id')->unique();
 			$table->string('name')->nullable(false);
-			$table->longText('description')->default(null);
+			$table->longText('description')->nullable(true)->default(null);
 			$table->integer('age_in_months')->nullable(false);
 			$table->string('sex')->nullable(false);
 			$table->double('price')->nullable(false);
-			$table->string('location')->default(null);
-			$table->double('weight')->nullable(false);
-			$table->string('kidFriendly')->nullable(false);
-			$table->string('multipleAnimalsFriendly')->nullable(false);
-			$table->string('castrated')->nullable(false);
+			$table->string('location')->nullable(true)->default(null);
+			$table->double('weight')->nullable(false); //Kilograms
+			$table->boolean('kidFriendly')->nullable(false);
+			$table->boolean('multipleAnimalsFriendly')->nullable(false);
+			$table->boolean('castrated')->nullable(false);
 			$table->unsignedInteger('users_id')->nullable(false);
 			$table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
-			$table->unsignedInteger('type_of_pets_id')->nullable(false);
-			$table->foreign('type_of_pets_id')->references('id')->on('type_of_pets')->onDelete('cascade');
+			$table->unsignedInteger('type_id')->nullable(false);
+			$table->foreign('type_id')->references('id')->on('types_of_pets')->onDelete('cascade');
 			$table->unsignedInteger('breeds_id')->nullable(true);
 			$table->foreign('breeds_id')->references('id')->on('breeds')->onDelete('cascade');
 			$table->timestamps();
