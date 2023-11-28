@@ -11,9 +11,20 @@ use Illuminate\Support\Facades\Auth;
     class PostController extends Controller{
 
         // Create page
-	    public function createPostView(){
-		    return view('pages.createpost');
-	    }
+        public function createPostView(){
+            return view('pages.createpost', [
+                'types' => TypesOfPets::all(),
+                'breeds' => Breeds::all()
+            ]);
+        }
+
+        // Edit page
+        public function editPostView(){
+            return view('pages.editpost', [
+                'types' => TypesOfPets::all(),
+                'breeds' => Breeds::all()
+            ]);
+        }
 
         public function createPost(Request $request){
             $request['kidFriendly'] = $request->has('kidFriendly');
@@ -48,22 +59,10 @@ use Illuminate\Support\Facades\Auth;
             return redirect('/')->with('Post Created');
         }
 
-        public function fetchTypesOfPets(){
-            return view('pages.createpost', [
-                'types' => TypesOfPets::all()
-            ]);
-        }
+        
 
-        public function fetchBreeds(){
-            return view('pages.createpost', [
-                'breeds' => Breeds::all()
-            ]);
-        }
+        public function editPost(Request $request){
 
-        public function postCreate(){
-            return view('pages.createpost', [
-                'types' => TypesOfPets::all(),
-                'breeds' => Breeds::all()
-            ]);
         }
+        
     }

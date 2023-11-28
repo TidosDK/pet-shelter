@@ -59,4 +59,12 @@ Route::post('/logout', [UserController::class, 'logOut'])
 Route::post('/create', [PostController::class, 'createPost'])
 ->middleware('auth');
 
-Route::get('/create', [PostController::class, 'postCreate']);
+Route::get('/create', [PostController::class, 'createPostView'])
+->middleware('auth');
+
+// Edit post page
+Route::post('/edit', [PostController::class, 'editPost'])
+->middleware('auth');
+
+Route::get('/edit', [PostController::class, 'editPostView'])
+->middleware('auth');
