@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pets;
 use App\Models\Breeds;
-use App\Models\TypeOfPets;
+use App\Models\TypesOfPets;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\BinaryOp\NotEqual;
 
@@ -18,7 +18,7 @@ class NavigationController extends Controller {
 		return view('pages.pets', [
 			'pets' => Pets::all(),
 			'breeds' => Breeds::all(),
-			'type_of_pets' => TypeOfPets::all(),
+			'type_of_pets' => TypesOfPets::all(),
 			'type' => $type
 		]);
 	}

@@ -68,15 +68,15 @@ use App\Models\Pets;
             </div>
             <div class="row lilita-one-font text-size24">
                 <div class="col-8">Castrated/Neutered</div>
-                <div class="col-4 text-right">{{ $pet->castrated }}</div>
+                <div class="col-4 text-right">{{ $pet->castrated == true ? "Yes" : "No" }}</div>
             </div>
             <div class="row blue-white lilita-one-font text-size24">
                 <div class="col-8">Can live with other animals</div>
-                <div class="col-4 text-right">{{ $pet->multipleAnimalsFriendly }}</div>
+                <div class="col-4 text-right">{{ $pet->multipleAnimalsFriendly== true ? "Yes" : "No" }}</div>
             </div>
             <div class="row lilita-one-font text-size24">
                 <div class="col-8">Can live with kids</div>
-                <div class="col-4 text-right">{{ $pet->castrated }}</div>
+                <div class="col-4 text-right">{{ $pet->kidFriendly == true ? "Yes" : "No" }}</div>
             </div>
         </div>
         <h2 class="text-center mt-5">Contact seller</h2>
