@@ -114,13 +114,12 @@
 }
 
 .cropped {
-	width: 100% !important;
-	height: 300px !important;
-	overflow: hidden !important;
+	overflow: hidden;
 }
 
 .cropped-img {
-	margin: -330px 0px 0px 0px !important;
+	margin: -40% 0% 0% 0% !important;
+	transform: translateY(20%);
 }
 
 /***** CAROUSEL *****/
