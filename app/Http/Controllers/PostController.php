@@ -64,5 +64,14 @@ use Illuminate\Support\Facades\Auth;
         public function editPost(Request $request){
 
         }
+        public function deletePost(Request $request){
+        //Checks the authenticated users id against the owner id of the pet which was requested for deletion
+        if (Pets::find($request["petId"])->users_id != Auth::user()->id)
+            return redirect()->back()->with('error', 'You are not the owner of this pet!');
+
+        //Delete pet from database
+        Pets::destroy($request["petId"]);
+        return redirect('/')->with('message', 'Post succesfully deleted');
+    	}
         
     }

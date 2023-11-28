@@ -68,3 +68,6 @@ Route::post('/edit', [PostController::class, 'editPost'])
 
 Route::get('/edit', [PostController::class, 'editPostView'])
 ->middleware('auth');
+
+//Delete route
+Route::post('/delete-post', [PostController::class, 'deletePost'])
