@@ -45,6 +45,35 @@
 }
 
 
+.bg-color-white {
+	background-color: var(--white);
+}
+
+.bg-color-lightgray {
+	background-color: var(--lightgray);
+}
+
+.bg-color-cyan {
+	background-color: var(--cyan);
+}
+
+.bg-color-lightblue {
+	background-color: var(--lightblue);
+}
+
+.bg-color-blue {
+	background-color: var(--blue);
+}
+
+.bg-color-navy {
+	background-color: var(--navy);
+}
+
+.bg-color-black {
+	background-color: var(--black);
+}
+
+
 /***** NAVBAR *****/
 
 .nav-bar-main-link {
@@ -114,13 +143,12 @@
 }
 
 .cropped {
-	width: 100% !important;
-	height: 300px !important;
-	overflow: hidden !important;
+	overflow: hidden;
 }
 
 .cropped-img {
-	margin: -330px 0px 0px 0px !important;
+	margin: -40% 0% 0% 0% !important;
+	transform: translateY(20%);
 }
 
 /***** CAROUSEL *****/
@@ -157,4 +185,8 @@
 .view-button {
 	background-color: var(--blue) !important;
 	color: var(--white) !important;
+}
+
+.inline {
+	display: inline !important;
 }

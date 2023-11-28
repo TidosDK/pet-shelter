@@ -1,11 +1,12 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
-
 
 // NAVIGATION CONTROLLER //
 
@@ -16,14 +17,13 @@ Route::get('/', [NavigationController::class, 'frontPageView']);
 Route::get('/pets/{type}', [NavigationController::class, 'pets']);
 
 // Other types of pet from above
-Route::get('/pets', [NavigationController::class, 'otherPets'])
-->middleware('auth');
+Route::get('/pets', [NavigationController::class, 'otherPets']);
 
 // Specific pet (any kind)
 Route::get('/pet/{id}', [NavigationController::class, 'singlePet']);
 
 // About us page
-Route::get('/aboutUs',[NavigationController::class, 'aboutUsView']);
+Route::get('/aboutUs', [NavigationController::class, 'aboutUsView']);
 
 
 // USER CONTROLLER //
@@ -35,10 +35,6 @@ Route::get('/login', [UserController::class, 'loginView'])
 // Signup page
 Route::get('/signup', [UserController::class, 'signupView'])
 ->middleware('guest');
-
-//Post management page
-Route::get('/postmanagement', [UserController::class, 'postManagementView']);
-//->middleware('auth');
 
 // Reset password page
 Route::get('/reset-password', [UserController::class, 'resetPasswordView']);
@@ -54,4 +50,11 @@ Route::post('/signup', [UserController::class, 'signUp'])
 
 // Session destroyer / Logout handling
 Route::post('/logout', [UserController::class, 'logOut'])
+->middleware('auth');
+
+
+//POST CONTROLLER
+
+//Delete route
+Route::post('/delete-post', [PostController::class, 'deletePost'])
 ->middleware('auth');

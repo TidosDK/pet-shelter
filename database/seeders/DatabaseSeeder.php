@@ -7,7 +7,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Breeds;
 use App\Models\Pets;
-use App\Models\TypeOfPets;
+use App\Models\TypesOfPets;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder {
 	public function run(): void {
 		$types_of_pets = json_decode(File::get('resources/json/types_of_pets.json'));
 		foreach ($types_of_pets as $type) {
-			TypeOfPets::create([
+			TypesOfPets::create([
 				'type' => $type
 			]);
 		}
@@ -30,11 +30,11 @@ class DatabaseSeeder extends Seeder {
 		User::factory(10)->create();
 
 		Pets::factory(10)->create([
-			'type_of_pets_id' => 1
+			'type_id' => 1
 		]);
 
 		Pets::factory(10)->create([
-			'type_of_pets_id' => 2
+			'type_id' => 2
 		]);
 
 		Pets::factory(20)->create();

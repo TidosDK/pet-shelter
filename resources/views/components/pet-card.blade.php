@@ -1,10 +1,10 @@
 @props(['pets', 'breeds', 'typeOfPets', 'type'])
 
 @foreach ($pets as $pet)
-    @if (strtolower($typeOfPets->find($pet->type_of_pets_id)->type) == strtolower($type) ||
+    @if (strtolower($typeOfPets->find($pet->type_id)->type) == strtolower($type) ||
             ($type == '' &&
-                strtolower($typeOfPets->find($pet->type_of_pets_id)->type) != strtolower('Dog') &&
-                strtolower($typeOfPets->find($pet->type_of_pets_id)->type) != strtolower('Cat')))
+                strtolower($typeOfPets->find($pet->type_id)->type) != strtolower('Dog') &&
+                strtolower($typeOfPets->find($pet->type_id)->type) != strtolower('Cat')))
 		@if (isset($_GET['gender']) && $pet->sex != $_GET['gender'])
 			@continue
 		@endif
