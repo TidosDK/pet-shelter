@@ -47,7 +47,9 @@ $breeds_list = [];
                     <li><a class="dropdown-item" href="?breed={{ $breed }}">{{ $breed }}</a></li>
                 @endforeach
             </ul>
-            <button onclick="window.location.href='/create';" class="btn view-button" style="float: right">New Pet Post</button>
+            @auth
+                <button onclick="window.location.href='/create';" class="btn view-button" style="float: right">New Pet Post</button>
+            @endauth
         </div>
     </div>
     <x-pet-card-row>

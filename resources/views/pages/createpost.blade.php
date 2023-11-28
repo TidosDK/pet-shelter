@@ -31,7 +31,7 @@
                             <label for="petName">Please enter pet name</label>
                         </div>
                     </div>
-                    
+
                     <p>{{ $errors->first('age_in_months') }}</p>
                     <div class="input-group mb-3">
                         <span class="input-group-text input-group-text-naw">Age</span>
@@ -56,9 +56,13 @@
                     <div class="form-floating form-list">
                         <select class="form-select" id="genderSelect" aria-label="Floating label select example"
                             name="sex">
-                            <option selected 
-                                value=@if (old('sex') == "") Other @else {{old('sex')}} @endif>
-                                @if (old('sex') == "") Other @else {{old('sex')}} @endif
+                            <option selected
+                                value=@if (old('sex') == '') Other @else {{ old('sex') }} @endif>
+                                @if (old('sex') == '')
+                                    Other
+                                @else
+                                    {{ old('sex') }}
+                                @endif
                             </option>
                             <option value="Female">Female</option>
                             <option value="Male">Male</option>
@@ -80,8 +84,8 @@
 
                     <p>{{ $errors->first('castrated') }}</p>
                     <div class="form-check form-check-reverse">
-                        <input class="form-check-input" type="checkbox" value="" id="castrateCheck" @if(old('castrated')) checked @endif
-                            name="castrated">
+                        <input class="form-check-input" type="checkbox" value="" id="castrateCheck"
+                            @if (old('castrated')) checked @endif name="castrated">
                         <label class="form-check-label" for="castrateCheck">
                             Is your pet Castrated?
                         </label>
@@ -89,8 +93,8 @@
 
                     <p>{{ $errors->first('multipleAnimalsFriendly') }}</p>
                     <div class="form-check form-check-reverse">
-                        <input class="form-check-input" type="checkbox" value="" id="multipleAnimalsFriendlyCheck" @if(old('castrated')) checked @endif
-                            name="multipleAnimalsFriendly">
+                        <input class="form-check-input" type="checkbox" value="" id="multipleAnimalsFriendlyCheck"
+                            @if (old('castrated')) checked @endif name="multipleAnimalsFriendly">
                         <label class="form-check-label" for="multipleAnimalsFriendlyCheck">
                             Can your pet live with other pets?
                         </label>
@@ -98,8 +102,8 @@
 
                     <p>{{ $errors->first('kidFriendly') }}</p>
                     <div class="form-check form-check-reverse">
-                        <input class="form-check-input" type="checkbox" value="" id="kidFriendlyCheck" @if(old('castrated')) checked @endif
-                            name="kidFriendly">
+                        <input class="form-check-input" type="checkbox" value="" id="kidFriendlyCheck"
+                            @if (old('castrated')) checked @endif name="kidFriendly">
                         <label class="form-check-label" for="kidFriendlyCheck">
                             Can your pet live with kids?
                         </label>
@@ -109,11 +113,12 @@
                 <div class="outside-box">
                     <select class="form-select outside" id="breedList" aria-label="Default select example"
                         name="breeds_id">
-                        <option selected>Select Breed</option>
+                        <option selected>None</option>
                         @foreach ($breeds as $breed)
                             <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
                         @endforeach
                     </select>
+                    <label for="breedList">Select Animal</label>
 
                     <div class="form-floating outside">
                         <textarea class="form-control" placeholder="Leave a comment here" id="pickupLocation" style="height: 100px"
@@ -130,8 +135,8 @@
                     <p>{{ $errors->first('price') }}</p>
                     <div class="input-group outside">
                         <span class="input-group-text">Price$</span>
-                        <input type="text" aria-label="Price" id="price" class="form-control" value="{{ old('price') }}"
-                            name="price">
+                        <input type="text" aria-label="Price" id="price" class="form-control"
+                            value="{{ old('price') }}" name="price">
                         <button class="btn btn-outline-secondary " type="submit" id="inputGroupFileAddon04">Create
                             post</button>
                     </div>
