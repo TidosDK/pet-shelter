@@ -28,14 +28,14 @@
                         </div>
                     </div>
                 </div>
-
+                <input type="hidden" value="{{$pet->id}}" name="petId">
                 <div class="general-info right-box">
                     <div class="input-group mb-3">
                         <span class="input-group-text input-group-text-naw">Name</span>
                         <p>{{ $errors->first('name') }}</p>
                         <div class="form-floating">
-                            <input type="name" class="form-control" id="petName" placeholder="Username"
-                                name="name">
+                            <input type="name" class="form-control" id="petName"
+                                name="name" value="{{$pet->name}}">
                             <label for="petName">Please enter the name</label>
                         </div>
                     </div>
@@ -44,8 +44,8 @@
                         <span class="input-group-text input-group-text-naw">Age</span>
                         <p>{{ $errors->first('age_in_months') }}</p>
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="petAge" placeholder="Username"
-                                name="age_in_months">
+                            <input type="text" class="form-control" id="petAge"
+                                name="age_in_months" value="{{$pet->age_in_months}}">
                             <label for="petAge">Please enter the Age</label>
                         </div>
                     </div>
@@ -54,8 +54,8 @@
                         <span class="input-group-text input-group-text-naw">Weight</span>
                         <p>{{ $errors->first('weight') }}</p>
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="petWeight" placeholder="Username"
-                                name="weight">
+                            <input type="text" class="form-control" id="petWeight"
+                                name="weight" value="{{$pet->weight}}">
                             <label for="petWeight">Please enter the weight</label>
                         </div>
                     </div>
@@ -63,9 +63,12 @@
                     <div class="form-floating form-list">
                         <select class="form-select" id="genderSelect" aria-label="Floating label select example"
                             name="sex">
-                            <option selected>None</option>
+                            <option selected value= @if($pet->sex == 'Female') 1 @elseif($pet->sex == 'Male') 2 @else 0 @endif>
+                                {{$pet->sex}}
+                            </option>
                             <option value="1">Female</option>
                             <option value="2">Male</option>
+                            <option value="0">Other</option>
                         </select>
                         <label for="genderSelect">Select which Sex</label>
                     </div>
@@ -73,7 +76,7 @@
                     <div class="form-floating form-list">
                         <select class="form-select" id="animalList" aria-label="Floating label select example"
                             name="type_id">
-                            <option selected>None</option>
+                            <option value="{{$pet->type_id}}" selected>{{$types->find($pet->type_id)->type}}</option>
                             @foreach ($types as $type)
                                 <option value="{{ $type->id }}">{{ $type->type }}</option>
                             @endforeach
@@ -82,7 +85,7 @@
                     </div>
 
                     <div class="form-check form-check-reverse">
-                        <input class="form-check-input" type="checkbox" value="" id="castrateCheck"
+                        <input class="form-check-input" type="checkbox" @if($pet->castrated) checked @endif id="castrateCheck"
                             name="castrated">
                         <label class="form-check-label" for="castrateCheck">
                             Is your pet Castrated?
@@ -90,7 +93,7 @@
                     </div>
 
                     <div class="form-check form-check-reverse">
-                        <input class="form-check-input" type="checkbox" value="" id="multipleAnimalsFriendlyCheck"
+                        <input class="form-check-input" type="checkbox" @if($pet->multipleAnimalsFriendlyCheck) checked @endif id="multipleAnimalsFriendlyCheck"
                             name="multipleAnimalsFriendly">
                         <label class="form-check-label" for="multipleAnimalsFriendlyCheck">
                             Can your pet live with other pets?
@@ -98,7 +101,7 @@
                     </div>
 
                     <div class="form-check form-check-reverse">
-                        <input class="form-check-input" type="checkbox" value="" id="kidFriendlyCheck"
+                        <input class="form-check-input" type="checkbox" @if($pet->kidFriendly) checked @endif id="kidFriendlyCheck"
                             name="kidFriendly">
                         <label class="form-check-label" for="kidFriendlyCheck">
                             Can your pet live with kids?
@@ -109,7 +112,7 @@
                 <div class="outside-box">
                     <select class="form-select outside" id="breedList" aria-label="Default select example"
                         name="breeds_id">
-                        <option selected>Select Breed</option>
+                        <option value="{{$pet->breeds_id}}" selected>{{$breeds->find($pet->breeds_id)->breed}}</option>
                         @foreach ($breeds as $breed)
                             <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
                         @endforeach
@@ -117,13 +120,13 @@
 
                     <div class="form-floating outside">
                         <textarea class="form-control" placeholder="Leave a comment here" id="petComment" style="height: 100px"
-                            name="description"></textarea>
+                            name="description">{{$pet->description}}</textarea>
                         <label for="petComment">Comments</label>
                     </div>
 
                     <div class="form-floating outside">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="pickupLocation" style="height: 100px"
-                            name="location"></textarea>
+                        <textarea class="form-control" placeholder="Set Location" id="pickupLocation" style="height: 100px"
+                            name="location">{{$pet->location}}</textarea>
                         <label for="pickupLocation">Location</label>
                     </div>
 
@@ -131,8 +134,8 @@
                         <span class="input-group-text">Price$</span>
                         <p>{{ $errors->first('price') }}</p>
                         <input type="text" aria-label="Price" id="price" class="form-control"
-                            name="price">
-                        <button class="btn btn-outline-secondary " type="submit" id="inputGroupFileAddon04">Create
+                            name="price" value="{{$pet->price}}">
+                        <button class="btn btn-outline-secondary " type="submit" id="inputGroupFileAddon04">Edit
                             post</button>
                     </div>
                 </div>

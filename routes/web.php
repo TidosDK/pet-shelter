@@ -66,8 +66,9 @@ Route::get('/create', [PostController::class, 'createPostView'])
 Route::post('/edit', [PostController::class, 'editPost'])
 ->middleware('auth');
 
-Route::get('/edit', [PostController::class, 'editPostView'])
+Route::get('/edit/{id}', [PostController::class, 'editPostView'])
 ->middleware('auth');
 
 //Delete route
 Route::post('/delete-post', [PostController::class, 'deletePost'])
+->middleware('auth');
