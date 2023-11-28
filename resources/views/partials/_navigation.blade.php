@@ -28,6 +28,12 @@
             @auth
                 <div class="login-button-div">
                     <ul class="navbar-nav">
+                        <li style="margin-right: 10px;"> <!-- Inline CSS, should probably be fixed later -->
+                            <button onclick="window.location.href='/login';"
+                                class="btn btn-primary nav-bar-link login-button lilita-one-font">
+                                <p class="lilita-one-font mb-0">{{{auth()->user()->name}}}</p>
+                            </button>
+                        </li>
                         <li>
                             <form method="POST" action="/logout" class="mb-0">
                                 @csrf

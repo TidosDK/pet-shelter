@@ -3,7 +3,7 @@
 <?php $title = "Login" ?>
 <x-layout :title="$title">
     <div class="form-container">
-        <h1 class="lilita-one-font text-center">Happy Tails !</h1>
+        <h1 class="lilita-one-font text-center color-navy">Happy Tails !</h1>
         <div class="card">
             <div class="card-body">
                 <h5 class="lilita-one-font card-title text-center">Happy tails make happy tales !</h5>

@@ -41,7 +41,7 @@ class Pets extends Model {
 	}
 
 	public function typeOfPet() {
-		return $this->belongsTo(TypeOfPets::class, 'type_of_pets_id');
+		return $this->belongsTo(TypesOfPets::class, 'type_id');
 	}
 
 	public function breed() {
