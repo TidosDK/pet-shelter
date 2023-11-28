@@ -24,6 +24,10 @@ class Pets extends Model {
 		'users_id'
 	];
 
+	protected $hidden = [
+		'users_id'
+	];
+
 	public static function getImages(int $pet_id) {
 		$FILE_DIRECTORY = "storage/pet_images/p" . $pet_id;
 

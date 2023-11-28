@@ -1,20 +1,12 @@
 <link rel="stylesheet" href="{{ asset('css/post.css') }}">
 <?php $title = 'Edit'; ?>
 <x-layout :title="$title">
-    <h1 class="page-title">information</h1>
+    <h1 class="page-title mb-4">Edit pet post</h1>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <div>
         <form method="POST" action="/edit">
             @csrf
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+           
             <div class="animal-info box">
                 <div class="left-box">
                     <div class="card" style="width: 18rem;">
@@ -28,11 +20,13 @@
                         </div>
                     </div>
                 </div>
+                
                 <input type="hidden" value="{{$pet->id}}" name="petId">
+                
                 <div class="general-info right-box">
+                    <p>{{ $errors->first('name') }}</p>
                     <div class="input-group mb-3">
                         <span class="input-group-text input-group-text-naw">Name</span>
-                        <p>{{ $errors->first('name') }}</p>
                         <div class="form-floating">
                             <input type="name" class="form-control" id="petName"
                                 name="name" value="{{$pet->name}}">
@@ -40,9 +34,9 @@
                         </div>
                     </div>
 
+                    <p>{{ $errors->first('age_in_months') }}</p>
                     <div class="input-group mb-3">
                         <span class="input-group-text input-group-text-naw">Age</span>
-                        <p>{{ $errors->first('age_in_months') }}</p>
                         <div class="form-floating">
                             <input type="text" class="form-control" id="petAge"
                                 name="age_in_months" value="{{$pet->age_in_months}}">
@@ -50,9 +44,9 @@
                         </div>
                     </div>
 
+                    <p>{{ $errors->first('weight') }}</p>
                     <div class="input-group mb-3">
                         <span class="input-group-text input-group-text-naw">Weight</span>
-                        <p>{{ $errors->first('weight') }}</p>
                         <div class="form-floating">
                             <input type="text" class="form-control" id="petWeight"
                                 name="weight" value="{{$pet->weight}}">
@@ -60,19 +54,19 @@
                         </div>
                     </div>
 
+                    <p>{{ $errors->first('sex') }}</p>
                     <div class="form-floating form-list">
                         <select class="form-select" id="genderSelect" aria-label="Floating label select example"
                             name="sex">
-                            <option selected value= @if($pet->sex == 'Female') 1 @elseif($pet->sex == 'Male') 2 @else 0 @endif>
-                                {{$pet->sex}}
-                            </option>
-                            <option value="1">Female</option>
-                            <option value="2">Male</option>
-                            <option value="0">Other</option>
+                            <option selected value = {{$pet->sex}}>{{$pet->sex}}</option>
+                            <option value="Other">Other</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
                         </select>
                         <label for="genderSelect">Select which Sex</label>
                     </div>
 
+                    <p>{{ $errors->first('type_id') }}</p>
                     <div class="form-floating form-list">
                         <select class="form-select" id="animalList" aria-label="Floating label select example"
                             name="type_id">
@@ -84,6 +78,7 @@
                         <label for="animalList">Select which Animal</label>
                     </div>
 
+                    <p>{{ $errors->first('castrated') }}</p>
                     <div class="form-check form-check-reverse">
                         <input class="form-check-input" type="checkbox" @if($pet->castrated) checked @endif id="castrateCheck"
                             name="castrated">
@@ -92,6 +87,7 @@
                         </label>
                     </div>
 
+                    <p>{{ $errors->first('multipleAnimalsFriendly') }}</p>
                     <div class="form-check form-check-reverse">
                         <input class="form-check-input" type="checkbox" @if($pet->multipleAnimalsFriendlyCheck) checked @endif id="multipleAnimalsFriendlyCheck"
                             name="multipleAnimalsFriendly">
@@ -100,6 +96,7 @@
                         </label>
                     </div>
 
+                    <p>{{ $errors->first('kidFriendly') }}</p>
                     <div class="form-check form-check-reverse">
                         <input class="form-check-input" type="checkbox" @if($pet->kidFriendly) checked @endif id="kidFriendlyCheck"
                             name="kidFriendly">
@@ -130,13 +127,13 @@
                         <label for="pickupLocation">Location</label>
                     </div>
 
+                    <p>{{ $errors->first('price') }}</p>
                     <div class="input-group outside">
-                        <span class="input-group-text">Price$</span>
+                        <span class="input-group-text">Price</span>
                         <p>{{ $errors->first('price') }}</p>
                         <input type="text" aria-label="Price" id="price" class="form-control"
                             name="price" value="{{$pet->price}}">
-                        <button class="btn btn-outline-secondary " type="submit" id="inputGroupFileAddon04">Edit
-                            post</button>
+                        <button class="btn btn-outline-secondary " type="submit" id="inputGroupFileAddon04">Save changes</button>
                     </div>
                 </div>
 

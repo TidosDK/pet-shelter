@@ -20,9 +20,10 @@ class PostController extends Controller {
 
     // Edit page
     public function editPostView(string $pet_id) {
-        //dd(Pets::find($pet_id));
+        //Checks the authenticated users id against the owner id of the pet
         if (Pets::find($pet_id)->users_id != Auth::user()->id)
             return redirect()->back()->with('error', 'You are not the owner of this pet!');
+
         return view('pages.editpost', [
             'pet' => Pets::find($pet_id),
             'types' => TypesOfPets::all(),
@@ -30,18 +31,15 @@ class PostController extends Controller {
         ]);
     }
 
-    public function createPost(Request $request) {
+    public function createPost(Request $request) {        
         $request['kidFriendly'] = $request->has('kidFriendly');
         $request['multipleAnimalsFriendly'] = $request->has('multipleAnimalsFriendly');
         $request['castrated'] = $request->has('castrated');
 
-        // Reminder: Change value in html file to have the text instead of a number //
-        if ($request['sex'] == 1)
-            $request['sex'] = "Female";
-        else if ($request['sex'] == 2)
-            $request['sex'] = "Male";
-        else
-            $request['sex'] = 'Other';
+        $request['type_id'] = $request['type_id'] == "None" ? null : $request['type_id'];
+        $request['breeds_id'] = $request['breeds_id'] == "None" ? null : $request['breeds_id'];
+
+        //Input validation
         $pet_credentials = $request->validate([
             'name' => ['required'],
             'description' => ['nullable', 'max:255'],
@@ -51,20 +49,20 @@ class PostController extends Controller {
             'location' => ['nullable'],
             'type_id' => ['required'],
             'breeds_id' => ['required'],
-            'castrated' => ['nullable'],
-            'multipleAnimalsFriendly' => ['nullable'],
-            'kidFriendly' => ['nullable'],
+            'castrated' => ['required'],
+            'multipleAnimalsFriendly' => ['required'],
+            'kidFriendly' => ['required'],
             'price' => ['required', 'numeric']
         ]);
         $pet_credentials['users_id'] = Auth::user()->id;
         // Database post create incomming
-        $pets = Pets::create($pet_credentials);
+        $newPet = Pets::create($pet_credentials);
 
-        return redirect('/')->with('Post Created');
+        return redirect("/pet/{$newPet->id}")->with('Post Created');
     }
 
     public function editPost(Request $request) {
-        //dd($request);
+        //Checks the authenticated users id against the owner id of the pet which was requested to be changed
         if (Pets::find($request["petId"])->users_id != Auth::user()->id)
             return redirect()->back()->with('error', 'You are not the owner of this pet!');
 
@@ -74,13 +72,7 @@ class PostController extends Controller {
         $request['multipleAnimalsFriendly'] = $request->has('multipleAnimalsFriendly');
         $request['castrated'] = $request->has('castrated');
 
-        // Reminder: Change value in html file to have the text instead of a number //
-        if ($request['sex'] == 1)
-            $request['sex'] = "Female";
-        else if ($request['sex'] == 2)
-            $request['sex'] = "Male";
-        else
-            $request['sex'] = 'Other';
+        //Input validation
         $pet_credentials = $request->validate([
             'name' => ['required'],
             'description' => ['nullable', 'max:255'],
@@ -90,9 +82,9 @@ class PostController extends Controller {
             'location' => ['nullable'],
             'type_id' => ['required'],
             'breeds_id' => ['required'],
-            'castrated' => ['nullable'],
-            'multipleAnimalsFriendly' => ['nullable'],
-            'kidFriendly' => ['nullable'],
+            'castrated' => ['required'],
+            'multipleAnimalsFriendly' => ['required'],
+            'kidFriendly' => ['required'],
             'price' => ['required', 'numeric']
         ]);
 
