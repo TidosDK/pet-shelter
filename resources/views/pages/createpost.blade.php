@@ -72,7 +72,7 @@
 
                     <div class="form-floating form-list">
                         <select class="form-select" id="animalList" aria-label="Floating label select example"
-                            name="type_of_pets_id">
+                            name="type_id">
                             <option selected>None</option>
                             @foreach ($types as $type)
                                 <option value="{{ $type->id }}">{{ $type->type }}</option>

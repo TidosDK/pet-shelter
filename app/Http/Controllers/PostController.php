@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pets;
 use App\Models\Breeds;
-use App\Models\TypeOfPets;
+use App\Models\TypesOfPets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,27 +16,17 @@ use Illuminate\Support\Facades\Auth;
 	    }
 
         public function createPost(Request $request){
-            if($request->has('kidFriendly'))
-                $request['kidFriendly'] = "Yes";
-            else
-                $request['kidFriendly'] = "No";
-
-            if($request->has('multipleAnimalsFriendly'))
-                $request['multipleAnimalsFriendly'] = "Yes";
-            else
-                $request['multipleAnimalsFriendly'] = "No";
-
-            if($request->has('castrated'))
-                $request['castrated'] = "Yes";
-            else
-                $request['castrated'] = "No";
+            $request['kidFriendly'] = $request->has('kidFriendly');
+            $request['multipleAnimalsFriendly'] = $request->has('multipleAnimalsFriendly');
+            $request['castrated'] = $request->has('castrated');
 
             if($request['sex'] == 1)
                 $request['sex'] = "Female";
-            else
+            else if($request['sex'] == 2)
                 $request['sex'] = "Male";
+            else
+                $request['sex'] = 'Other';
             //dd($request);
-            //$request['sex'] = $request['sex'] == 1?"female":$request['kidFriendly'];
             $pet_credentials = $request->validate([
                 'name' => ['required'],
                 'description' => ['nullable', 'max:255'],
@@ -44,7 +34,7 @@ use Illuminate\Support\Facades\Auth;
                 'weight' => ['required', 'numeric'],
                 'sex' => ['required'],
                 'location' => ['nullable'],
-                'type_of_pets_id' => ['required'],
+                'type_id' => ['required'],
                 'breeds_id' => ['required'],
                 'castrated' => ['nullable'],
                 'multipleAnimalsFriendly' => ['nullable'],
@@ -60,7 +50,7 @@ use Illuminate\Support\Facades\Auth;
 
         public function fetchTypesOfPets(){
             return view('pages.createpost', [
-                'types' => TypeOfPets::all()
+                'types' => TypesOfPets::all()
             ]);
         }
 
@@ -72,7 +62,7 @@ use Illuminate\Support\Facades\Auth;
 
         public function postCreate(){
             return view('pages.createpost', [
-                'types' => TypeOfPets::all(),
+                'types' => TypesOfPets::all(),
                 'breeds' => Breeds::all()
             ]);
         }

@@ -19,7 +19,7 @@ class Pets extends Model {
 		'kidFriendly',
 		'multipleAnimalsFriendly',
 		'castrated',
-		'type_of_pets_id',
+		'type_id',
 		'breeds_id',
 		'users_id'
 	];
