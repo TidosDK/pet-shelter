@@ -9,15 +9,16 @@ use App\Models\Pets;
 
     </div>
     <div id="topColums" class="row mt-5">
-       
+
         @auth
             @if ($pet->users_id == Auth::user()->id)
                 <div class="mb-5 p-2 bg-color-cyan rounded-2">
-                    <h4 class="playpen-bold-font mb-3">Hello {{{auth()->user()->name}}}, this is your own post</h4>
+                    <h4 class="playpen-bold-font mb-3">Hello {{ auth()->user()->name }}, this is your own post</h4>
                     <button class="btn login-button inline" style="margin-right: 10px; width: 80px;">Edit</button>
                     <form class="inline" method="post" action="/delete-post">
                         @csrf
-                        <input type="hidden" name="petId" value={{$pet->id}}> <!-- This value is changeable through browser tools, but all id's are checked against the authenticated user so you can't delete posts without proper ownership -->
+                        <input type="hidden" name="petId" value={{ $pet->id }}>
+                        <!-- This value is changeable through browser tools, but all id's are checked against the authenticated user so you can't delete posts without proper ownership -->
                         <button type="submit" class="btn login-button inline" style="width: 80px">Delete</button>
                     </form>
                     <h5 class="mt-2">{{ session()->get('error') }}</h5>
@@ -85,15 +86,15 @@ use App\Models\Pets;
             </div>
             <div class="row lilita-one-font text-size24">
                 <div class="col-8">Castrated/Neutered</div>
-                <div class="col-4 text-right">{{ $pet->castrated == true ? "Yes" : "No" }}</div>
+                <div class="col-4 text-right">{{ $pet->castrated == true ? 'Yes' : 'No' }}</div>
             </div>
             <div class="row blue-white lilita-one-font text-size24">
                 <div class="col-8">Can live with other animals</div>
-                <div class="col-4 text-right">{{ $pet->multipleAnimalsFriendly== true ? "Yes" : "No" }}</div>
+                <div class="col-4 text-right">{{ $pet->multipleAnimalsFriendly == true ? 'Yes' : 'No' }}</div>
             </div>
             <div class="row lilita-one-font text-size24">
                 <div class="col-8">Can live with kids</div>
-                <div class="col-4 text-right">{{ $pet->kidFriendly == true ? "Yes" : "No" }}</div>
+                <div class="col-4 text-right">{{ $pet->kidFriendly == true ? 'Yes' : 'No' }}</div>
             </div>
         </div>
         <h2 class="text-center mt-5">Contact seller</h2>
@@ -113,5 +114,4 @@ use App\Models\Pets;
         <button onclick="sendContactMail()" type="button"
             class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
             message</button>
-
 </x-layout>
