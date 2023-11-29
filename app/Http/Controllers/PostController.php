@@ -53,7 +53,7 @@ class PostController extends Controller
 		'pets' => Pets::all()->where('users_id', '=', Auth::user()->id),
 		'breeds' => Breeds::all(),
 		'type_of_pets' => TypesOfPets::all(),
-		'type' => '',
+		'type' => 'all',
 	    ]);
     }
 }
