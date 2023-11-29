@@ -1,12 +1,12 @@
-<?php 
-$title = "Post Management";
+<?php
+$title = 'Post Management';
 use App\Models\Pets;
 ?>
 
 <x-layout :title="$title">
     <p class="text-center" style="margin-top: 30px; font-size: 30px">My Posts</p>
     <div>
-        <button class="btn login-button inline" style="width: 150px; height: 50px">Create Post</button>
+        <a class="btn login-button inline p-3" href="{{ url('create') }}">Create Post</a>
     </div>
     @auth
         <x-pet-card-row>
