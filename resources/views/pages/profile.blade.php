@@ -1,6 +1,6 @@
 <?php $title = "Profile" ?>
 
-<script src="{{ asset('js\profileScipts.js') }}"></script>
+<script src="{{ asset('js\profileScripts.js') }}"></script>
 
 <x-layout :title="$title">
     <h1 class="lilita-one-font">{{$title}}</h1>
