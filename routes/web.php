@@ -66,3 +66,7 @@ Route::post('/logout', [UserController::class, 'logOut'])
 //Delete route
 Route::post('/delete-post', [PostController::class, 'deletePost'])
 ->middleware('auth');
+
+//Post Managemenent
+Route::get('/post-management', [PostController::class, 'postManagementView'])
+->middleware('auth');
