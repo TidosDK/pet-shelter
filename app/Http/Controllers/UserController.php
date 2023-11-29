@@ -36,8 +36,8 @@ class UserController extends Controller {
 
 	//Update information
 	public function profileEdit(Request $request){
-		$user = User::where('email', 'prevName')->first();
-		if($request['email'] != auth()->user()->email){
+		$user = User::where('email', $request['prevEmail'])->first();
+		if($request['email'] != $request['prevEmail']){
 			$credentials = $request->validate([
 				'name' => 'required',
 				'email' => ['required', 'email', Rule::unique('users, email')]

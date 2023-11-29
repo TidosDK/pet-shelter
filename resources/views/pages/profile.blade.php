@@ -1,8 +1,8 @@
 <?php $title = "Profile" ?>
 <x-layout :title="$title">
-    <h1 class="title-text">{{$title}}</h1>
+    <h1 class="lilita-one-font">{{$title}}</h1>
     
-    <div class="Profile data" id="dataForm">
+    <div class="Profile data lilita-one-font" id="dataForm">
         <form method="POST" action="/profile">
             @csrf
             <label>Display name: </label>
@@ -10,17 +10,26 @@
             <br>
             <label>E-mail: </label>
             <label>{{{auth()->user()->email}}} </label><br>
+            <br>
+            <label>Phone number: </label>
+            <label>{{{auth()->user()->phone}}} </label><br>
             <input type="text" name="prevName" style="display: none" value={{{auth()->user()->name}}}>
             <input type="text" name="prevEmail" style="display: none" value={{{auth()->user()->email}}}>
+            <a class="btn view-button btn-lg" id="viewPost" href="/post-management">View my posts</a>
+            <a class="btn view-button btn-lg" id="edit" onclick="edit()" form="editForm">Edit</a>
     </div>
-    <div class="Edit profile" id="editForm" style="display: none">
+    <div class="Edit profile lilita-one-font" id="editForm" style="display: none">
             
             <label>Display name: </label>
             <input type="text" name="name" value={{{auth()->user()->name}}}><br>
             <br>
             <label>E-mail: </label>
             <input type="text" name="email" value={{{auth()->user()->email}}}><br>
-            <input name="ChristiansMor" type="submit">
+            <br>
+            <label>Phone number: </label>
+            <input type="text" name="phone" value={{{auth()->user()->phone}}}><br>
+            <a class="btn view-button btn-lg" href="/post-management">View my posts</a>
+            <input class="btn view-button btn-lg" name="ChristiansMor" type="submit" value="save">
         </form>
     </div>
     
@@ -37,6 +46,9 @@
                 editBut.innerHTML = "save";
                 editBut.type = "submit";
                 editBut.form = "editForm";
+                viewPost.style.display = "none";
+                edit.style.display = "none";
+                
             }
             else{
                 editDiv.style.display = "none";
@@ -46,7 +58,6 @@
             }
         }
     </script>
-    <a class="btn view-button btn-lg" href="/post-management">View my posts</a>
-    <a class="btn view-button btn-lg" id="edit button" onclick="edit()" form="editForm">Edit</a>
+    
     
 </x-layout>
