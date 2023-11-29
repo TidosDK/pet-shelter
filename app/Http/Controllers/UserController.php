@@ -45,6 +45,7 @@ class UserController extends Controller {
 				'email' => ['required', 'email', Rule::unique('users', 'email')],
 				'phone' => ['nullable', 'digits:8', 'integer']
 			]);
+			$user->email = $credentials['email'];
 		}
 		else {
 			$credentials = $request->validate([
@@ -54,7 +55,7 @@ class UserController extends Controller {
 		}
 
 		$user->name = $credentials['name'];
-		$user->email = $credentials['email'];
+		$user->phone = $credentials['phone'];
 		$user->save();
 		return back();
 	}
