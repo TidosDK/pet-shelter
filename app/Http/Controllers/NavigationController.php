@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Pets;
 use App\Models\Breeds;
 use App\Models\TypesOfPets;
-use Illuminate\Http\Request;
-use PhpParser\Node\Expr\BinaryOp\NotEqual;
 
 class NavigationController extends Controller {
 
@@ -30,7 +28,7 @@ class NavigationController extends Controller {
 	public function aboutUsView() {
 		return view('pages.aboutus');
 	}
-	
+
 	public function singlePet(string $pet_id) {
 		return view('pages.pet', [
 			'pet' => Pets::find($pet_id)

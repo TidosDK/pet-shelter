@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller {
+
 	// Login page
 	public function loginView() {
 		return view('pages.login');
@@ -22,16 +22,16 @@ class UserController extends Controller {
 	public function resetPasswordView() {
 		return view('pages.passwordreset');
 	}
-	
-	//Profile page
-	public function profileView(){
+
+	// Profile page
+	public function profileView() {
 		return view('pages.profile');
 	}
 
-	//Update information
-	public function profileEdit(Request $request){
-		$user = User::where('id', Auth::id())->first();
-		
+	// Update information
+	public function profileEdit(Request $request) {
+		$user = auth()->user();
+
 		if ($user->email != $request['email']) {
 			$credentials = $request->validate([
 				'name' => 'required',
@@ -39,8 +39,7 @@ class UserController extends Controller {
 				'phone' => ['nullable', 'digits:8', 'integer']
 			]);
 			$user->email = $credentials['email'];
-		}
-		else {
+		} else {
 			$credentials = $request->validate([
 				'name' => 'required',
 				'phone' => ['nullable', 'digits:8', 'integer']
@@ -49,7 +48,7 @@ class UserController extends Controller {
 
 		$user->name = $credentials['name'];
 		$user->phone = $credentials['phone'];
-		$user->save();
+		$user->save(); // intelephense says the save method is undefined. THis is wrong.
 		return back();
 	}
 
