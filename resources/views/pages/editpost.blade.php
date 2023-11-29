@@ -5,12 +5,12 @@
     <script src="{{ asset('js/scripts.js') }}"></script>
     <div>
         <form method="POST" action="/edit">
-            @csrf
+  
             <div class="animal-info box container text-center">
                 <div class="row">
-                    <div class="left-box col">
+                    <div class="left-box col"
                         <div class="card" style="max-width: 28rem;">
-                            <img src="{{ asset('storage/pet_images/placeholder.jpg') }}" class="card-img-top"
+                            <img src="{{ asset('storage/pet_images/placeholder.webp') }}" class="card-img-top"
                                 alt="<-fuck this shit">
                             <div class="card-body">
                                 <h5 class="card-title">Images</h5>
@@ -52,6 +52,7 @@
                                     name="weight" value="{{$pet->weight}}">
                                 <label for="petWeight">Please enter the weight</label>
                             </div>
+
                         </div>
     
                         <p>{{ $errors->first('sex') }}</p>
@@ -105,7 +106,7 @@
                             </label>
                         </div>
     
-                    </div>
+    
                 </div>
                 
                 <div class="row">

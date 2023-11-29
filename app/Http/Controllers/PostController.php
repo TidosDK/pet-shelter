@@ -7,6 +7,7 @@ use App\Models\Breeds;
 use App\Models\TypesOfPets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller {
 
@@ -31,7 +32,7 @@ class PostController extends Controller {
         ]);
     }
 
-    public function createPost(Request $request) {        
+    public function createPost(Request $request) {
         $request['kidFriendly'] = $request->has('kidFriendly');
         $request['multipleAnimalsFriendly'] = $request->has('multipleAnimalsFriendly');
         $request['castrated'] = $request->has('castrated');
@@ -52,13 +53,22 @@ class PostController extends Controller {
             'castrated' => ['required'],
             'multipleAnimalsFriendly' => ['required'],
             'kidFriendly' => ['required'],
-            'price' => ['required', 'numeric']
+            'price' => ['required', 'numeric'],
+            'petImage' => ['required']
         ]);
-        $pet_credentials['users_id'] = Auth::user()->id;
-        // Database post create incomming
-        $newPet = Pets::create($pet_credentials);
 
-        return redirect("/pet/{$newPet->id}")->with('Post Created');
+        // Sets the foreign key reference to the user
+        $pet_credentials['users_id'] = Auth::user()->id;
+
+        // Database post create incoming
+        $new_id = Pets::create($pet_credentials)->id;
+
+        // Creates a new folder for images and stores the uploaded images.
+        $pet_folder_name = "p" . $new_id;
+        File::makeDirectory("storage/pet_images/" . $pet_folder_name);
+        $request->file('petImage')->store('pet_images/' . $pet_folder_name, 'public');
+
+        return redirect("/pet/{$new_id}")->with('Post Created');
     }
 
     public function editPost(Request $request) {
