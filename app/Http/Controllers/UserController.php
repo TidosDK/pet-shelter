@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller {
 	// Login page
@@ -21,36 +20,6 @@ class UserController extends Controller {
 	// Reset password page
 	public function resetPasswordView() {
 		return view('pages.passwordreset');
-	}
-	
-	//Profile page
-	public function profileView(){
-		return view('pages.profile');
-	}
-
-	//Update information
-	public function profileEdit(Request $request){
-		$user = User::where('id', Auth::id())->first();
-		
-		if ($user->email != $request['email']) {
-			$credentials = $request->validate([
-				'name' => 'required',
-				'email' => ['required', 'email', Rule::unique('users', 'email')],
-				'phone' => ['nullable', 'digits:8', 'integer']
-			]);
-			$user->email = $credentials['email'];
-		}
-		else {
-			$credentials = $request->validate([
-				'name' => 'required',
-				'phone' => ['nullable', 'digits:8', 'integer']
-			]);
-		}
-
-		$user->name = $credentials['name'];
-		$user->phone = $credentials['phone'];
-		$user->save();
-		return back();
 	}
 
 	// Login handling

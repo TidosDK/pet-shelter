@@ -6,11 +6,9 @@ if ($type == 'dog') {
 } else {
     $title = 'Other pets';
 }
-
-$genders_list = []; # Should preferably be calculated, or done in SQL code.
-$breeds_list = []; # Should preferably be calculated, or done in SQL code.
+$genders_list = [];
+$breeds_list = [];
 ?>
-
 <x-layout :title="$title">
     <div class="mt-4">
         <div class="dropdown">
