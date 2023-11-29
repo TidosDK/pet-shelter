@@ -2,10 +2,9 @@
 <?php $title = 'Edit'; ?>
 <x-layout :title="$title">
     <h1 class="page-title mb-4">Edit pet post</h1>
-    <script src="{{ asset('js/scripts.js') }}"></script>
     <div>
         <form method="POST" action="/edit">
-
+        @csrf
             <div class="animal-info box container text-center">
                 <div class="row">
                     <div class="left-box col">
@@ -126,7 +125,6 @@
 
                 <div class="row">
                     <div class="col">
-
                         <div class="form-floating outside">
                             <textarea class="form-control" placeholder="Leave a comment here" id="petComment" style="height: 100px"
                                 name="description">{{ $pet->description }}</textarea>
