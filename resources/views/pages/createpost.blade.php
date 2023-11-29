@@ -109,6 +109,17 @@
                             <label for="animalList">Select Animal</label>
                         </div>
 
+                        <div class="form-floating form-list">
+                            <select class="form-select outside" id="breedList" aria-label="Default select example"
+                                name="breeds_id">
+                                <option selected>None</option>
+                                @foreach ($breeds as $breed)
+                                    <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
+                                @endforeach
+                            </select>
+                            <label for="breedList">Select breed</label>
+                        </div>
+
                         @error('castrated')
                             <div class="alert alert-danger" role="alert">
                                 {{ $message }}
@@ -154,17 +165,6 @@
 
                 <div class="row">
                     <div class="col">
-                        <div class="form-floating form-list">
-                            <select class="form-select outside" id="breedList" aria-label="Default select example"
-                                name="breeds_id">
-                                <option selected>None</option>
-                                @foreach ($breeds as $breed)
-                                    <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
-                                @endforeach
-                            </select>
-                            <label for="breedList">Select breed</label>
-                        </div>
-
                         <div class="form-floating outside">
                             <textarea class="form-control" placeholder="Leave a comment here" id="pickupLocation" style="height: 100px"
                                 name="location">{{ old('location') }}</textarea>
