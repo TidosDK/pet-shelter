@@ -26,7 +26,7 @@ use App\Models\Pets;
             @endif
         @endauth
 
-        <div id="carouselExampleControls" class="carousel slide carousel-crop" data-bs-ride="carousel">
+        <div id="carouselExampleControls" class="carousel carousel-dark slide carousel-crop" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @if (($images = Pets::getImages($pet->id)) != null)
                     <?php $active = 'active'; ?>
@@ -57,18 +57,16 @@ use App\Models\Pets;
         <div class="col">
             <h2>{{ $pet->name }}</h2>
             <br>
+            <h5>Price: {{ $pet->price }} DKK</h5>
+            <br>
             <h4>Description</h4>
             <p>{{ $pet->description }}</p>
             <br>
-            <button onclick="goToSellerFunction()" id="scrollDownBtn" class="btn login-button">Contact seller</button>
+            <button id="scrollDownBtn" class="btn login-button">Contact seller</button>
         </div>
         <h2 class="text-center mt-5">Information</h2>
         <div class="about-img-crop center mt-3">
-            <div class="row blue-white lilita-one-font text-size24">
-                <div class="col-8">Price</div>
-                <div class="col-4 text-right">{{ $pet->price }}</div>
-            </div>
-            <div class="row lilita-one-font text-size24">
+            <div class="row lilita-one-font text-size24">   
                 <div class="col-8">Age</div>
                 <div class="col-4 text-right">{{ $pet->age_in_months }} months</div>
             </div>
@@ -111,7 +109,7 @@ use App\Models\Pets;
                 </div>
             </form>
         </div>
-        <button onclick="sendContactMail()" type="button"
+        <button id="sendMessageBtn" type="button"
             class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
             message</button>
 </x-layout>
