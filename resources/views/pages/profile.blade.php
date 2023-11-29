@@ -1,4 +1,7 @@
 <?php $title = "Profile" ?>
+
+<script src="{{ asset('js/scripts.js') }}"></script>
+
 <x-layout :title="$title">
     <h1 class="lilita-one-font">{{$title}}</h1>
     
@@ -33,32 +36,4 @@
             <input class="btn view-button btn-lg" type="submit" value="save">
         </form>
     </div>
-    
-    <script>
-        function edit(){
-            var displayDiv = document.getElementById("dataForm")
-            var editDiv = document.getElementById("editForm");
-            var editBut = document.getElementById("edit button");
-            
-
-            if(editDiv.style.display === "none"){
-                editDiv.style.display = "block";
-                displayDiv.style.display = "none";
-                editBut.innerHTML = "save";
-                editBut.type = "submit";
-                editBut.form = "editForm";
-                viewPost.style.display = "none";
-                edit.style.display = "none";
-                
-            }
-            else{
-                editDiv.style.display = "none";
-                displayDiv.style.display = "block";
-                editBut.innerHTML = "edit";
-                editBut.type = "button";
-            }
-        }
-    </script>
-    
-    
 </x-layout>
