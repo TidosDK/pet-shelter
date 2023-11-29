@@ -1,6 +1,6 @@
 <?php $title = "Profile" ?>
 
-<script src="{{ asset('js/scripts.js') }}"></script>
+<script src="{{ asset('js\profileScipts.js') }}"></script>
 
 <x-layout :title="$title">
     <h1 class="lilita-one-font">{{$title}}</h1>
@@ -20,7 +20,7 @@
             <label class="color-blue">Phone number: </label>
             <label>{{{auth()->user()->phone}}} </label><br>
             <a class="btn view-button btn-lg" id="viewPost" href="/post-management">View my posts</a>
-            <a class="btn view-button btn-lg" id="edit" onclick="edit()" form="editForm">Edit</a>
+            <button class="btn view-button btn-lg" type="button" id="editBtn">Edit</button>
     </div>
     <div class="Edit profile lilita-one-font" id="editForm" style="display: none">
             
