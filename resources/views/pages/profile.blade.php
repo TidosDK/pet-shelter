@@ -13,8 +13,6 @@
             <br>
             <label>Phone number: </label>
             <label>{{{auth()->user()->phone}}} </label><br>
-            <input type="text" name="prevName" style="display: none" value={{{auth()->user()->name}}}>
-            <input type="text" name="prevEmail" style="display: none" value={{{auth()->user()->email}}}>
             <a class="btn view-button btn-lg" id="viewPost" href="/post-management">View my posts</a>
             <a class="btn view-button btn-lg" id="edit" onclick="edit()" form="editForm">Edit</a>
     </div>
@@ -29,7 +27,7 @@
             <label>Phone number: </label>
             <input type="text" name="phone" value={{{auth()->user()->phone}}}><br>
             <a class="btn view-button btn-lg" href="/post-management">View my posts</a>
-            <input class="btn view-button btn-lg" name="ChristiansMor" type="submit" value="save">
+            <input class="btn view-button btn-lg" type="submit" value="save">
         </form>
     </div>
     
