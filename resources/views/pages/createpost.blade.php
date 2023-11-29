@@ -6,10 +6,10 @@
     <div>
         <form method="POST" action="/create" enctype="multipart/form-data">
             @csrf
-
-            <div class="animal-info box">
-                <div class="left-box">
-                    <div class="card" style="width: 18rem;">
+             <div class="animal-info box container text-center">
+                <div class="row">
+                    <div class="left-box col">
+                    <div class="card" style="width: 28rem;">
                         <img src="{{ asset('storage/pet_images/placeholder.webp') }}" class="card-img-top"
                             alt="Placeholder image">
                         <div class="card-body">
@@ -24,9 +24,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                   </div>
 
-                <div class="general-info right-box">
+
+                 <div class="general-info right-box col">
                     @error('name')
                         <div class="alert alert-danger" role="alert">
                             {{ $message }}
@@ -39,7 +40,6 @@
                                 name="name">
                             <label for="petName">Please enter pet name</label>
                         </div>
-                    </div>
 
                     @error('age_in_months')
                         <div class="alert alert-danger" role="alert">
@@ -53,7 +53,6 @@
                                 name="age_in_months">
                             <label for="petAge">Please enter pets age in months</label>
                         </div>
-                    </div>
 
                     @error('weight')
                         <div class="alert alert-danger" role="alert">
@@ -67,7 +66,7 @@
                                 name="weight">
                             <label for="petWeight">Please enter the weight</label>
                         </div>
-                    </div>
+
 
                     @error('sex')
                         <div class="alert alert-danger" role="alert">
@@ -145,9 +144,10 @@
                             Can your pet live with kids?
                         </label>
                     </div>
-
                 </div>
-                <div class="outside-box">
+
+                   <div class="row">
+                    <div class="col">
                     <select class="form-select outside" id="breedList" aria-label="Default select example"
                         name="breeds_id">
                         <option selected>None</option>
