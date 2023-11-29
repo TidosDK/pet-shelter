@@ -28,11 +28,6 @@ class UserController extends Controller {
 		return view('pages.profile');
 	}
 
-	//Update information page
-	public function updateView(){
-		return view('pages.update');
-	}
-
 	//Update information
 	public function profileEdit(Request $request){
 		$user = User::where('id', Auth::id())->first();
