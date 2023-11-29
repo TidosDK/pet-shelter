@@ -94,7 +94,7 @@
                     <p>{{ $errors->first('multipleAnimalsFriendly') }}</p>
                     <div class="form-check form-check-reverse">
                         <input class="form-check-input" type="checkbox" value="" id="multipleAnimalsFriendlyCheck"
-                            @if (old('castrated')) checked @endif name="multipleAnimalsFriendly">
+                            @if (old('multipleAnimalsFriendly')) checked @endif name="multipleAnimalsFriendly">
                         <label class="form-check-label" for="multipleAnimalsFriendlyCheck">
                             Can your pet live with other pets?
                         </label>
@@ -103,14 +103,14 @@
                     <p>{{ $errors->first('kidFriendly') }}</p>
                     <div class="form-check form-check-reverse">
                         <input class="form-check-input" type="checkbox" value="" id="kidFriendlyCheck"
-                            @if (old('castrated')) checked @endif name="kidFriendly">
+                            @if (old('kidFriendly')) checked @endif name="kidFriendly">
                         <label class="form-check-label" for="kidFriendlyCheck">
                             Can your pet live with kids?
                         </label>
                     </div>
 
                 </div>
-                <div class="outside-box">
+                <div class="outside">
                     <select class="form-select outside" id="breedList" aria-label="Default select example"
                         name="breeds_id">
                         <option selected>None</option>
