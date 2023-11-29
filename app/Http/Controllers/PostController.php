@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pets;
+use App\Models\Breeds;
+use App\Models\TypesOfPets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,6 +44,16 @@ class PostController extends Controller
 
         //Delete pet from database
         Pets::destroy($request["petId"]);
-        return redirect('/')->with('message', 'Post succesfully deleted');
+        return redirect('/post-management')->with('message', 'Post succesfully deleted');
+    }
+
+    public function postManagementView()
+    {
+        return view('pages.postmanagement', [
+		'pets' => Pets::all()->where('users_id', '=', Auth::user()->id),
+		'breeds' => Breeds::all(),
+		'type_of_pets' => TypesOfPets::all(),
+		'type' => '',
+	    ]);
     }
 }
