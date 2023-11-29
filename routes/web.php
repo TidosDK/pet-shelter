@@ -39,6 +39,14 @@ Route::get('/signup', [UserController::class, 'signupView'])
 // Reset password page
 Route::get('/reset-password', [UserController::class, 'resetPasswordView']);
 
+//Profile page
+Route::get('/profile', [UserController::class, 'profileView'])
+->middleware('auth');
+
+//Edit information handling
+Route::post('/profile', [UserController::class, 'profileEdit'])
+->middleware('auth');
+
 // Authentication/Login handling
 Route::post('/login', [UserController::class, 'login'])
 ->name('login')
