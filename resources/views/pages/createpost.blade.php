@@ -4,25 +4,34 @@
     <h1 class="page-title mb-4">New pet post</h1>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <div>
-        <form method="POST" action="/create">
+        <form method="POST" action="/create" enctype="multipart/form-data">
             @csrf
 
             <div class="animal-info box">
                 <div class="left-box">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('storage/pet_images/placeholder.jpg') }}" class="card-img-top"
-                            alt="<-fuck this shit">
+                        <img src="{{ asset('storage/pet_images/placeholder.webp') }}" class="card-img-top"
+                            alt="Placeholder image">
                         <div class="card-body">
                             <h5 class="card-title">Images</h5>
                             <div class="mb-3">
-                                <input class="form-control" type="file" id="formFile">
+                                @error('petImage')
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                                <input type="file" class="form-control" id="petImage" name="petImage">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="general-info right-box">
-                    <p>{{ $errors->first('name') }}</p>
+                    @error('name')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="input-group mb-3">
                         <span class="input-group-text input-group-text-naw">Name</span>
                         <div class="form-floating">
@@ -32,17 +41,25 @@
                         </div>
                     </div>
 
-                    <p>{{ $errors->first('age_in_months') }}</p>
+                    @error('age_in_months')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="input-group mb-3">
                         <span class="input-group-text input-group-text-naw">Age</span>
                         <div class="form-floating">
                             <input type="text" class="form-control" id="petAge" value="{{ old('age_in_months') }}"
                                 name="age_in_months">
-                            <label for="petAge">Please enter pet age</label>
+                            <label for="petAge">Please enter pets age in months</label>
                         </div>
                     </div>
 
-                    <p>{{ $errors->first('weight') }}</p>
+                    @error('weight')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="input-group mb-3">
                         <span class="input-group-text input-group-text-naw">Weight</span>
                         <div class="form-floating">
@@ -52,7 +69,11 @@
                         </div>
                     </div>
 
-                    <p>{{ $errors->first('sex') }}</p>
+                    @error('sex')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="form-floating form-list">
                         <select class="form-select" id="genderSelect" aria-label="Floating label select example"
                             name="sex">
@@ -70,7 +91,11 @@
                         <label for="genderSelect">Select which Sex</label>
                     </div>
 
-                    <p>{{ $errors->first('type_id') }}</p>
+                    @error('type_id')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="form-floating form-list">
                         <select class="form-select" id="animalList" aria-label="Floating label select example"
                             name="type_id">
@@ -82,7 +107,11 @@
                         <label for="animalList">Select Animal</label>
                     </div>
 
-                    <p>{{ $errors->first('castrated') }}</p>
+                    @error('castrated')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="form-check form-check-reverse">
                         <input class="form-check-input" type="checkbox" value="" id="castrateCheck"
                             @if (old('castrated')) checked @endif name="castrated">
@@ -91,7 +120,11 @@
                         </label>
                     </div>
 
-                    <p>{{ $errors->first('multipleAnimalsFriendly') }}</p>
+                    @error('multipleAnimalsFriendly')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="form-check form-check-reverse">
                         <input class="form-check-input" type="checkbox" value="" id="multipleAnimalsFriendlyCheck"
                             @if (old('castrated')) checked @endif name="multipleAnimalsFriendly">
@@ -100,7 +133,11 @@
                         </label>
                     </div>
 
-                    <p>{{ $errors->first('kidFriendly') }}</p>
+                    @error('kidFriendly')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="form-check form-check-reverse">
                         <input class="form-check-input" type="checkbox" value="" id="kidFriendlyCheck"
                             @if (old('castrated')) checked @endif name="kidFriendly">
@@ -132,7 +169,11 @@
                         <label for="petComment">Comments</label>
                     </div>
 
-                    <p>{{ $errors->first('price') }}</p>
+                    @error('price')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="input-group outside">
                         <span class="input-group-text">Price$</span>
                         <input type="text" aria-label="Price" id="price" class="form-control"
