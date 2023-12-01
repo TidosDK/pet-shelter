@@ -3,8 +3,8 @@
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\NavigationController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +39,14 @@ Route::get('/signup', [UserController::class, 'signupView'])
 // Reset password page
 Route::get('/reset-password', [UserController::class, 'resetPasswordView']);
 
+//Profile page
+Route::get('/profile', [UserController::class, 'profileView'])
+->middleware('auth');
+
+//Edit information handling
+Route::post('/profile', [UserController::class, 'profileEdit'])
+->middleware('auth');
+
 // Authentication/Login handling
 Route::post('/login', [UserController::class, 'login'])
 ->name('login')
@@ -71,4 +79,8 @@ Route::get('/edit/{id}', [PostController::class, 'editPostView'])
 
 //Delete route
 Route::post('/delete-post', [PostController::class, 'deletePost'])
+->middleware('auth');
+
+//Post Managemenent
+Route::get('/post-management', [PostController::class, 'postManagementView'])
 ->middleware('auth');

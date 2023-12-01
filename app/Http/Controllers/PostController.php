@@ -111,4 +111,13 @@ class PostController extends Controller {
         Pets::destroy($request["petId"]);
         return redirect('/')->with('message', 'Post succesfully deleted');
     }
+    public function postManagementView()
+    {
+        return view('pages.postmanagement', [
+		'pets' => Pets::all()->where('users_id', '=', Auth::user()->id),
+		'breeds' => Breeds::all(),
+		'type_of_pets' => TypesOfPets::all(),
+		'type' => 'all',
+	    ]);
+	}
 }

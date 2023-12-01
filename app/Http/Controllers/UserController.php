@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller {
+
 	// Login page
 	public function loginView() {
 		return view('pages.login');
@@ -20,6 +21,35 @@ class UserController extends Controller {
 	// Reset password page
 	public function resetPasswordView() {
 		return view('pages.passwordreset');
+	}
+
+	// Profile page
+	public function profileView() {
+		return view('pages.profile');
+	}
+
+	// Update information
+	public function profileEdit(Request $request) {
+		$user = auth()->user();
+
+		if ($user->email != $request['email']) {
+			$credentials = $request->validate([
+				'name' => 'required',
+				'email' => ['required', 'email', Rule::unique('users', 'email')],
+				'phone' => ['nullable', 'digits:8', 'integer']
+			]);
+			$user->email = $credentials['email'];
+		} else {
+			$credentials = $request->validate([
+				'name' => 'required',
+				'phone' => ['nullable', 'digits:8', 'integer']
+			]);
+		}
+
+		$user->name = $credentials['name'];
+		$user->phone = $credentials['phone'];
+		$user->save(); // intelephense says the save method is undefined. THis is wrong.
+		return back();
 	}
 
 	// Login handling

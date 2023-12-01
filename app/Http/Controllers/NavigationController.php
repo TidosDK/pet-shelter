@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Pets;
 use App\Models\Breeds;
 use App\Models\TypesOfPets;
-use Illuminate\Http\Request;
-use PhpParser\Node\Expr\BinaryOp\NotEqual;
 
 class NavigationController extends Controller {
 
