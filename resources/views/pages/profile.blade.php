@@ -1,7 +1,5 @@
 <?php $title = 'Profile'; ?>
 
-<script src="{{ asset('js\profileScripts.js') }}"></script>
-
 <x-layout :title="$title">
     <h1 class="lilita-one-font mt-4 mb-3">{{ $title }}</h1>
 
@@ -20,7 +18,7 @@
             <label class="color-blue">Phone number: </label>
             <label>{{ auth()->user()->phone }} </label><br>
             <div class="mt-4">
-                <a class="btn view-button btn-lg" id="viewPost" href="/post-management">View my posts</a>
+                <a class="btn view-button btn-lg" id="viewPost" href="{{ url('post-management') }}">View my posts</a>
                 <button class="btn view-button btn-lg" type="button" id="editBtn">Edit</button>
             </div>
     </div>
@@ -40,4 +38,5 @@
         </div>
         </form>
     </div>
+	<script src="{{ asset('js/profile-script.js') }}"></script>
 </x-layout>

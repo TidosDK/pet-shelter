@@ -35,10 +35,10 @@
                             </a>
                         </li>
                         <li style="margin-right: 10px;"> <!-- Inline CSS, should probably be fixed later -->
-                            <button onclick="window.location.href='/create';"
-                                class="btn btn-primary nav-bar-link login-button lilita-one-font">
-                                <p class="lilita-one-font mb-0">My posts</p>
-                            </button>
+                            <a class="btn btn-primary nav-bar-link login-button lilita-one-font"
+                                href="{{ url('post-management') }}">
+                                <p class="lilita-one-font mb-0">My Posts</p>
+                            </a>
                         </li>
                         <li>
                             <form method="POST" action="logout" class="mb-0">

@@ -1,16 +1,24 @@
 <link rel="stylesheet" href="{{ asset('css/post.css') }}">
-<?php $title = 'Edit'; ?>
+
+<?php
+$title = 'Edit';
+use App\Models\Pets;
+?>
 <x-layout :title="$title">
     <h1 class="page-title mb-4">Edit pet post</h1>
     <div>
         <form method="POST" action="/edit">
-        @csrf
+            @csrf
             <div class="animal-info box container text-center">
                 <div class="row">
                     <div class="left-box col">
                         <div class="card" style="max-width: 28rem;">
-                            <img src="{{ asset('storage/pet_images/placeholder.webp') }}" class="card-img-top"
-                                alt="<-fuck this shit">
+                            @if (($images = Pets::getImages($pet->id)) != null)
+                                <img src="{{ asset($images[0]) }}" class="card-img-top" alt="Image of pet">
+                            @else
+                                <img src="{{ asset('storage/pet_images/placeholder.webp') }}" class="card-img-top"
+                                    alt="Image of pet">
+                            @endif
                             <div class="card-body">
                                 <h5 class="card-title">Images</h5>
                                 <div class="mb-3">
@@ -37,7 +45,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text input-group-text-naw">Age</span>
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="petAge" name="age_in_months"
+                                <input type="number" class="form-control" id="petAge" name="age_in_months"
                                     value="{{ $pet->age_in_months }}">
                                 <label for="petAge">Please enter the Age</label>
                             </div>
@@ -47,7 +55,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text input-group-text-naw">Weight</span>
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="petWeight" name="weight"
+                                <input type="number" class="form-control" id="petWeight" name="weight"
                                     value="{{ $pet->weight }}">
                                 <label for="petWeight">Please enter the weight</label>
                             </div>
@@ -104,7 +112,7 @@
                         <p>{{ $errors->first('multipleAnimalsFriendly') }}</p>
                         <div class="form-check form-check-reverse">
                             <input class="form-check-input" type="checkbox"
-                                @if ($pet->multipleAnimalsFriendlyCheck) checked @endif id="multipleAnimalsFriendlyCheck"
+                                @if ($pet->multipleAnimalsFriendly) checked @endif id="multipleAnimalsFriendlyCheck"
                                 name="multipleAnimalsFriendly">
                             <label class="form-check-label" for="multipleAnimalsFriendlyCheck">
                                 Can your pet live with other pets?
@@ -139,9 +147,9 @@
 
                         <p>{{ $errors->first('price') }}</p>
                         <div class="input-group outside">
-                            <span class="input-group-text">Price</span>
+                            <span class="input-group-text">Price DKK:</span>
                             <p>{{ $errors->first('price') }}</p>
-                            <input type="text" aria-label="Price" id="price" class="form-control"
+                            <input type="number" aria-label="Price" id="price" class="form-control"
                                 name="price" value="{{ $pet->price }}">
                             <button class="btn btn-outline-secondary " type="submit" id="inputGroupFileAddon04">Save
                                 changes</button>
@@ -149,7 +157,6 @@
                     </div>
                 </div>
             </div>
-
         </form>
     </div>
 </x-layout>
