@@ -48,7 +48,7 @@ $breeds_list = [];
                 @endforeach
             </ul>
             @auth
-                <button onclick="window.location.href='/create';" class="btn view-button" style="float: right">New Pet Post</button>
+                <a class="btn view-button float-end" href="{{ url('create') }}">New Pet Post</a>
             @endauth
         </div>
     </div>

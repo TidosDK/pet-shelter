@@ -25,7 +25,7 @@
                             alt="Image of pet">
                     @endif
                     <div class="card-body">
-                        <h4 class="card-title"><a href="/pet/{{ $pet->id }}"
+                        <h4 class="card-title"><a href="{{ url('pet/' . $pet->id) }}"
                                 class="text-decoration-none text-dark stretched-link">{{ $pet->name }}</a></h4>
                         <hr>
                         <p clasS="card-text mb-1"><strong>Months old: </strong>{{ $pet->age_in_months }}</p>

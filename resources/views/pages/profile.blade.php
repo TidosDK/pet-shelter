@@ -33,10 +33,10 @@
         <label class="color-blue">Phone number: </label>
         <input type="text" name="phone" value={{ auth()->user()->phone }}><br>
         <div class="mt-4">
-            <a class="btn view-button btn-lg" href="/post-management">View my posts</a>
+            <a class="btn view-button btn-lg" href="{{ url('post-management') }}">View my posts</a>
             <input class="btn view-button btn-lg ml-2" type="submit" value="save">
         </div>
         </form>
     </div>
-	<script src="{{ asset('js/profile-script.js') }}"></script>
+    <script src="{{ asset('js/profile-script.js') }}"></script>
 </x-layout>
