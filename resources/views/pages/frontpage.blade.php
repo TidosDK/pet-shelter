@@ -9,13 +9,13 @@
     <hr class="hr-new mt-5">
     <div class="container text-center mt-5 mb-5">
         <div class="row">
-            <div class="col"> <a class="btn view-button btn-lg" href="/pets/dog">View dogs</a>
+            <div class="col"> <a class="btn view-button btn-lg" href="{{ url('pets/dog') }}">View dogs</a>
             </div>
             <div class="col">
-                <a class="btn view-button btn-lg" href="/pets/cat">View cats</a>
+                <a class="btn view-button btn-lg" href="{{ url('pets/cat') }}">View cats</a>
             </div>
             <div class="col">
-                <a class="btn view-button btn-lg" href="/pets">View other pets</a>
+                <a class="btn view-button btn-lg" href="{{ url('pets') }}">View other pets</a>
             </div>
         </div>
     </div>

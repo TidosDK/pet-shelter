@@ -10,19 +10,19 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link nav-bar-link lilita-one-font {{ strtolower(request()->getRequestUri()) == '/pets/dog' ? 'nav-link-selected' : '' }}"
-                        href="/pets/dog">DOGS & KITTENS</a>
+                        href="{{ url('pets/dog') }}">DOGS & KITTENS</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link nav-bar-link lilita-one-font {{ strtolower(request()->getRequestUri()) == '/pets/cat' ? 'nav-link-selected' : '' }}"
-                        href="/pets/cat">CATS & KITTENS</a>
+                        href="{{ url('pets/cat') }}">CATS & KITTENS</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link nav-bar-link lilita-one-font {{ request()->is('pets') ? 'nav-link-selected' : '' }}"
-                        href="/pets">OTHER PETS</a>
+                        href="{{ url('pets') }}">OTHER PETS</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link nav-bar-link lilita-one-font {{ request()->is('aboutUs') ? 'nav-link-selected' : '' }}"
-                        href="/aboutUs">ABOUT US</a>
+                        href="{{ url('aboutUs') }}">ABOUT US</a>
                 </li>
             </ul>
             @auth
@@ -54,7 +54,8 @@
                 <div class="login-button-div">
                     <ul class="navbar-nav">
                         <li>
-                            <a class="btn btn-primary nav-bar-link login-button lilita-one-font" href="{{ url('login') }}">
+                            <a class="btn btn-primary nav-bar-link login-button lilita-one-font"
+                                href="{{ url('login') }}">
                                 <p class="lilita-one-font mb-0">Login</p>
                             </a>
                         </li>

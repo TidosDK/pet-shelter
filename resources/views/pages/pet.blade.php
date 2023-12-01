@@ -14,7 +14,7 @@ use App\Models\Pets;
             @if ($pet->users_id == Auth::user()->id)
                 <div class="mb-5 p-2 bg-color-cyan rounded-2">
                     <h4 class="playpen-bold-font mb-3">Hello {{ auth()->user()->name }}, this is your own post</h4>
-                    <a style="text-decoration:none" href="/edit/{{ $pet->id }}"><button class="btn login-button inline"
+                    <a style="text-decoration:none" href="{{ url('edit/' . $pet->id) }}"><button class="btn login-button inline"
                             style="margin-right: 10px; width: 80px;">Edit</button></a>
                     <form class="inline" method="post" action="/delete-post">
                         @csrf
