@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Patrick+Hand&display=swap');
+
+
+.page-title {
+    text-align: center;
+    font-size: 50px;
+    font-family: "Kalam";
+    letter-spacing: -2px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.picture-box {
+    border: 2px solid;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 250px !important;
+    min-height: 250px !important;
+    max-width: 500px !important;
+    max-height: 500px !important;
+    margin: auto;
+}
+
+.animal-info {
+    margin-bottom: 10px;
+}
+
+/** Bootstrap Changes **/
+
+.input-group-text-naw{
+    width: 75px !important;
+    display: flex !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-items: center !important;
+}
+
+.input-group-text{
+    text-align: center !important;
+}
+
+.form-list{
+    margin-top: 20px !important;
+}
+
+.form-check{
+    margin: 10px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.form-check-label{
+    float: left !important;
+}
+
+.outside{
+    margin: 10px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/** Alignment **/
+
+.right-box {
+    float: right;
+}
+
+.left-box {
+    float: left;
+}
+
+.box {
+    max-width: 700px;
+    margin: auto;
+}
+

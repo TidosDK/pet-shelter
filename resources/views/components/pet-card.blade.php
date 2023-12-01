@@ -1,20 +1,16 @@
 @props(['pets', 'breeds', 'typeOfPets', 'type'])
 
-<?php
-use App\Models\Pets;
-?>
-
 @foreach ($pets as $pet)
     @if ($type == 'all' || strtolower($typeOfPets->find($pet->type_id)->type) == strtolower($type) ||
             ($type == '' &&
                 strtolower($typeOfPets->find($pet->type_id)->type) != strtolower('Dog') &&
                 strtolower($typeOfPets->find($pet->type_id)->type) != strtolower('Cat')))
-        @if (isset($_GET['gender']) && $pet->sex != $_GET['gender'])
-            @continue
-        @endif
-        @if (isset($_GET['breed']) && $pet->breed->breed != $_GET['breed'])
-            @continue
-        @endif
+		@if (isset($_GET['gender']) && $pet->sex != $_GET['gender'])
+			@continue
+		@endif
+		@if (isset($_GET['breed']) && $pet->breed->breed != $_GET['breed'])
+			@continue
+		@endif
         <div class="col">
             <div class="card">
                 <div style="transform: rotate(0);">

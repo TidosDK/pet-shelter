@@ -61,7 +61,21 @@ Route::post('/logout', [UserController::class, 'logOut'])
 ->middleware('auth');
 
 
-//POST CONTROLLER
+// POST CONTROLLER //
+
+// Create post page
+Route::post('/create', [PostController::class, 'createPost'])
+->middleware('auth');
+
+Route::get('/create', [PostController::class, 'createPostView'])
+->middleware('auth');
+
+// Edit post page
+Route::post('/edit', [PostController::class, 'editPost'])
+->middleware('auth');
+
+Route::get('/edit/{id}', [PostController::class, 'editPostView'])
+->middleware('auth');
 
 //Delete route
 Route::post('/delete-post', [PostController::class, 'deletePost'])

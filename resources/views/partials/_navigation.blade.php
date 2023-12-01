@@ -34,6 +34,12 @@
                                 <p class="lilita-one-font mb-0">{{ auth()->user()->name }}</p>
                             </a>
                         </li>
+                        <li style="margin-right: 10px;"> <!-- Inline CSS, should probably be fixed later -->
+                            <button onclick="window.location.href='/create';"
+                                class="btn btn-primary nav-bar-link login-button lilita-one-font">
+                                <p class="lilita-one-font mb-0">My posts</p>
+                            </button>
+                        </li>
                         <li>
                             <form method="POST" action="logout" class="mb-0">
                                 @csrf

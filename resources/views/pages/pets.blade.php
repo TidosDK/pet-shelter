@@ -6,11 +6,9 @@ if ($type == 'dog') {
 } else {
     $title = 'Other pets';
 }
-
-$genders_list = []; # Should preferably be calculated, or done in SQL code.
-$breeds_list = []; # Should preferably be calculated, or done in SQL code.
+$genders_list = [];
+$breeds_list = [];
 ?>
-
 <x-layout :title="$title">
     <div class="mt-4">
         <div class="dropdown">
@@ -49,6 +47,9 @@ $breeds_list = []; # Should preferably be calculated, or done in SQL code.
                     <li><a class="dropdown-item" href="?breed={{ $breed }}">{{ $breed }}</a></li>
                 @endforeach
             </ul>
+            @auth
+                <button onclick="window.location.href='/create';" class="btn view-button" style="float: right">New Pet Post</button>
+            @endauth
         </div>
     </div>
     <x-pet-card-row>

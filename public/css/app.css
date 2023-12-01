@@ -157,18 +157,6 @@
 	width: 100% !important;
 }
 
-.carousel-image {
-	height: 300px;
-	width: auto!important;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
-.carousel-control-icon {
-	filter: invert(1) grayscale(100)
-}
-
 /***** 	ALIGNMENTS *****/
 .text-right {
 	text-align: right;
