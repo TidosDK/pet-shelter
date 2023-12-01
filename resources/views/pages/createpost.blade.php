@@ -50,7 +50,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text input-group-text-naw">Age</span>
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="petAge"
+                                <input type="number" class="form-control" id="petAge"
                                     value="{{ old('age_in_months') }}" name="age_in_months">
                                 <label for="petAge">Please enter pets age (months)</label>
                             </div>
@@ -64,7 +64,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text input-group-text-naw">Weight</span>
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="petWeight" value="{{ old('weight') }}"
+                                <input type="number" class="form-control" id="petWeight" value="{{ old('weight') }}"
                                     name="weight">
                                 <label for="petWeight">Please enter the weight (kg)</label>
                             </div>
@@ -164,7 +164,7 @@
 
 
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-3">
                         <div class="form-floating outside">
                             <textarea class="form-control" placeholder="Leave a comment here" id="pickupLocation" style="height: 100px"
                                 name="location">{{ old('location') }}</textarea>
@@ -183,8 +183,8 @@
                             </div>
                         @enderror
                         <div class="input-group outside">
-                            <span class="input-group-text">Price$</span>
-                            <input type="text" aria-label="Price" id="price" class="form-control"
+                            <span class="input-group-text">Price DKK:</span>
+                            <input type="number" aria-label="Price" id="price" class="form-control"
                                 value="{{ old('price') }}" name="price">
                             <button class="btn btn-outline-secondary " type="submit"
                                 id="inputGroupFileAddon04">Create
