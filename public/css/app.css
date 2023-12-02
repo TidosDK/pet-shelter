@@ -169,7 +169,7 @@
 	filter: invert(1) grayscale(100)
 }
 
-/***** 	ALIGNMENTS *****/
+/***** ALIGNMENTS *****/
 .text-right {
 	text-align: right;
 }
@@ -201,4 +201,10 @@
 
 .inline {
 	display: inline !important;
+}
+
+
+/***** POST MANAGEMENT *****/
+.post-management-no-posts-text {
+	font-size: 24;
 }
