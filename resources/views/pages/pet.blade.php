@@ -2,7 +2,7 @@
 $title = 'Pet';
 use App\Models\Pets;
 ?>
-<script src="{{ asset('js/scripts.js') }}"></script>
+
 
 <x-layout :title="$title">
     <div id="alert-message-area">
@@ -14,8 +14,8 @@ use App\Models\Pets;
             @if ($pet->users_id == Auth::user()->id)
                 <div class="mb-5 p-2 bg-color-cyan rounded-2">
                     <h4 class="playpen-bold-font mb-3">Hello {{ auth()->user()->name }}, this is your own post</h4>
-                    <a style="text-decoration:none" href="{{ url('edit/' . $pet->id) }}"><button class="btn login-button inline"
-                            style="margin-right: 10px; width: 80px;">Edit</button></a>
+                    <a style="text-decoration:none" href="{{ url('edit/' . $pet->id) }}"><button
+                            class="btn login-button inline" style="margin-right: 10px; width: 80px;">Edit</button></a>
                     <form class="inline" method="post" action="/delete-post">
                         @csrf
                         <input type="hidden" name="petId" value={{ $pet->id }}>
@@ -99,22 +99,24 @@ use App\Models\Pets;
                 <div class="col-4 text-right">{{ $pet->kidFriendly == true ? 'Yes' : 'No' }}</div>
             </div>
         </div>
-        <h2 class="text-center mt-5">Contact seller</h2>
-        <div id="contactFormDiv" class="center about-img-crop mt-3">
-            <form>
-                <div class="form-group">
-                    <label>Email you wish to recive response:</label>
-                    <input class="form-control" id="email">
-                </div>
-                <br>
-                <div class="form-group">
-                    <label>Message:</label>
-                    <textarea class="form-control" id="message" rows="3"></textarea>
-                </div>
-            </form>
-        </div>
-        <button onclick="sendContactMail()" type="button"
-            class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
-            message</button>
-
+        @if (Auth::guest() || (Auth::user() && $pet->users_id != Auth::user()->id))
+            <h2 class="text-center mt-5">Contact seller</h2>
+            <div id="contactFormDiv" class="center about-img-crop mt-3">
+                <form>
+                    <div class="form-group">
+                        <label>Email you wish to recive response:</label>
+                        <input class="form-control" id="email">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Message:</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <button onclick="sendContactMail()" type="button"
+                class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
+                message</button>
+            <script src="{{ asset('js/scripts.js') }}"></script>
+        @endif
 </x-layout>
