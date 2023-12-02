@@ -131,7 +131,7 @@ use App\Models\Pets;
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mb-5">
                     <div class="col">
                         <div class="form-floating outside">
                             <textarea class="form-control" placeholder="Leave a comment here" id="petComment" style="height: 100px"
