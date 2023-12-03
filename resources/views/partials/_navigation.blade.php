@@ -28,13 +28,13 @@
             @auth
                 <div class="login-button-div">
                     <ul class="navbar-nav">
-                        <li class="me-2"> <!-- Inline CSS, should probably be fixed later -->
+                        <li class="me-2">
                             <a class="btn btn-primary nav-bar-link login-button lilita-one-font"
                                 href="{{ url('profile') }}">
                                 <p class="lilita-one-font mb-0">{{ auth()->user()->name }}</p>
                             </a>
                         </li>
-                        <li class="me-2"> <!-- Inline CSS, should probably be fixed later -->
+                        <li class="me-2">
                             <a class="btn btn-primary nav-bar-link login-button lilita-one-font"
                                 href="{{ url('post-management') }}">
                                 <p class="lilita-one-font mb-0">My Posts</p>
