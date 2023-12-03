@@ -153,13 +153,13 @@
 
 /***** CAROUSEL *****/
 .carousel-crop {
-	max-width: 700px !important;
-	width: 100% !important;
+	max-width: 700px!important;
+	width: 100%!important;
+	max-height: 300px!important;
 }
 
 .carousel-image {
-	height: 300px;
-	width: auto!important;
+	max-height: 300px!important;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;

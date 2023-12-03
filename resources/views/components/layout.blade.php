@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css') }}"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="preconnect" href="{{ url('https://fonts.googleapis.com') }}">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="{{ url('https://fonts.gstatic.com') }}" crossorigin>
     <link href="{{ url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap') }}" rel="stylesheet">
     <link href="{{ url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;500&display=swap') }}"
         rel="stylesheet">

@@ -15,8 +15,8 @@
         @if (isset($_GET['breed']) && $pet->breed->breed != $_GET['breed'])
             @continue
         @endif
-        <div class="col">
-            <div class="card">
+        <article class="col">
+            <article class="card">
                 <div style="transform: rotate(0);">
                     @if (($images = Pets::getImages($pet->id)) != null)
                         <img src="{{ asset($images[0]) }}" class="card-img-top" alt="Image of pet">
@@ -52,7 +52,7 @@
                         </div>
                     @endif
                 @endauth
-            </div>
-        </div>
+            </article>
+        </article>
     @endif
 @endforeach
