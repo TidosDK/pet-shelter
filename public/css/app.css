@@ -203,6 +203,10 @@
 	display: inline !important;
 }
 
+.edit-section-profile {
+	display: none;
+}
+
 
 /***** POST MANAGEMENT *****/
 .post-management-no-posts-text {

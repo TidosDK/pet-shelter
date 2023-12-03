@@ -7,7 +7,7 @@ function edit() {
     var editDiv = document.getElementById("editForm");
     var editBut = document.getElementById("edit button");
 
-    if (editDiv.style.display === "none") {
+    if (editDiv.style.display === "none" || editDiv.style.display == "") {
         editDiv.style.display = "block";
         displayDiv.style.display = "none";
         editBut.innerHTML = "save";

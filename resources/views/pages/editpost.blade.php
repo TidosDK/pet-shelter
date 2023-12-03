@@ -10,8 +10,8 @@ use App\Models\Pets;
         @csrf
         <input type="hidden" value="{{ $pet->id }}" name="petId">
         <section class="row text-center">
-            <section class="left-box col">
-                <div class="card" style="max-width: 28rem;">
+            <section class="left-box col create-post-image-section">
+                <div class="card">
                     @if (($images = Pets::getImages($pet->id)) != null)
                         <img src="{{ asset($images[0]) }}" class="card-img-top" alt="Image of pet">
                     @else
@@ -130,15 +130,14 @@ use App\Models\Pets;
         <section class="row mb-5 text-center">
             <section class="col mt-3">
                 <div class="form-floating outside">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="petComment" style="height: 100px"
-                        name="description">{{ $pet->description }}</textarea>
-                    <label for="petComment">Comments</label>
+                    <textarea class="form-control textarea-section" placeholder="Location of the pet" id="pickupLocation" name="location">{{ $pet->location }}</textarea>
+                    <label for="pickupLocation">Location</label>
                 </div>
 
                 <div class="form-floating outside">
-                    <textarea class="form-control" placeholder="Set Location" id="pickupLocation" style="height: 100px"
-                        name="location">{{ $pet->location }}</textarea>
-                    <label for="pickupLocation">Location</label>
+                    <textarea class="form-control textarea-section" placeholder="Description" id="petComment"
+                        name="description">{{ $pet->description }}</textarea>
+                    <label for="petComment">Description</label>
                 </div>
 
                 <p>{{ $errors->first('price') }}</p>

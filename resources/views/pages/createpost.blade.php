@@ -8,9 +8,9 @@ $title = 'Create';
     <form method="POST" action="{{ url('create') }}" enctype="multipart/form-data">
         @csrf
         <section class="row text-center">
-            <section class="left-box col">
-                <div class="card" style="width: 28rem;">
-                    <img src="{{ asset('storage/pet_images/placeholder.webp') }}" class="card-img-top"
+            <section class="left-box col create-post-image-section">
+                <div class="card">
+                    <img src="{{ asset('storage/pet_images/placeholder.webp') }}" class="card-img-top mw-25"
                         alt="Placeholder image">
                     <div class="card-body">
                         <h5 class="card-title">Image</h5>
@@ -162,15 +162,15 @@ $title = 'Create';
         <section class="row mb-5 animal-info text-center">
             <section class="col mt-3">
                 <div class="form-floating outside">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="pickupLocation" style="height: 100px"
+                    <textarea class="form-control textarea-section" placeholder="Location of the pet" id="pickupLocation"
                         name="location">{{ old('location') }}</textarea>
                     <label for="pickupLocation">Location</label>
                 </div>
 
                 <div class="form-floating outside">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="petComment" style="height: 100px"
+                    <textarea class="form-control textarea-section" placeholder="Description" id="petComment"
                         name="description">{{ old('description') }}</textarea>
-                    <label for="petComment">Comments</label>
+                    <label for="petComment">Description</label>
                 </div>
 
                 @error('price')

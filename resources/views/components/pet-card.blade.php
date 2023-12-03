@@ -17,27 +17,24 @@
         @endif
         <article class="col">
             <article class="card">
-                <div style="transform: rotate(0);">
-                    @if (($images = Pets::getImages($pet->id)) != null)
-                        <img src="{{ asset($images[0]) }}" class="card-img-top" alt="Image of pet">
-                    @else
-                        <img src="{{ asset('storage/pet_images/placeholder.webp') }}" class="card-img-top"
-                            alt="Image of pet">
-                    @endif
-                    <div class="card-body">
-                        <h4 class="card-title"><a href="{{ url('pet/' . $pet->id) }}"
-                                class="text-decoration-none text-dark stretched-link">{{ $pet->name }}</a></h4>
-                        <hr>
-                        <p clasS="card-text mb-1"><strong>Months old: </strong>{{ $pet->age_in_months }}</p>
-                        <p class="card-text mb-1"><strong>Breed: </strong>{{ $breeds->find($pet->breeds_id)->breed }}
-                        </p>
-                        <p clasS="card-text mb-1"><strong>Sex: </strong>{{ $pet->sex }}</p>
-                        <p clasS="card-text mt-3 h6"><strong>Price: </strong>{{ $pet->price }} DKK</p>
-                    </div>
+                @if (($images = Pets::getImages($pet->id)) != null)
+                    <img src="{{ asset($images[0]) }}" class="card-img-top" alt="Image of pet">
+                @else
+                    <img src="{{ asset('storage/pet_images/placeholder.webp') }}" class="card-img-top" alt="Image of pet">
+                @endif
+                <div class="card-body">
+                    <h4 class="card-title"><a href="{{ url('pet/' . $pet->id) }}"
+                            class="text-decoration-none text-dark stretched-link">{{ $pet->name }}</a></h4>
+                    <hr>
+                    <p clasS="card-text mb-1"><strong>Months old: </strong>{{ $pet->age_in_months }}</p>
+                    <p class="card-text mb-1"><strong>Breed: </strong>{{ $breeds->find($pet->breeds_id)->breed }}
+                    </p>
+                    <p clasS="card-text mb-1"><strong>Sex: </strong>{{ $pet->sex }}</p>
+                    <p clasS="card-text mt-3 h6"><strong>Price: </strong>{{ $pet->price }} DKK</p>
                 </div>
                 @auth
                     @if ($pet->users_id == Auth::user()->id && $type == 'all')
-                        <div class="row" style="margin: auto">
+                        <div class="row text-center">
                             <div class="col">
                                 <a class="btn btn-primary login-button" href="{{ url('edit/' . $pet->id) }}">
                                     <p class=" mb-0">Edit</p>

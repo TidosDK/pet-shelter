@@ -32,7 +32,7 @@
                     <hr class="form-hr">
                 </article>
                 <article>
-                    <p class="playpen-font card-text" style="margin-bottom: 0px">Don't already have an account ?</p>
+                    <p class="playpen-font card-text mb-0">Don't already have an account ?</p>
                     <a href="{{ url('signup') }}" class="link">Create account</a>
                 </article>
             </div>

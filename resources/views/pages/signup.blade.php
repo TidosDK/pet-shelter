@@ -37,7 +37,7 @@
                     <hr class="form-hr">
                 </article>
                 <article>
-                    <p class="playpen-font card-text" style="margin-bottom: 0px">Already have an account ?</p>
+                    <p class="playpen-font card-text mb-0">Already have an account ?</p>
                     <a href="{{ url('login') }}" class="link">Log in</a>
                 </article>
             </div>

@@ -9,13 +9,14 @@ use App\Models\Pets;
             @if ($pet->users_id == Auth::user()->id)
                 <section class="mb-5 p-2 bg-color-cyan rounded-2">
                     <h4 class="playpen-bold-font mb-3">Hello {{ auth()->user()->name }}, this is your own post</h4>
-                    <a style="text-decoration:none" href="{{ url('edit/' . $pet->id) }}"><button
-                            class="btn login-button inline" style="margin-right: 10px; width: 80px;">Edit</button></a>
+					<a class="btn btn-primary login-button ps-3 pe-3" href="{{ url('edit/' . $pet->id) }}">
+						<p class="mb-0">Edit</p>
+					</a>
                     <form class="inline" method="post" action="{{ url('delete-post') }}">
                         @csrf
                         <input type="hidden" name="petId" value={{ $pet->id }}>
                         {{-- This value is changeable through browser tools, but all id's are checked against the authenticated user so you can't delete posts without proper ownership --}}
-                        <button type="submit" class="btn login-button inline" style="width: 80px">Delete</button>
+                        <button type="submit" class="btn login-button inline ps-3 pe-3">Delete</button>
                     </form>
                     <h5 class="mt-2">{{ session()->get('error') }}</h5>
                 </section>

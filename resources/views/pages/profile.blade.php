@@ -25,7 +25,7 @@ $title = 'Profile';
                 <button class="btn view-button btn-lg" type="button" id="editBtn">Edit</button>
             </div>
         </section>
-        <section class="lilita-one-font" id="editForm" style="display: none">
+        <section class="lilita-one-font edit-section-profile" id="editForm">
 
             <label class="mb-3 color-blue">Display name: </label>
             <input type="text" name="name" value={{ auth()->user()->name }}>
