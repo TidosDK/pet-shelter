@@ -42,7 +42,7 @@
                                 <a class="btn btn-primary login-button" href="{{ url('edit/' . $pet->id) }}">
                                     <p class=" mb-0">Edit</p>
                                 </a>
-                                <form class="inline" method="post" action="/delete-post">
+                                <form class="inline" method="post" action="{{ url('delete-post') }}">
                                     @csrf
                                     <input type="hidden" name="petId" value={{ $pet->id }}>
                                     <button type="submit" class="btn login-button inline">Delete</button>

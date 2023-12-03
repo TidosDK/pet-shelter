@@ -13,7 +13,7 @@
                 <article>
 
                     <h5 class="playpen-bold-font card-text">Sign up</h5>
-                    <form method="POST" action="/signup">
+                    <form method="POST" action="{{ url('signup') }}">
                         @csrf
                         <label class="playpen-font card-text">Display name :</label>
                         <p class="card-error-text">{{ $errors->first('name') }}</p>

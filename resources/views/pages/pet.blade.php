@@ -11,7 +11,7 @@ use App\Models\Pets;
                     <h4 class="playpen-bold-font mb-3">Hello {{ auth()->user()->name }}, this is your own post</h4>
                     <a style="text-decoration:none" href="{{ url('edit/' . $pet->id) }}"><button
                             class="btn login-button inline" style="margin-right: 10px; width: 80px;">Edit</button></a>
-                    <form class="inline" method="post" action="/delete-post">
+                    <form class="inline" method="post" action="{{ url('delete-post') }}">
                         @csrf
                         <input type="hidden" name="petId" value={{ $pet->id }}>
                         {{-- This value is changeable through browser tools, but all id's are checked against the authenticated user so you can't delete posts without proper ownership --}}

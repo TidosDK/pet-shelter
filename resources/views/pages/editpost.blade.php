@@ -6,7 +6,7 @@ use App\Models\Pets;
 <x-layout :title="$title">
     <link rel="stylesheet" href="{{ asset('css/post.css') }}">
     <h1 class="page-title mb-4">Edit pet post</h1>
-    <form method="POST" action="/edit" enctype="multipart/form-data">
+    <form method="POST" action="{{ url('edit') }}" enctype="multipart/form-data">
         @csrf
         <input type="hidden" value="{{ $pet->id }}" name="petId">
         <section class="row text-center">

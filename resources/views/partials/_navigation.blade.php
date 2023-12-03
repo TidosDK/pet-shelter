@@ -41,7 +41,7 @@
                             </a>
                         </li>
                         <li>
-                            <form method="POST" action="/logout" class="mb-0">
+                            <form method="POST" action="{{ url('logout') }}" class="mb-0">
                                 @csrf
                                 <button type="submit" class="btn btn-primary nav-bar-link login-button lilita-one-font">
                                     <p class="lilita-one-font mb-0">Log out</p>
