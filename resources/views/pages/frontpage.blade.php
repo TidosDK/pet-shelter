@@ -2,7 +2,7 @@
 <x-layout :title="$title">
 
     @if (session()->has('message'))
-        <div class="alert alert-success mt-4" id="logged-in-alert" role="alert">
+        <div class="alert alert-success mt-4" id="show-for-five-seoncds" role="alert">
             {{ session('message') }}
         </div>
         <script src="{{ asset('js/frontpage-alert.js') }}"></script>
