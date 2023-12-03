@@ -1,9 +1,15 @@
 <?php $title = 'Frontpage'; ?>
 <x-layout :title="$title">
 
+    @if (session()->has('message'))
+        <div class="alert alert-success mt-4" id="logged-in-alert" role="alert">
+            {{ session('message') }}
+        </div>
+        <script src="{{ asset('js/frontpage-alert.js') }}"></script>
+    @endif
     <div class="text-center cropped mt-5">
-        <img src="https://www.americanhumane.org/app/uploads/2016/08/shutterstock_162633491.jpg" class="img-fluid cropped-img"
-            alt="front pic">
+        <img src="https://www.americanhumane.org/app/uploads/2016/08/shutterstock_162633491.jpg"
+            class="img-fluid cropped-img" alt="front pic">
     </div>
     <h2 class="text-center mt-5">View a selection of all our pets</h2>
     <hr class="hr-new mt-5">
