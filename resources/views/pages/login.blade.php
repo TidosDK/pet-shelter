@@ -2,6 +2,12 @@
 
 <?php $title = 'Login'; ?>
 <x-layout :title="$title">
+	@if (session()->has('message'))
+        <div class="alert alert-success mt-4" id="show-for-five-seoncds" role="alert">
+            {{ session('message') }}
+        </div>
+        <script src="{{ asset('js/show-for-five-seconds.js') }}"></script>
+    @endif
     <div class="form-container">
         <h1 class="lilita-one-font text-center color-navy">Happy Tails !</h1>
         <div class="card">

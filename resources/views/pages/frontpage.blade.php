@@ -5,7 +5,7 @@
         <div class="alert alert-success mt-4" id="show-for-five-seoncds" role="alert">
             {{ session('message') }}
         </div>
-        <script src="{{ asset('js/frontpage-alert.js') }}"></script>
+        <script src="{{ asset('js/show-for-five-seconds.js') }}"></script>
     @endif
     <div class="text-center cropped mt-5">
         <img src="https://www.americanhumane.org/app/uploads/2016/08/shutterstock_162633491.jpg"
