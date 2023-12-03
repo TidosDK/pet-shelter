@@ -136,6 +136,11 @@
 	object-fit: cover;
 }
 
+/***** PET CARD *****/
+.pet-card-transform-fix {
+	transform: rotate(0);
+}
+
 /***** CROPS *****/
 .about-img-crop {
 	max-width: 800px !important;

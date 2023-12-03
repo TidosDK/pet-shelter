@@ -4,14 +4,16 @@ use App\Models\Pets;
 ?>
 
 <x-layout :title="$title">
-    <div id="topColums" class="row mt-5">
+    <section id="alert-message-area">
+    </section>
+    <section id="topColums" class="row mt-5">
         @auth
             @if ($pet->users_id == Auth::user()->id)
                 <section class="mb-5 p-2 bg-color-cyan rounded-2">
                     <h4 class="playpen-bold-font mb-3">Hello {{ auth()->user()->name }}, this is your own post</h4>
-					<a class="btn btn-primary login-button ps-3 pe-3" href="{{ url('edit/' . $pet->id) }}">
-						<p class="mb-0">Edit</p>
-					</a>
+                    <a class="btn btn-primary login-button ps-3 pe-3" href="{{ url('edit/' . $pet->id) }}">
+                        <p class="mb-0">Edit</p>
+                    </a>
                     <form class="inline" method="post" action="{{ url('delete-post') }}">
                         @csrf
                         <input type="hidden" name="petId" value={{ $pet->id }}>
@@ -62,7 +64,10 @@ use App\Models\Pets;
             <h5>Location</h5>
             <p>{{ $pet->location }}</p>
             <br>
-            <button onclick="goToSellerFunction()" id="scrollDownBtn" class="btn login-button">Contact seller</button>
+            @if (Auth::guest() || (Auth::user() && $pet->users_id != Auth::user()->id))
+                <button onclick="goToSellerFunction()" id="scrollDownBtn" class="btn login-button">Contact
+                    seller</button>
+            @endif
         </section>
         <section class="about-img-crop center mt-5">
             <h2 class="text-center mb-3">Information</h2>
@@ -115,4 +120,5 @@ use App\Models\Pets;
             </section>
             <script src="{{ asset('js/scripts.js') }}"></script>
         @endif
+    </section>
 </x-layout>
