@@ -22,9 +22,6 @@
     margin: auto;
 }
 
-.animal-info {
-    margin-bottom: 10px;
-}
 
 /** Bootstrap Changes **/
 
@@ -76,3 +73,10 @@
     margin: auto;
 }
 
+.create-post-image-section {
+	max-width: 28rem!important;
+}
+
+.textarea-section {
+	height: 100px!important;
+}

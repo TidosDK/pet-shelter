@@ -2,32 +2,30 @@
 $title = 'Pet';
 use App\Models\Pets;
 ?>
-<script src="{{ asset('js/scripts.js') }}"></script>
 
 <x-layout :title="$title">
-    <div id="alert-message-area">
-
-    </div>
-    <div id="topColums" class="row mt-5">
-
+    <section id="alert-message-area">
+    </section>
+    <section id="topColums" class="row mt-5">
         @auth
             @if ($pet->users_id == Auth::user()->id)
-                <div class="mb-5 p-2 bg-color-cyan rounded-2">
+                <section class="mb-5 p-2 bg-color-cyan rounded-2">
                     <h4 class="playpen-bold-font mb-3">Hello {{ auth()->user()->name }}, this is your own post</h4>
-                    <a style="text-decoration:none" href="{{ url('edit/' . $pet->id) }}"><button class="btn login-button inline"
-                            style="margin-right: 10px; width: 80px;">Edit</button></a>
-                    <form class="inline" method="post" action="/delete-post">
+                    <a class="btn btn-primary login-button ps-3 pe-3" href="{{ url('edit/' . $pet->id) }}">
+                        <p class="mb-0">Edit</p>
+                    </a>
+                    <form class="inline" method="post" action="{{ url('delete-post') }}">
                         @csrf
                         <input type="hidden" name="petId" value={{ $pet->id }}>
-                        <!-- This value is changeable through browser tools, but all id's are checked against the authenticated user so you can't delete posts without proper ownership -->
-                        <button type="submit" class="btn login-button inline" style="width: 80px">Delete</button>
+                        {{-- This value is changeable through browser tools, but all id's are checked against the authenticated user so you can't delete posts without proper ownership --}}
+                        <button type="submit" class="btn login-button inline ps-3 pe-3">Delete</button>
                     </form>
                     <h5 class="mt-2">{{ session()->get('error') }}</h5>
-                </div>
+                </section>
             @endif
         @endauth
-
-        <div id="carouselExampleControls" class="carousel carousel-dark slide carousel-crop" data-bs-ride="carousel">
+        <section id="carouselExampleControls" class="carousel carousel-dark slide carousel-crop"
+            data-bs-ride="carousel">
             <div class="carousel-inner">
                 @if (($images = Pets::getImages($pet->id)) != null)
                     <?php $active = 'active'; ?>
@@ -39,7 +37,7 @@ use App\Models\Pets;
                     @endfor
                 @else
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ asset('storage/pet_images/placeholder.webp') }}"
+                        <img class="d-block carousel-image" src="{{ asset('storage/pet_images/placeholder.webp') }}"
                             alt="Image of pet">
                     </div>
                 @endif
@@ -54,8 +52,8 @@ use App\Models\Pets;
                 <span class="carousel-control-next-icon carousel-control-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>
-        <div class="col">
+        </section>
+        <section class="col">
             <h2>{{ $pet->name }}</h2>
             <br>
             <h5>Price: {{ $pet->price }} DKK</h5>
@@ -66,10 +64,13 @@ use App\Models\Pets;
             <h5>Location</h5>
             <p>{{ $pet->location }}</p>
             <br>
-            <button onclick="goToSellerFunction()" id="scrollDownBtn" class="btn login-button">Contact seller</button>
-        </div>
-        <h2 class="text-center mt-5">Information</h2>
-        <div class="about-img-crop center mt-3">
+            @if (Auth::guest() || (Auth::user() && $pet->users_id != Auth::user()->id))
+                <button onclick="goToSellerFunction()" id="scrollDownBtn" class="btn login-button">Contact
+                    seller</button>
+            @endif
+        </section>
+        <section class="about-img-crop center mt-5">
+            <h2 class="text-center mb-3">Information</h2>
             <div class="row blue-white lilita-one-font text-size24">
                 <div class="col-8">Age</div>
                 <div class="col-4 text-right">{{ $pet->age_in_months }} months</div>
@@ -98,23 +99,26 @@ use App\Models\Pets;
                 <div class="col-8">Can live with kids</div>
                 <div class="col-4 text-right">{{ $pet->kidFriendly == true ? 'Yes' : 'No' }}</div>
             </div>
-        </div>
-        <h2 class="text-center mt-5">Contact seller</h2>
-        <div id="contactFormDiv" class="center about-img-crop mt-3">
-            <form>
-                <div class="form-group">
-                    <label>Email you wish to recive response:</label>
-                    <input class="form-control" id="email">
-                </div>
-                <br>
-                <div class="form-group">
-                    <label>Message:</label>
-                    <textarea class="form-control" id="message" rows="3"></textarea>
-                </div>
-            </form>
-        </div>
-        <button onclick="sendContactMail()" type="button"
-            class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
-            message</button>
-
+        </section>
+        @if (Auth::guest() || (Auth::user() && $pet->users_id != Auth::user()->id))
+            <section id="contactFormDiv" class="center about-img-crop mt-5">
+                <h2 class="text-center mb-4">Contact seller</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Email you wish to recive response:</label>
+                        <input class="form-control" id="email">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Message:</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+                </form>
+                <button onclick="sendContactMail()" type="button"
+                    class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
+                    message</button>
+            </section>
+            <script src="{{ asset('js/scripts.js') }}"></script>
+        @endif
+    </section>
 </x-layout>

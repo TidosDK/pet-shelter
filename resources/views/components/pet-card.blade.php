@@ -15,9 +15,9 @@
         @if (isset($_GET['breed']) && $pet->breed->breed != $_GET['breed'])
             @continue
         @endif
-        <div class="col">
-            <div class="card">
-                <div style="transform: rotate(0);">
+        <article class="col">
+            <article class="card">
+                <div class="pet-card-transform-fix">
                     @if (($images = Pets::getImages($pet->id)) != null)
                         <img src="{{ asset($images[0]) }}" class="card-img-top" alt="Image of pet">
                     @else
@@ -37,12 +37,12 @@
                 </div>
                 @auth
                     @if ($pet->users_id == Auth::user()->id && $type == 'all')
-                        <div class="row" style="margin: auto">
+                        <div class="row text-center">
                             <div class="col">
                                 <a class="btn btn-primary login-button" href="{{ url('edit/' . $pet->id) }}">
-                                    <p class=" mb-0">Edit</p>
+                                    <p class="mb-0">Edit</p>
                                 </a>
-                                <form class="inline" method="post" action="/delete-post">
+                                <form class="inline" method="post" action="{{ url('delete-post') }}">
                                     @csrf
                                     <input type="hidden" name="petId" value={{ $pet->id }}>
                                     <button type="submit" class="btn login-button inline">Delete</button>
@@ -52,7 +52,7 @@
                         </div>
                     @endif
                 @endauth
-            </div>
-        </div>
+            </article>
+        </article>
     @endif
 @endforeach
