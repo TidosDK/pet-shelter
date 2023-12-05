@@ -8,6 +8,7 @@ use App\Models\TypesOfPets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller {
 
@@ -95,11 +96,19 @@ class PostController extends Controller {
             'castrated' => ['required'],
             'multipleAnimalsFriendly' => ['required'],
             'kidFriendly' => ['required'],
-            'price' => ['required', 'numeric']
+            'price' => ['required', 'numeric'],
         ]);
 
         Pets::whereId($request['petId'])->update($pet_credentials);
-        return redirect("/pet/{$id}")->with('Post Created');
+
+        //If a new image has been uploaded, delete the old and replace with new
+        if ($request["petImage"] != null) {
+            $pet_folder_name = "p" . $id;
+            File::cleanDirectory("storage/pet_images/" . $pet_folder_name);
+            $request->file('petImage')->store('pet_images/' . $pet_folder_name, 'public');
+        }
+
+        return redirect("/pet/{$id}")->with('Post edited');
     }
 
     public function deletePost(Request $request) {
@@ -108,7 +117,13 @@ class PostController extends Controller {
             return redirect()->back()->with('error', 'You are not the owner of this pet!');
 
         //Delete pet from database
-        Pets::destroy($request["petId"]);
+        $id = $request["petId"];
+        Pets::destroy($id);
+        
+        //Delete image directory from storage
+        $pet_folder_name = "p" . $id;
+        File::deleteDirectory("storage/pet_images/" . $pet_folder_name);
+
         return redirect('/post-management')->with('message', 'Post succesfully deleted');
     }
 
