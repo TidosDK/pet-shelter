@@ -8,7 +8,6 @@ use App\Models\TypesOfPets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller {
 
@@ -119,7 +118,7 @@ class PostController extends Controller {
         //Delete pet from database
         $id = $request["petId"];
         Pets::destroy($id);
-        
+
         //Delete image directory from storage
         $pet_folder_name = "p" . $id;
         File::deleteDirectory("storage/pet_images/" . $pet_folder_name);
