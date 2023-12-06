@@ -103,7 +103,6 @@ class PostController extends Controller {
         //If a new image has been uploaded, delete the old and replace with new
         if ($request["petImage"] != null) {
             $pet_folder_name = "p" . $id;
-            File::cleanDirectory("storage/pet_images/" . $pet_folder_name);
             $request->file('petImage')->store('pet_images/' . $pet_folder_name, 'public');
         }
 
