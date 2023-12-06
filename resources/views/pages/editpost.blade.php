@@ -21,7 +21,7 @@ use App\Models\Pets;
                     <div class="card-body">
                         <h5 class="card-title">Image</h5>
                         <div class="mb-3">
-                            <input class="form-control" type="file" id="formFile">
+                            <input type="file" class="form-control" id="petImage" name="petImage">
                         </div>
                     </div>
                 </div>

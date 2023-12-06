@@ -74,7 +74,7 @@ $title = 'Create';
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="form-floating form-list">
+                <div class="form-floating form-list mb-2">
                     <select class="form-select" id="genderSelect" aria-label="Floating label select example"
                         name="sex">
                         <option selected
@@ -87,6 +87,7 @@ $title = 'Create';
                         </option>
                         <option value="Female">Female</option>
                         <option value="Male">Male</option>
+                        <option value="Other">Other</option>
                     </select>
                     <label for="genderSelect">Select which Sex</label>
                 </div>
@@ -96,10 +97,17 @@ $title = 'Create';
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="form-floating form-list">
+                <div class="form-floating form-list mb-2">
                     <select class="form-select" id="animalList" aria-label="Floating label select example"
                         name="type_id">
-                        <option selected>None</option>
+
+                        @if (old('type_id') == '')
+                            <option value="None" selected>None</option>
+                        @else
+                            <option value={{ $types[(int) old('type_id') - 1]->id }} selected>
+                                {{ $types[((int) old('type_id')) - 1]->type }}</option>
+                        @endif
+
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ $type->type }}</option>
                         @endforeach
@@ -107,10 +115,20 @@ $title = 'Create';
                     <label for="animalList">Select Animal</label>
                 </div>
 
+                @error('breeds_id')
+                    <div class="alert alert-danger" role="alert">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <div class="form-floating form-list">
                     <select class="form-select outside" id="breedList" aria-label="Default select example"
                         name="breeds_id">
-                        <option selected>None</option>
+
+                        @if (old('breeds_id') != '')
+                            <option value={{ $breeds[old('breeds_id') - 1]->id }} selected>
+                                {{ $breeds[old('breeds_id') - 1]->breed }}</option>
+                        @endif
+
                         @foreach ($breeds as $breed)
                             <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
                         @endforeach
@@ -138,7 +156,7 @@ $title = 'Create';
                 @enderror
                 <div class="form-check form-check-reverse">
                     <input class="form-check-input" type="checkbox" value="" id="multipleAnimalsFriendlyCheck"
-                        @if (old('castrated')) checked @endif name="multipleAnimalsFriendly">
+                        @if (old('multipleAnimalsFriendly')) checked @endif name="multipleAnimalsFriendly">
                     <label class="form-check-label" for="multipleAnimalsFriendlyCheck">
                         Can your pet live with other pets?
                     </label>
@@ -151,7 +169,7 @@ $title = 'Create';
                 @enderror
                 <div class="form-check form-check-reverse">
                     <input class="form-check-input" type="checkbox" value="" id="kidFriendlyCheck"
-                        @if (old('castrated')) checked @endif name="kidFriendly">
+                        @if (old('kidFriendly')) checked @endif name="kidFriendly">
                     <label class="form-check-label" for="kidFriendlyCheck">
                         Can your pet live with kids?
                     </label>
@@ -168,8 +186,7 @@ $title = 'Create';
                 </div>
 
                 <div class="form-floating outside">
-                    <textarea class="form-control textarea-section" placeholder="Description" id="petComment"
-                        name="description">{{ old('description') }}</textarea>
+                    <textarea class="form-control textarea-section" placeholder="Description" id="petComment" name="description">{{ old('description') }}</textarea>
                     <label for="petComment">Description</label>
                 </div>
 
