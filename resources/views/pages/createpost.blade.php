@@ -100,13 +100,14 @@ $title = 'Create';
                 <div class="form-floating form-list mb-2">
                     <select class="form-select" id="animalList" aria-label="Floating label select example"
                         name="type_id">
-                        
-                        @if (old('type_id') == "")
+
+                        @if (old('type_id') == '')
                             <option value="None" selected>None</option>
                         @else
-                            <option value={{$types[((int)old('type_id') - 1)]->id}} selected>{{$types[((int)old('type_id')) - 1]->type}}</option>
+                            <option value={{ $types[(int) old('type_id') - 1]->id }} selected>
+                                {{ $types[((int) old('type_id')) - 1]->type }}</option>
                         @endif
-                        
+
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ $type->type }}</option>
                         @endforeach
@@ -115,20 +116,19 @@ $title = 'Create';
                 </div>
 
                 @error('breeds_id')
-                <div class="alert alert-danger" role="alert">
-                    {{ $message }}
-                </div>
+                    <div class="alert alert-danger" role="alert">
+                        {{ $message }}
+                    </div>
                 @enderror
                 <div class="form-floating form-list">
                     <select class="form-select outside" id="breedList" aria-label="Default select example"
                         name="breeds_id">
-                        
-                        @if (old('breeds_id') == "")
-                            <option value="None" selected>None</option>
-                        @else
-                            <option value={{$breeds[old('breeds_id') - 1]->id}} selected>{{$breeds[old('breeds_id') - 1]->breed}}</option>
-                        @endif                        
-                        
+
+                        @if (old('breeds_id') != '')
+                            <option value={{ $breeds[old('breeds_id') - 1]->id }} selected>
+                                {{ $breeds[old('breeds_id') - 1]->breed }}</option>
+                        @endif
+
                         @foreach ($breeds as $breed)
                             <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
                         @endforeach
@@ -186,8 +186,7 @@ $title = 'Create';
                 </div>
 
                 <div class="form-floating outside">
-                    <textarea class="form-control textarea-section" placeholder="Description" id="petComment"
-                        name="description">{{ old('description') }}</textarea>
+                    <textarea class="form-control textarea-section" placeholder="Description" id="petComment" name="description">{{ old('description') }}</textarea>
                     <label for="petComment">Description</label>
                 </div>
 
