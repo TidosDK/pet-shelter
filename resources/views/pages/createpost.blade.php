@@ -63,7 +63,7 @@ $title = 'Create';
                 <div class="input-group mb-3">
                     <span class="input-group-text input-group-text-naw">Weight</span>
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="petWeight" value="{{ old('weight') }}"
+                        <input type="number" step="0.01" class="form-control" id="petWeight" value="{{ old('weight') }}"
                             name="weight">
                         <label for="petWeight">Please enter the weight (kg)</label>
                     </div>
