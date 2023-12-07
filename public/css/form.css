@@ -1,16 +1,9 @@
-html, body {
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-}
-
 .form-container {
     margin-top: 5vh;
     margin-left: auto;
     margin-right: auto;
     height: 70vh;
 }
-
 
 .card {
     margin: auto;
@@ -53,12 +46,12 @@ html, body {
     margin-left: 5px;
 }
 
-.btn-primary {
+.login-button-card {
     background-color: var(--lightblue) !important;
     border: 2px solid #00000000 !important;
 }
 
-.btn-primary:hover {
+.login-button-card:hover {
     border: 2px solid !important;
     color: var(--white);
 }

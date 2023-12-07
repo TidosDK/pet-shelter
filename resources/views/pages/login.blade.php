@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="{{ asset('css/form.css') }}">
-
 <?php $title = 'Login'; ?>
 <x-layout :title="$title">
+    <link rel="stylesheet" href="{{ asset('css/form.css') }}">
     @if (session()->has('message'))
         <div class="alert alert-success mt-4" id="show-for-five-seoncds" role="alert">
             {{ session('message') }}
@@ -26,7 +25,7 @@
                         <label for="password" class="playpen-font card-text">Password :</label>
                         <p class="card-error-text">{{ $errors->first('password') }}</p>
                         <input type="password" class="form-control" name="password">
-                        <input type="submit" class="btn btn-primary" value="Log in">
+                        <input type="submit" class="btn btn-primary login-button-card mb-3" value="Log in">
                     </form>
                     <a href="{{ url('reset-password') }}" class="link">Forgot password</a>
                     <hr class="form-hr">

@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="{{ asset('css/form.css') }}">
-
 <?php $title = 'Password reset'; ?>
 <x-layout :title="$title">
+    <link rel="stylesheet" href="{{ asset('css/form.css') }}">
     <section class="form-container">
         <h1 class="lilita-one-font text-center color-navy">Happy Tails !</h1>
         <section class="card">

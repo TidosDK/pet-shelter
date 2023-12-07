@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="{{ asset('css/form.css') }}">
-
 <?php $title = 'Signup'; ?>
 <x-layout :title="$title">
+    <link rel="stylesheet" href="{{ asset('css/form.css') }}">
     <section class="form-container">
         <h1 class="lilita-one-font text-center color-navy">Happy Tails !</h1>
         <section class="card">
@@ -31,7 +30,7 @@
                         <br>
                         <input type="password" class="form-control" name="password_confirmation">
                         <div class="submit-holder">
-                            <input type="submit" class="btn btn-primary" value="Sign up">
+                            <input type="submit" class="btn btn-primary login-button-card mb-2" value="Sign up">
                         </div>
                     </form>
                     <hr class="form-hr">
