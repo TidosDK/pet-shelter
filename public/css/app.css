@@ -141,6 +141,11 @@
 	transform: rotate(0);
 }
 
+.information-text {
+	font-size: 20px;
+}
+
+
 /***** CROPS *****/
 .about-img-crop {
 	max-width: 800px !important;

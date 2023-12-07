@@ -72,32 +72,32 @@ use App\Models\Pets;
         <section class="about-img-crop center mt-5">
             <h2 class="text-center mb-3">Information</h2>
             <div class="row blue-white lilita-one-font text-size24">
-                <div class="col-8">Age</div>
-                <div class="col-4 text-right">{{ $pet->age_in_months }} months</div>
+                <div class="col-8 information-text">Age</div>
+                <div class="col-4 text-right information-text">{{ $pet->age_in_months }} months</div>
             </div>
             <div class="row lilita-one-font text-size24">
-                <div class="col-8">Sex</div>
-                <div class="col-4 text-right">{{ $pet->sex }}</div>
+                <div class="col-8 information-text">Sex</div>
+                <div class="col-4 text-right information-text">{{ $pet->sex }}</div>
             </div>
             <div class="row blue-white lilita-one-font text-size24">
-                <div class="col-8">Breed</div>
-                <div class="col-4 text-right">{{ $pet->breed->breed }}</div>
+                <div class="col-8 information-text">Breed</div>
+                <div class="col-4 text-right information-text">{{ $pet->breed->breed }}</div>
             </div>
             <div class="row lilita-one-font text-size24">
-                <div class="col-8">Weight</div>
-                <div class="col-4 text-right">{{ $pet->weight }} kg</div>
+                <div class="col-8 information-text">Weight</div>
+                <div class="col-4 text-right information-text">{{ $pet->weight }} kg</div>
             </div>
             <div class="row blue-white lilita-one-font text-size24">
-                <div class="col-8">Castrated/Neutered</div>
-                <div class="col-4 text-right">{{ $pet->castrated == true ? 'Yes' : 'No' }}</div>
+                <div class="col-8 information-text">Castrated/Neutered</div>
+                <div class="col-4 text-right information-text">{{ $pet->castrated == true ? 'Yes' : 'No' }}</div>
             </div>
             <div class="row lilita-one-font text-size24">
-                <div class="col-8">Can live with other animals</div>
-                <div class="col-4 text-right">{{ $pet->multipleAnimalsFriendly == true ? 'Yes' : 'No' }}</div>
+                <div class="col-8 information-text">Can live with other animals</div>
+                <div class="col-4 text-right information-text">{{ $pet->multipleAnimalsFriendly == true ? 'Yes' : 'No' }}</div>
             </div>
             <div class="row blue-white lilita-one-font text-size24">
-                <div class="col-8">Can live with kids</div>
-                <div class="col-4 text-right">{{ $pet->kidFriendly == true ? 'Yes' : 'No' }}</div>
+                <div class="col-8 information-text">Can live with kids</div>
+                <div class="col-4 text-right information-text">{{ $pet->kidFriendly == true ? 'Yes' : 'No' }}</div>
             </div>
         </section>
         @if (Auth::guest() || (Auth::user() && $pet->users_id != Auth::user()->id))
