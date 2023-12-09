@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Breeds;
 use App\Models\Pets;
 use App\Models\TypesOfPets;
+use App\Models\UserLikesPet;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 
@@ -38,5 +39,13 @@ class DatabaseSeeder extends Seeder {
 		]);
 
 		Pets::factory(20)->create();
+
+		for ($i = 0; $i < 1000; $i++) {
+			UserLikesPet::create([
+				'user_id' => User::inRandomOrder()->first()->id,
+				'pet_id' => Pets::inRandomOrder()->first()->id,
+				'reaction_type' => fake()->randomElement(['like', 'heart', 'star'])
+			]);
+		}
 	}
 }
