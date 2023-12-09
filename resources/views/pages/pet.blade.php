@@ -3,6 +3,9 @@ $title = 'Pet';
 use App\Models\Pets;
 ?>
 
+<script src="{{ asset('js/scripts.js') }}"></script>
+<script src="{{ asset('js/reaction.js') }}"></script>
+
 <x-layout :title="$title">
     <section id="alert-message-area">
     </section>
@@ -52,8 +55,36 @@ use App\Models\Pets;
                 <span class="carousel-control-next-icon carousel-control-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
+
+
+            <div class="center w-50 text-center mt-3" id="LikeContainer">
+                <div class="reaction-image-container mt-2 mb-3">
+                    <div class="inline reaction-image-container">
+                        <img id="like-image" class="reaction-image" src="{{ asset('storage/static/like.png') }}">
+                        <label class="playpen-bold-font" for="like-image">13</label>
+                    </div>
+                    <div class="inline reaction-image-container">
+                        <img id="heart-image" class="reaction-image" src="{{ asset('storage/static/heart.png') }}">
+                        <label class="playpen-bold-font" for="heart-image">13</label>
+                    </div>
+                    <div class="inline reaction-image-container">
+                        <img id="star-image" class="reaction-image" src="{{ asset('storage/static/superstar.png') }}">
+                        <label class="playpen-bold-font" for="star-image">13</label>
+                    </div>
+                </div>
+
+                <input id="like-button" class="w-50 like-button playpen-bold-font" type="button" value="Like">
+
+                <div id="reaction-buttons" class="reaction-button-container mt-2">
+                    <input type="image" class="reaction-button" src="{{ asset('storage/static/like.png') }}">
+                    <input type="image" class="reaction-button" src="{{ asset('storage/static/heart.png') }}">
+                    <input type="image" class="reaction-button" src="{{ asset('storage/static/superstar.png') }}">
+                </div>
+            </div>
+
+
         </section>
-        <section class="col">
+        <section class="col mb-5">
             <h2>{{ $pet->name }}</h2>
             <br>
             <h5>Price: {{ $pet->price }} DKK</h5>
@@ -118,7 +149,6 @@ use App\Models\Pets;
                     class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
                     message</button>
             </section>
-            <script src="{{ asset('js/scripts.js') }}"></script>
         @endif
     </section>
 </x-layout>
