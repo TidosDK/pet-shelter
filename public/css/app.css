@@ -217,7 +217,6 @@
 	display: none;
 }
 
-
 /***** POST MANAGEMENT *****/
 .post-management-no-posts-text {
 	font-size: 24;
@@ -288,4 +287,15 @@
 .like-button:hover {
 	color: var(--lightblue);
 	border-color: var(--lightblue);
+}
+
+.reaction-card-pet-image {
+	max-width: 80px;
+}
+
+.liked-pet-container {
+	border-style: solid;
+	border-color: var(--lightblue);
+	border-radius: 5px;
+	background-color: #80CED740;
 }
