@@ -65,7 +65,7 @@ use App\Models\Pets;
             <p>{{ $pet->location }}</p>
             <br>
             @if (Auth::guest() || (Auth::user() && $pet->users_id != Auth::user()->id))
-                <button onclick="goToSellerFunction()" id="scrollDownBtn" class="btn login-button">Contact
+                <button id="scrollDownBtn" class="btn login-button">Contact
                     seller</button>
             @endif
         </section>
@@ -114,7 +114,7 @@ use App\Models\Pets;
                         <textarea class="form-control" id="message" rows="3"></textarea>
                     </div>
                 </form>
-                <button onclick="sendContactMail()" type="button"
+                <button id="sendMessageBtn" type="button"
                     class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
                     message</button>
             </section>
