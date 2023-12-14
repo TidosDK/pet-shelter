@@ -47,6 +47,13 @@ class ReactionController extends Controller {
             return null;
 
         return $reaction->reaction_type;
+    }
 
+    public static function userReactionsAll() {
+        if (!Auth::check()) {
+            return null;
+        }
+
+        return UserLikesPet::where('user_id', Auth::user()->id)->get();
     }
 }

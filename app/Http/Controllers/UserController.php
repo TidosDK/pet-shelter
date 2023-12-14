@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Models\TypesOfPets;
 
 class UserController extends Controller {
 
@@ -25,7 +26,10 @@ class UserController extends Controller {
 
 	// Profile page
 	public function profileView() {
-		return view('pages.profile');
+		return view('pages.profile', [
+			'reactions' => ReactionController::userReactionsAll(),
+			'types_of_pets' => TypesOfPets::all()
+		]);
 	}
 
 	// Update information
