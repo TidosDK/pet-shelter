@@ -59,58 +59,42 @@ use App\Models\Pets;
 
             <div class="center w-50 text-center mt-3" id="LikeContainer">
                 <div class="reaction-image-container mt-2 mb-3">
-                    <div class="inline reaction-image-container">
-                        <img id="like-image" class="reaction-image" src="{{ asset('storage/static/like.png') }}">
-                        <label class="playpen-bold-font" for="like-image">{{$likes}}</label>
-                    </div>
-                    <div class="inline reaction-image-container">
-                        <img id="heart-image" class="reaction-image" src="{{ asset('storage/static/heart.png') }}">
-                        <label class="playpen-bold-font" for="heart-image">{{$hearts}}</label>
-                    </div>
-                    <div class="inline reaction-image-container">
-                        <img id="star-image" class="reaction-image" src="{{ asset('storage/static/superstar.png') }}">
-                        <label class="playpen-bold-font" for="star-image">{{$stars}}</label>
-                    </div>
+                    @foreach ($reaction_types as $reaction_type)
+                        <div class="inline reaction-image-container">
+                            @php $image_path = asset('storage/static/reaction_images/'.$reaction_type->type.'.png'); @endphp
+                            <img id="{{$reaction_type->type}}-image" class="reaction-image" src="{{$image_path}}">
+                            <label class="playpen-bold-font" for="{{$reaction_type->type}}-image">{{$reactions[$reaction_type->type]}}</label>
+                        </div>
+                    @endforeach
                 </div>
                 <p class="mt-2 playpen-bold-font">{{ session()->get('react_error') }}</p>
                 @auth
                     @if ($pet->users_id != auth()->user()->id)
                         @if ($current_reaction == null)
-                        <input id="like-button" class="w-50 like-button playpen-bold-font" type="button" value="Like">
+                            <input id="like-button" class="w-50 like-button playpen-bold-font" type="button" value="Like">
 
-                        <div id="reaction-buttons" class="reaction-button-container mt-2">
-                            <form class="inline" method="post" action="{{ url('react') }}">
-                                @csrf
-                                <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                                <input type="hidden" name="reaction_type" value="like">
-                                <input type="image" class="reaction-button" src="{{ asset('storage/static/like.png') }}">
-                            </form>
-                            <form class="inline" method="post" action="{{ url('react') }}">
-                                @csrf
-                                <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                                <input type="hidden" name="reaction_type" value="heart">
-                                <input type="image" class="reaction-button" src="{{ asset('storage/static/heart.png') }}">
-                            </form>
-                            <form class="inline" method="post" action="{{ url('react') }}">
-                                @csrf
-                                <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                                <input type="hidden" name="reaction_type" value="star">
-                                <input type="image" class="reaction-button" src="{{ asset('storage/static/superstar.png') }}">
-                            </form>
-                        </div>
+                            <div id="reaction-buttons" class="reaction-button-container mt-2">
+                                @foreach ($reaction_types as $reaction_type)
+                                    <form class="inline" method="post" action="{{ url('react') }}">
+                                        @csrf
+                                        <input type="hidden" name="pet_id" value={{ $pet->id }}>
+                                        <input type="hidden" name="type" value="{{$reaction_type->type}}">
+                                        @php $image_path = asset('storage/static/reaction_images/'.$reaction_type->type.'.png'); @endphp
+                                        <input type="image" class="reaction-button" src="{{$image_path}}">
+                                    </form>
+                                @endforeach
+                            </div>
                         @else
                             <form class="inline" method="post" action="{{ url('unreact') }}">
                                 @csrf
                                 <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                                @if ($current_reaction == 'like')
-                                    <input type="image" class="unreaction-button" src="{{ asset('storage/static/like.png') }}">
-                                @endif
-                                @if ($current_reaction == 'heart')
-                                    <input type="image" class="unreaction-button" src="{{ asset('storage/static/heart.png') }}">
-                                @endif
-                                @if ($current_reaction == 'star')
-                                    <input type="image" class="unreaction-button" src="{{ asset('storage/static/superstar.png') }}">
-                                @endif
+
+                                @foreach ($reaction_types as $reaction_type)
+                                    @if ($current_reaction->type == $reaction_type->type)
+                                        @php $image_path = asset('storage/static/reaction_images/'.$reaction_type->type.'.png'); @endphp
+                                        <input type="image" class="unreaction-button" src="{{$image_path}}">
+                                    @endif
+                                @endforeach
                             </form>
                         @endif
                     @else

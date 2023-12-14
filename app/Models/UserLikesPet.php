@@ -13,6 +13,6 @@ class UserLikesPet extends Model {
     protected $fillable = [
 		'user_id',
 		'pet_id',
-		'reaction_type'
+		'type_id'
 	];
 }

@@ -19,7 +19,9 @@ return new class extends Migration
             $table->unsignedInteger('pet_id')->nullable(false);
             $table->foreign('pet_id')->references('id')->on('pets')->onDelete('cascade');
             
-            $table->string('reaction_type')->nullable(false)->default("like");
+            $table->unsignedInteger('type_id')->nullable(false);
+            $table->foreign('type_id')->references('id')->on('types_of_likes')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
