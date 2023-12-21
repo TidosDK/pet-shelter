@@ -1,14 +1,14 @@
-@props(['pets', 'breeds', 'typesOfPets', 'type'])
+@props(['pets', 'breeds', 'typeOfPets', 'type'])
 
 <?php use App\Models\Pets; ?>
 
 @foreach ($pets as $pet)
     @if (
         $type == 'all' ||
-            strtolower($typesOfPets->find($pet->type_id)->type) == strtolower($type) ||
+            strtolower($typeOfPets->find($pet->type_id)->type) == strtolower($type) ||
             ($type == '' &&
-                strtolower($typesOfPets->find($pet->type_id)->type) != strtolower('Dog') &&
-                strtolower($typesOfPets->find($pet->type_id)->type) != strtolower('Cat')))
+                strtolower($typeOfPets->find($pet->type_id)->type) != strtolower('Dog') &&
+                strtolower($typeOfPets->find($pet->type_id)->type) != strtolower('Cat')))
         @if (isset($_GET['gender']) && $pet->sex != $_GET['gender'])
             @continue
         @endif

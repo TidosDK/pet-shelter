@@ -19,7 +19,7 @@ class NavigationController extends Controller {
 		return view('pages.pets', [
 			'pets' => Pets::all(),
 			'breeds' => Breeds::all(),
-			'types_of_pets' => TypesOfPets::all(),
+			'type_of_pets' => TypesOfPets::all(),
 			'type' => $type
 		]);
 	}

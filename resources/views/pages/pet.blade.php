@@ -74,47 +74,43 @@ use App\Models\Pets;
                 </div>
                 <p class="mt-2 playpen-bold-font">{{ session()->get('react_error') }}</p>
                 @auth
-                    @if ($pet->users_id != auth()->user()->id)
-                        @if ($current_reaction == null)
-                        <input id="like-button" class="w-50 like-button playpen-bold-font" type="button" value="Like">
+                    @if ($current_reaction == null)
+                    <input id="like-button" class="w-50 like-button playpen-bold-font" type="button" value="Like">
 
-                        <div id="reaction-buttons" class="reaction-button-container mt-2">
-                            <form class="inline" method="post" action="{{ url('react') }}">
-                                @csrf
-                                <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                                <input type="hidden" name="reaction_type" value="like">
-                                <input type="image" class="reaction-button" src="{{ asset('storage/static/like.png') }}">
-                            </form>
-                            <form class="inline" method="post" action="{{ url('react') }}">
-                                @csrf
-                                <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                                <input type="hidden" name="reaction_type" value="heart">
-                                <input type="image" class="reaction-button" src="{{ asset('storage/static/heart.png') }}">
-                            </form>
-                            <form class="inline" method="post" action="{{ url('react') }}">
-                                @csrf
-                                <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                                <input type="hidden" name="reaction_type" value="star">
-                                <input type="image" class="reaction-button" src="{{ asset('storage/static/superstar.png') }}">
-                            </form>
-                        </div>
-                        @else
-                            <form class="inline" method="post" action="{{ url('unreact') }}">
-                                @csrf
-                                <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                                @if ($current_reaction == 'like')
-                                    <input type="image" class="unreaction-button" src="{{ asset('storage/static/like.png') }}">
-                                @endif
-                                @if ($current_reaction == 'heart')
-                                    <input type="image" class="unreaction-button" src="{{ asset('storage/static/heart.png') }}">
-                                @endif
-                                @if ($current_reaction == 'star')
-                                    <input type="image" class="unreaction-button" src="{{ asset('storage/static/superstar.png') }}">
-                                @endif
-                            </form>
-                        @endif
+                    <div id="reaction-buttons" class="reaction-button-container mt-2">
+                        <form class="inline" method="post" action="{{ url('react') }}">
+                            @csrf
+                            <input type="hidden" name="pet_id" value={{ $pet->id }}>
+                            <input type="hidden" name="reaction_type" value="like">
+                            <input type="image" class="reaction-button" src="{{ asset('storage/static/like.png') }}">
+                        </form>
+                        <form class="inline" method="post" action="{{ url('react') }}">
+                            @csrf
+                            <input type="hidden" name="pet_id" value={{ $pet->id }}>
+                            <input type="hidden" name="reaction_type" value="heart">
+                            <input type="image" class="reaction-button" src="{{ asset('storage/static/heart.png') }}">
+                        </form>
+                        <form class="inline" method="post" action="{{ url('react') }}">
+                            @csrf
+                            <input type="hidden" name="pet_id" value={{ $pet->id }}>
+                            <input type="hidden" name="reaction_type" value="star">
+                            <input type="image" class="reaction-button" src="{{ asset('storage/static/superstar.png') }}">
+                        </form>
+                    </div>
                     @else
-                        <p class="playpen-bold-font">You cannot like your own post</p>
+                        <form class="inline" method="post" action="{{ url('unreact') }}">
+                            @csrf
+                            <input type="hidden" name="pet_id" value={{ $pet->id }}>
+                            @if ($current_reaction == 'like')
+                                <input type="image" class="unreaction-button" src="{{ asset('storage/static/like.png') }}">
+                            @endif
+                            @if ($current_reaction == 'heart')
+                                <input type="image" class="unreaction-button" src="{{ asset('storage/static/heart.png') }}">
+                            @endif
+                            @if ($current_reaction == 'star')
+                                <input type="image" class="unreaction-button" src="{{ asset('storage/static/superstar.png') }}">
+                            @endif
+                        </form>
                     @endif
                 @endauth
             </div>
