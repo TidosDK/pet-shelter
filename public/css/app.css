@@ -193,8 +193,8 @@
 }
 
 .center {
-	margin: auto;
-	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .hr-new {
@@ -217,8 +217,84 @@
 	display: none;
 }
 
-
 /***** POST MANAGEMENT *****/
 .post-management-no-posts-text {
 	font-size: 24;
+}
+
+/***** Like Feature *****/
+
+.reaction-image-container {
+	margin-right: 8px;
+	margin-left: 8px;
+}
+
+.reaction-image {
+	max-width: 25px;
+	display: inline;
+}
+
+.reaction-button-container {
+	margin: auto;
+	max-height: 60px;
+	padding: 4px;
+	padding-top: 10px;
+	border-style: solid;
+	border-color: var(--lightblue);
+	border-radius: 5px;
+}
+
+.reaction-button {
+	max-width: 40px;
+	display: inline;
+	margin-left: 6px;
+	margin-right: 6px;
+	transition: 0.15s;
+
+	border: 0px solid;
+	border-color: #00000000;
+}
+
+.reaction-button:hover {
+	border: 3px solid;
+	border-color: #00000000;
+}
+
+.unreaction-button {
+	max-width: 50px;
+	padding: 6px;
+	border-radius: 100%;
+	background-color: var(--lightblue);
+	transition: 0.3s;
+}
+
+.unreaction-button:hover {
+	background-color: var(--lightgray);
+	filter: grayscale(80%);
+}
+
+
+.like-button {
+	background-color: #00000000;
+	border-radius: 5px;
+	color: var(--blue);
+	border-style: solid;
+	border-width: 3px;
+	border-color: var(--blue);
+}
+
+.like-button:hover {
+	color: var(--lightblue);
+	border-color: var(--lightblue);
+}
+
+.reaction-card-pet-image {
+	max-width: 80px;
+}
+
+.liked-pet-container {
+	border-style: solid;
+	border-color: var(--lightblue);
+	border-radius: 5px;
+	background-color: #80CED740;
 }

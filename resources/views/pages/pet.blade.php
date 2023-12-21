@@ -3,6 +3,9 @@ $title = 'Pet';
 use App\Models\Pets;
 ?>
 
+<script src="{{ asset('js/scripts.js') }}"></script>
+<script src="{{ asset('js/reaction.js') }}"></script>
+
 <x-layout :title="$title">
     <section id="alert-message-area">
     </section>
@@ -52,8 +55,57 @@ use App\Models\Pets;
                 <span class="carousel-control-next-icon carousel-control-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
+
+
+            <div class="center w-50 text-center mt-3" id="LikeContainer">
+                <div class="reaction-image-container mt-2 mb-3">
+                    @foreach ($reaction_types as $reaction_type)
+                        <div class="inline reaction-image-container">
+                            @php $image_path = asset('storage/static/reaction_images/'.$reaction_type->type.'.png'); @endphp
+                            <img id="{{$reaction_type->type}}-image" class="reaction-image" src="{{$image_path}}">
+                            <label class="playpen-bold-font" for="{{$reaction_type->type}}-image">{{$reactions[$reaction_type->type]}}</label>
+                        </div>
+                    @endforeach
+                </div>
+                <p class="mt-2 playpen-bold-font">{{ session()->get('react_error') }}</p>
+                @auth
+                    @if ($pet->users_id != auth()->user()->id)
+                        @if ($current_reaction == null)
+                            <input id="like-button" class="w-50 like-button playpen-bold-font" type="button" value="Like">
+
+                            <div id="reaction-buttons" class="reaction-button-container mt-2">
+                                @foreach ($reaction_types as $reaction_type)
+                                    <form class="inline" method="post" action="{{ url('react') }}">
+                                        @csrf
+                                        <input type="hidden" name="pet_id" value={{ $pet->id }}>
+                                        <input type="hidden" name="type" value="{{$reaction_type->type}}">
+                                        @php $image_path = asset('storage/static/reaction_images/'.$reaction_type->type.'.png'); @endphp
+                                        <input type="image" class="reaction-button" src="{{$image_path}}">
+                                    </form>
+                                @endforeach
+                            </div>
+                        @else
+                            <form class="inline" method="post" action="{{ url('unreact') }}">
+                                @csrf
+                                <input type="hidden" name="pet_id" value={{ $pet->id }}>
+
+                                @foreach ($reaction_types as $reaction_type)
+                                    @if ($current_reaction->type == $reaction_type->type)
+                                        @php $image_path = asset('storage/static/reaction_images/'.$reaction_type->type.'.png'); @endphp
+                                        <input type="image" class="unreaction-button" src="{{$image_path}}">
+                                    @endif
+                                @endforeach
+                            </form>
+                        @endif
+                    @else
+                        <p class="playpen-bold-font">You cannot like your own post</p>
+                    @endif
+                @endauth
+            </div>
+
+
         </section>
-        <section class="col">
+        <section class="col mb-5">
             <h2>{{ $pet->name }}</h2>
             <br>
             <h5>Price: {{ $pet->price }} DKK</h5>
@@ -118,7 +170,6 @@ use App\Models\Pets;
                     class="btn btn-block login-button about-img-crop center mt-3 mb-5">Send
                     message</button>
             </section>
-            <script src="{{ asset('js/scripts.js') }}"></script>
         @endif
     </section>
 </x-layout>
