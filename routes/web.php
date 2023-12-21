@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [NavigationController::class, 'frontPageView']);
 
 // Type of pet (Dogs, Cats)
-Route::get('/pets/{type}', [NavigationController::class, 'pets']);
+Route::get('/pets/{type}', [NavigationController::class, 'petsView']);
 
 // Other types of pet from above
-Route::get('/pets', [NavigationController::class, 'otherPets']);
+Route::get('/pets', [NavigationController::class, 'otherPetsView']);
 
 // Specific pet (any kind)
-Route::get('/pet/{id}', [NavigationController::class, 'singlePet']);
+Route::get('/pet/{id}', [NavigationController::class, 'singlePetView']);
 
 // About us page
 Route::get('/aboutUs', [NavigationController::class, 'aboutUsView']);
@@ -37,7 +37,8 @@ Route::get('/signup', [UserController::class, 'signupView'])
 ->middleware('guest');
 
 // Reset password page
-Route::get('/reset-password', [UserController::class, 'resetPasswordView']);
+Route::get('/reset-password', [UserController::class, 'resetPasswordView'])
+->middleware('guest');
 
 //Profile page
 Route::get('/profile', [UserController::class, 'profileView'])
