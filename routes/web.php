@@ -30,57 +30,59 @@ Route::get('/aboutUs', [NavigationController::class, 'aboutUsView']);
 
 // Login page
 Route::get('/login', [UserController::class, 'loginView'])
-->middleware('guest');
+    ->middleware('guest');
 
 // Signup page
 Route::get('/signup', [UserController::class, 'signupView'])
-->middleware('guest');
+    ->middleware('guest');
 
 // Reset password page
-Route::get('/reset-password', [UserController::class, 'resetPasswordView']);
+Route::get('/reset-password', [UserController::class, 'resetPasswordView'])
+    ->middleware('guest');
 
-//Profile page
+// Profile page
 Route::get('/profile', [UserController::class, 'profileView'])
-->middleware('auth');
+    ->middleware('auth');
 
-//Edit information handling
+// Edit information handling
 Route::post('/profile', [UserController::class, 'profileEdit'])
-->middleware('auth');
+    ->middleware('auth');
 
 // Authentication/Login handling
 Route::post('/login', [UserController::class, 'login'])
-->name('login')
-->middleware('guest');
+    ->name('login')
+    ->middleware('guest');
 
 // User creation handling
 Route::post('/signup', [UserController::class, 'signUp'])
-->middleware('guest');
+    ->middleware('guest');
 
 // Session destroyer / Logout handling
 Route::post('/logout', [UserController::class, 'logOut'])
-->middleware('auth');
+    ->middleware('auth');
 
 
 // POST CONTROLLER //
 
 // Create post page
 Route::post('/create', [PostController::class, 'createPost'])
-->middleware('auth');
+    ->middleware('auth');
 
 Route::get('/create', [PostController::class, 'createPostView'])
-->middleware('auth');
+    ->middleware('auth');
 
 // Edit post page
 Route::post('/edit', [PostController::class, 'editPost'])
-->middleware('auth');
+    ->middleware('auth');
 
+// Edit view page
 Route::get('/edit/{id}', [PostController::class, 'editPostView'])
-->middleware('auth');
+    ->middleware('auth');
 
-//Delete route
+// Delete route
 Route::post('/delete-post', [PostController::class, 'deletePost'])
-->middleware('auth');
+    ->middleware('auth');
 
-//Post Managemenent
+// Post Managemenent
 Route::get('/post-management', [PostController::class, 'postManagementView'])
-->middleware('auth');
+    ->middleware('auth');
