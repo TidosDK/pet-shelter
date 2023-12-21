@@ -15,8 +15,8 @@ class UserControllerTest extends TestCase {
 
     public static function getTestUser(): User {
         if (UserControllerTest::$testingUser == null) {
-            if (User::where('email', UserControllerTest::$TEST_EMAIL)) {
-                UserControllerTest::$testingUser = User::where('email', UserControllerTest::$TEST_EMAIL)->first();
+            UserControllerTest::$testingUser = User::where('email', UserControllerTest::$TEST_EMAIL)->first();
+            if (UserControllerTest::$testingUser) {
             } else {
                 UserControllerTest::$testingUser = User::create([
                     'name' => UserControllerTest::$TEST_NAME,
@@ -76,7 +76,7 @@ class UserControllerTest extends TestCase {
 
     public function testSignUp() {
         // Pre-cleanup
-        if (User::where('email', $this::$TEST_EMAIL . "test")) {
+        if (User::where('email', $this::$TEST_EMAIL . "test")->exists()) {
             User::where('email', $this::$TEST_EMAIL . "test")->delete();
         }
 
