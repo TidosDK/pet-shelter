@@ -61,58 +61,25 @@ use App\Models\Pets;
                 <div class="reaction-image-container mt-2 mb-3">
                     <div class="inline reaction-image-container">
                         <img id="like-image" class="reaction-image" src="{{ asset('storage/static/like.png') }}">
-                        <label class="playpen-bold-font" for="like-image">{{$likes}}</label>
+                        <label class="playpen-bold-font" for="like-image">13</label>
                     </div>
                     <div class="inline reaction-image-container">
                         <img id="heart-image" class="reaction-image" src="{{ asset('storage/static/heart.png') }}">
-                        <label class="playpen-bold-font" for="heart-image">{{$hearts}}</label>
+                        <label class="playpen-bold-font" for="heart-image">13</label>
                     </div>
                     <div class="inline reaction-image-container">
                         <img id="star-image" class="reaction-image" src="{{ asset('storage/static/superstar.png') }}">
-                        <label class="playpen-bold-font" for="star-image">{{$stars}}</label>
+                        <label class="playpen-bold-font" for="star-image">13</label>
                     </div>
                 </div>
-                <p class="mt-2 playpen-bold-font">{{ session()->get('react_error') }}</p>
-                @auth
-                    @if ($current_reaction == null)
-                    <input id="like-button" class="w-50 like-button playpen-bold-font" type="button" value="Like">
 
-                    <div id="reaction-buttons" class="reaction-button-container mt-2">
-                        <form class="inline" method="post" action="{{ url('react') }}">
-                            @csrf
-                            <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                            <input type="hidden" name="reaction_type" value="like">
-                            <input type="image" class="reaction-button" src="{{ asset('storage/static/like.png') }}">
-                        </form>
-                        <form class="inline" method="post" action="{{ url('react') }}">
-                            @csrf
-                            <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                            <input type="hidden" name="reaction_type" value="heart">
-                            <input type="image" class="reaction-button" src="{{ asset('storage/static/heart.png') }}">
-                        </form>
-                        <form class="inline" method="post" action="{{ url('react') }}">
-                            @csrf
-                            <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                            <input type="hidden" name="reaction_type" value="star">
-                            <input type="image" class="reaction-button" src="{{ asset('storage/static/superstar.png') }}">
-                        </form>
-                    </div>
-                    @else
-                        <form class="inline" method="post" action="{{ url('unreact') }}">
-                            @csrf
-                            <input type="hidden" name="pet_id" value={{ $pet->id }}>
-                            @if ($current_reaction == 'like')
-                                <input type="image" class="unreaction-button" src="{{ asset('storage/static/like.png') }}">
-                            @endif
-                            @if ($current_reaction == 'heart')
-                                <input type="image" class="unreaction-button" src="{{ asset('storage/static/heart.png') }}">
-                            @endif
-                            @if ($current_reaction == 'star')
-                                <input type="image" class="unreaction-button" src="{{ asset('storage/static/superstar.png') }}">
-                            @endif
-                        </form>
-                    @endif
-                @endauth
+                <input id="like-button" class="w-50 like-button playpen-bold-font" type="button" value="Like">
+
+                <div id="reaction-buttons" class="reaction-button-container mt-2">
+                    <input type="image" class="reaction-button" src="{{ asset('storage/static/like.png') }}">
+                    <input type="image" class="reaction-button" src="{{ asset('storage/static/heart.png') }}">
+                    <input type="image" class="reaction-button" src="{{ asset('storage/static/superstar.png') }}">
+                </div>
             </div>
 
 
