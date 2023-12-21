@@ -248,31 +248,13 @@
 	max-width: 40px;
 	display: inline;
 	margin-left: 6px;
-	margin-right: 6px;
-	transition: 0.15s;
-
-	border: 0px solid;
-	border-color: #00000000;
+	margin-right: 6px
 }
 
 .reaction-button:hover {
 	border: 3px solid;
 	border-color: #00000000;
 }
-
-.unreaction-button {
-	max-width: 50px;
-	padding: 6px;
-	border-radius: 100%;
-	background-color: var(--lightblue);
-	transition: 0.3s;
-}
-
-.unreaction-button:hover {
-	background-color: var(--lightgray);
-	filter: grayscale(80%);
-}
-
 
 .like-button {
 	background-color: #00000000;

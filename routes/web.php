@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ReactionController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -85,13 +84,4 @@ Route::post('/delete-post', [PostController::class, 'deletePost'])
 
 //Post Managemenent
 Route::get('/post-management', [PostController::class, 'postManagementView'])
-->middleware('auth');
-
-
-// REACTION CONTROLLER //
-
-Route::post('/react', [ReactionController::class, 'react'])
-->middleware('auth');
-
-Route::post('/unreact', [ReactionController::class, 'unreact'])
 ->middleware('auth');

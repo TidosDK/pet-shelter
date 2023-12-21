@@ -127,9 +127,6 @@ class PostController extends Controller {
         $id = $request["petId"];
         Pets::destroy($id);
 
-        //Delete all reactiong from database
-        ReactionController::unreactAll($id);
-
         //Delete image directory from storage
         $pet_folder_name = "p" . $id;
         File::deleteDirectory("storage/pet_images/" . $pet_folder_name);
