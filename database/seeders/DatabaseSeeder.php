@@ -7,7 +7,6 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Breeds;
 use App\Models\Pets;
-use App\Models\TypesOfLikes;
 use App\Models\TypesOfPets;
 use App\Models\UserLikesPet;
 use Illuminate\Database\Seeder;
@@ -29,13 +28,6 @@ class DatabaseSeeder extends Seeder {
 			]);
 		}
 
-		$types_of_likes = json_decode(File::get('resources/json/types_of_likes.json'));
-		foreach ($types_of_likes as $type) {
-			TypesOfLikes::create([
-				'type' => $type
-			]);
-		}
-
 		User::factory(10)->create();
 
 		Pets::factory(10)->create([
@@ -52,7 +44,7 @@ class DatabaseSeeder extends Seeder {
 			UserLikesPet::create([
 				'user_id' => User::inRandomOrder()->first()->id,
 				'pet_id' => Pets::inRandomOrder()->first()->id,
-				'type_id' => TypesOfLikes::inRandomOrder()->first()->id
+				'reaction_type' => fake()->randomElement(['like', 'heart', 'star'])
 			]);
 		}
 	}
