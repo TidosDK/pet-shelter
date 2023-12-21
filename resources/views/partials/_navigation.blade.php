@@ -10,7 +10,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link nav-bar-link lilita-one-font {{ strtolower(request()->getRequestUri()) == '/pets/dog' ? 'nav-link-selected' : '' }}"
-                        href="{{ url('pets/dog') }}">DOGS & KITTENS</a>
+                        href="{{ url('pets/dog') }}">DOGS & PUPPIES</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link nav-bar-link lilita-one-font {{ strtolower(request()->getRequestUri()) == '/pets/cat' ? 'nav-link-selected' : '' }}"

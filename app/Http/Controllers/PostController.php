@@ -32,6 +32,15 @@ class PostController extends Controller {
         ]);
     }
 
+    public function postManagementView() {
+        return view('pages.postmanagement', [
+			'pets' => Pets::all()->where('users_id', '=', Auth::user()->id),
+			'breeds' => Breeds::all(),
+			'type_of_pets' => TypesOfPets::all(),
+			'type' => 'all',
+	    ]);
+	}
+
     public function createPost(Request $request) {
         $request['kidFriendly'] = $request->has('kidFriendly');
         $request['multipleAnimalsFriendly'] = $request->has('multipleAnimalsFriendly');
@@ -124,13 +133,4 @@ class PostController extends Controller {
 
         return redirect('/post-management')->with('message', 'Post succesfully deleted');
     }
-
-    public function postManagementView() {
-        return view('pages.postmanagement', [
-			'pets' => Pets::all()->where('users_id', '=', Auth::user()->id),
-			'breeds' => Breeds::all(),
-			'type_of_pets' => TypesOfPets::all(),
-			'type' => 'all',
-	    ]);
-	}
 }
