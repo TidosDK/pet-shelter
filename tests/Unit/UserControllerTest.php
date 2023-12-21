@@ -143,9 +143,9 @@ class UserControllerTest extends TestCase {
         User::where('email', $this::$TEST_EMAIL . "test")->delete();
     }
 
-    public function testProfileEdit() {
-    }
+    // public function testProfileEdit() {
+    // }
 
-    public function testLogOut() {
-    }
+    // public function testLogOut() {
+    // }
 }
