@@ -10,7 +10,8 @@ class PostControllerTest extends TestCase {
 
         $this->actingAs($user)
             ->get('/create')
-            ->assertStatus(200);
+            ->assertStatus(200)
+            ->assertSessionHasNoErrors();
     }
 
     // public function testEditPostView() {

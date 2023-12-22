@@ -3,7 +3,7 @@
     <p class="h2 text-center mt-4 mb-5">The Concept</p>
     <div class="text-center">
         <img src="{{ asset('storage/static/about-us.webp') }}" class="about-img-crop img-fluid"
-            alt="Image of a family petting a dog">
+            alt="Image of a family petting a dog" id="aboutus-image">
     </div>
     <br>
     <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

@@ -10,6 +10,7 @@ class UserControllerTest extends TestCase {
     public static $TEST_NAME = "Test user";
     public static $TEST_EMAIL = "testuser@gmail.com";
     public static $TEST_PASSWORD = "verygoodpassword1234";
+    public static $TEST_PHONE = "12345678";
 
     private static $testingUser;
 
@@ -134,18 +135,121 @@ class UserControllerTest extends TestCase {
         $response = $this->post('/login', [
             'email' => $this::$TEST_EMAIL . "test",
             'password' => $this::$TEST_PASSWORD . "test"
-        ]);
+        ])->assertSessionHasNoErrors();
 
-        $response->assertStatus(302);
+        $this->assertAuthenticatedAs(User::where('email', $this::$TEST_EMAIL . "test")->first());
+
         $response->assertRedirect('/');
-
-        // Cleanup
-        User::where('email', $this::$TEST_EMAIL . "test")->delete();
     }
 
-    // public function testProfileEdit() {
-    // }
+    public function testLoginFail() {
+        $response = $this->post('/login', [
+            'email' => $this::$TEST_EMAIL . "testasdf",
+            'password' => $this::$TEST_PASSWORD . "testasdf"
+        ])->assertSessionHasErrors(["email" => "Invalid credentials"]);
 
-    // public function testLogOut() {
-    // }
+        $response->assertRedirect('/');
+    }
+
+    public function testLogOut() {
+        // Logs in
+        $this->post('/login', [
+            'email' => $this::$TEST_EMAIL . 'test',
+            'password' => $this::$TEST_PASSWORD . 'test'
+        ])->assertSessionHasNoErrors();
+
+        $this->post('/logout')
+            ->assertRedirect('/login');
+    }
+
+    public function testProfileEditGuest() {
+        $response = $this->post('/profile', [
+            'name' => $this::$TEST_NAME . "testcool",
+            'email' => $this::$TEST_EMAIL . "test",
+            'phone' => $this::$TEST_PHONE
+        ])->assertSessionHasNoErrors();
+
+        $response->assertRedirect('/login');
+    }
+
+    public function testProfileEditUser() {
+        // Logs in
+        $this->post('/login', [
+            'email' => $this::$TEST_EMAIL . 'test',
+            'password' => $this::$TEST_PASSWORD . 'test'
+        ])->assertSessionHasNoErrors();
+
+        $response = $this->post('/profile', [
+            'name' => $this::$TEST_NAME . 'testcool',
+            'email' => $this::$TEST_EMAIL . 'testcool',
+            'phone' => $this::$TEST_PHONE
+        ]);
+
+        $response->assertRedirect('/');
+
+        $this->assertDatabaseHas('users', [
+            'name' => $this::$TEST_NAME . 'testcool',
+            'email' => $this::$TEST_EMAIL . 'testcool',
+            'phone' => $this::$TEST_PHONE
+        ]);
+
+        // Cleanup
+        $response = $this->post('/profile', [
+            'name' => $this::$TEST_NAME . 'test',
+            'email' => $this::$TEST_EMAIL . 'test',
+            'phone' => $this::$TEST_PHONE
+        ])->assertSessionHasNoErrors();
+    }
+
+    public function testProfileEditUserBadEmail() {
+        // Logs in
+        $this->post('/login', [
+            'email' => $this::$TEST_EMAIL . 'test',
+            'password' => $this::$TEST_PASSWORD . 'test'
+        ])->assertSessionHasNoErrors();
+
+        $response = $this->post('/profile', [
+            'name' => $this::$TEST_EMAIL . 'test',
+            'email' => 'test',
+            'phone' => $this::$TEST_PHONE
+        ]);
+
+        $response->assertRedirect('/');
+
+        $this->assertDatabaseMissing('users', [
+            'name' => $this::$TEST_NAME . 'test',
+            'email' => 'test',
+            'phone' => $this::$TEST_PHONE
+        ]);
+    }
+
+    public function testProfileEditUserBadPhone() {
+        // Logs in
+        $this->post('/login', [
+            'email' => $this::$TEST_EMAIL . 'test',
+            'password' => $this::$TEST_PASSWORD . 'test'
+        ]);
+
+        $response = $this->post('/profile', [
+            'name' => $this::$TEST_EMAIL . 'test',
+            'email' => $this::$TEST_EMAIL . 'test',
+            'phone' => '123456'
+        ]);
+
+        $response->assertRedirect('/');
+
+        $this->assertDatabaseMissing('users', [
+            'name' => $this::$TEST_NAME . 'test',
+            'email' => $this::$TEST_EMAIL,
+            'phone' => '123456'
+        ]);
+    }
+
+
+    public function testCleanup() {
+        // Cleanup
+        User::where('email', $this::$TEST_EMAIL)->delete();
+        User::where('email', $this::$TEST_EMAIL . "test")->delete();
+        $this->assertTrue(true);
+    }
 }

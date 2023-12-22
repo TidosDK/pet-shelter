@@ -31,14 +31,15 @@ use App\Models\Pets;
                     <?php $active = 'active'; ?>
                     @for ($i = 0; $i < count($images); $i++)
                         <div class="carousel-item <?php echo $active; ?>">
-                            <img class="d-block carousel-image" src="{{ asset($images[$i]) }}" alt="Image of pet">
+                            <img class="d-block carousel-image" src="{{ asset($images[$i]) }}" alt="Image of pet"
+                                id="pet-image">
                         </div>
                         <?php $active = ''; ?>
                     @endfor
                 @else
                     <div class="carousel-item active">
                         <img class="d-block carousel-image" src="{{ asset('storage/pet_images/placeholder.webp') }}"
-                            alt="Image of pet">
+                            alt="Image of pet" id="pet-image">
                     </div>
                 @endif
             </div>
@@ -93,7 +94,8 @@ use App\Models\Pets;
             </div>
             <div class="row lilita-one-font text-size24">
                 <div class="col-8 information-text">Can live with other animals</div>
-                <div class="col-4 text-right information-text">{{ $pet->multipleAnimalsFriendly == true ? 'Yes' : 'No' }}</div>
+                <div class="col-4 text-right information-text">
+                    {{ $pet->multipleAnimalsFriendly == true ? 'Yes' : 'No' }}</div>
             </div>
             <div class="row blue-white lilita-one-font text-size24">
                 <div class="col-8 information-text">Can live with kids</div>
