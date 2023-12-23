@@ -16,7 +16,7 @@
                     <hr class="form-hr">
                 </article>
                 <article>
-                    <h5 class="playpen-bold-font card-text">Log in</h5>
+                    <h5 class="playpen-bold-font card-text" id="login-title">Log in</h5>
                     <form method="POST" action="{{ url('login') }}">
                         @csrf
                         <label for="email" class="playpen-font card-text">Email :</label>

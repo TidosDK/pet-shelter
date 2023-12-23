@@ -3,7 +3,7 @@ $title = 'Profile';
 ?>
 
 <x-layout :title="$title">
-    <h1 class="lilita-one-font mt-4 mb-4">{{ $title }}</h1>
+    <h1 class="lilita-one-font mt-4 mb-4" id="profile-title">{{ $title }}</h1>
 
     <form method="POST" action="{{ url('profile') }}">
         <section class="lilita-one-font" id="dataForm">

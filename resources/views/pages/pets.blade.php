@@ -11,7 +11,7 @@ $breeds_list = [];
 ?>
 <x-layout :title="$title">
     <section class="mt-4">
-        <p class="h4 mb-3">Sorting settings:</p>
+        <p class="h4 mb-3" id="sorting-settings-for-{{ $type }}">Sorting settings:</p>
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Gender
         </button>

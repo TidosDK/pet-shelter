@@ -11,7 +11,7 @@
                 </article>
                 <article>
 
-                    <h5 class="playpen-bold-font card-text">Sign up</h5>
+                    <h5 class="playpen-bold-font card-text" id="signup-title">Sign up</h5>
                     <form method="POST" action="{{ url('signup') }}">
                         @csrf
                         <label class="playpen-font card-text">Display name :</label>

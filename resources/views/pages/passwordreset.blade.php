@@ -6,7 +6,7 @@
         <section class="card">
             <div class="card-body">
                 <article>
-                    <h5 class="lilita-one-font card-title text-center">Reset password</h5>
+                    <h5 class="lilita-one-font card-title text-center" id="reset-password-title">Reset password</h5>
                     <hr class="form-hr">
                 </article>
                 <article>
