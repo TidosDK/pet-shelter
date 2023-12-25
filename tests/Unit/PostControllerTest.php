@@ -12,6 +12,8 @@ class PostControllerTest extends TestCase {
             ->get('/create')
             ->assertSessionHasNoErrors()
             ->assertStatus(200);
+        // Assert see something
+        // Try as guest also
     }
 
     public function testEditPostView() {
@@ -19,11 +21,15 @@ class PostControllerTest extends TestCase {
             ->get('/edit/' . FeaturePostControllerTest::getTestPet()->id)
             ->assertSessionHasNoErrors()
             ->assertStatus(200);
+        // Assert see something
+        // Try as guest also
     }
 
     public function testPostManagementView() {
         $this->actingAs(UserControllerTest::getTestingUser())
             ->get('/post-management')
             ->assertStatus(200);
+        // Assert see something
+        // Try as guest also
     }
 }

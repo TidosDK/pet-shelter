@@ -28,6 +28,12 @@ class Pets extends Model {
 		'users_id'
 	];
 
+	protected $casts = [
+        'kidFriendly' => 'boolean',
+        'multipleAnimalsFriendly' => 'boolean',
+        'castrated' => 'boolean'
+    ];
+
 	public static function getImages(int $pet_id) {
 		$FILE_DIRECTORY = "storage/pet_images/p" . $pet_id;
 
