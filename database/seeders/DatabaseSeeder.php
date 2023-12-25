@@ -27,7 +27,12 @@ class DatabaseSeeder extends Seeder {
 			]);
 		}
 
-		User::factory(10)->create();
+		User::factory(10)->create()->each(function($user){
+			$user->forceFill([
+                'two_factor_secret' => 'your-generated-secret', // Replace with your logic to generate a unique secret
+                'two_factor_recovery_codes' => encrypt(json_encode(config('fortify.two_factor_recovery_codes', []))),
+            ])->save();
+		});
 
 		Pets::factory(10)->create([
 			'type_id' => 1
