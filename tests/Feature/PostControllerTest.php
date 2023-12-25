@@ -52,7 +52,6 @@ class PostControllerTest extends TestCase {
             "breeds_id" => 1,
             "petImage" => UploadedFile::fake()->image('fake-image.jpg')
         ];
-        // unset($credentials["kidFriendly"]);
 
         $this->actingAs(UserControllerTest::getTestingUser())
             ->post('/create', $credentials)

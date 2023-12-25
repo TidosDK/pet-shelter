@@ -4,7 +4,7 @@ $title = 'Create';
 
 <x-layout :title="$title">
     <link rel="stylesheet" href="{{ asset('css/post.css') }}">
-    <h1 class="page-title mb-4">New pet post</h1>
+    <h1 class="page-title mb-4" id="create-post-title">New pet post</h1>
     <form method="POST" action="{{ url('create') }}" enctype="multipart/form-data">
         @csrf
         <section class="row text-center">

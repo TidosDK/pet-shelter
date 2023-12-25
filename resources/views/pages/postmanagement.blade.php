@@ -5,7 +5,7 @@ use App\Models\Pets;
 
 <x-layout :title="$title">
     <section>
-        <p class="h2 text-center mt-4 mb-5">My Posts</p>
+        <p class="h2 text-center mt-4 mb-5" id="post-management-title">My Posts</p>
         <a class="btn login-button p-2" href="{{ url('create') }}">Create Post</a>
     </section>
     @if (count($pets) == 0)
