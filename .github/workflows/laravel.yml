@@ -31,8 +31,8 @@ jobs:
     - name: Linking storage
       run: php artisan storage:link
     - name: Execute tests (Unit and Feature tests) via PHPUnit
-      if: success() || failure()
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: php artisan migrate --seed && vendor/bin/phpunit
+      if: success() || failure()
+      run: sleep 5s && php artisan migrate --seed && vendor/bin/phpunit
