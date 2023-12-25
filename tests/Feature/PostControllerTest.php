@@ -60,11 +60,11 @@ class PostControllerTest extends TestCase {
 
         unset($credentials['petImage']);
         $this->assertDatabaseHas('pets', $credentials);
-        $this->assertDirectoryExists('/app/storage/app/public/pet_images/p' . $pet_id);
+        $this->assertDirectoryExists('../app/storage/app/public/pet_images/p' . $pet_id);
 
         // Cleanup
-        File::deleteDirectory('/app/storage/app/public/pet_images/p' . $pet_id);
-        $this->assertDirectoryDoesNotExist('/app/storage/app/public/pet_images/p' . $pet_id);
+        File::deleteDirectory('../app/storage/app/public/pet_images/p' . $pet_id);
+        $this->assertDirectoryDoesNotExist('../app/storage/app/public/pet_images/p' . $pet_id);
         Pets::where('name', $this::$TEST_CREDENTIALS['name'])->delete();
     }
 

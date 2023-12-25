@@ -74,7 +74,7 @@ class PostController extends Controller {
 
         // Creates a new folder for images and stores the uploaded images.
         $pet_folder_name = "p" . $new_id;
-        File::makeDirectory("/app/storage/app/public/pet_images/" . $pet_folder_name);
+        File::makeDirectory("../app/storage/app/public/pet_images/" . $pet_folder_name);
         $request->file('petImage')->store('pet_images/' . $pet_folder_name, 'public');
 
         return redirect("/pet/{$new_id}")->with('Post Created');
