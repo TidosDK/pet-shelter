@@ -9,14 +9,14 @@ use Illuminate\Validation\Rule;
 class UserController extends Controller {
 
 	// Login page
-	public function loginView() {
-		return view('pages.login');
-	}
+	// public function loginView() {
+	// 	return view('pages.login');
+	// }
 
 	// Signup page
-	public function signupView() {
-		return view('pages.signup');
-	}
+	// public function signupView() {
+	// 	return view('pages.signup');
+	// }
 
 	// Reset password page
 	public function resetPasswordView() {
