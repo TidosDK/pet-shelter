@@ -34,5 +34,4 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      if: success() || failure()
-      run: sleep 5s && php artisan migrate --seed && vendor/bin/phpunit
+      run: php artisan migrate --seed && vendor/bin/phpunit
