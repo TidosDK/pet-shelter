@@ -55,11 +55,11 @@ Route::get('/reset-password', [UserController::class, 'resetPasswordView'])
 
 Route::get('/profile', function(){
     return view('pages.profile');
-})->middleware('auth', 'verified');
+})->middleware('auth');
 
 //Edit information handling
 Route::post('/profile', [UserController::class, 'profileEdit'])
-->middleware('auth', 'verified');
+->middleware('auth');
 
 // Authentication/Login handling
 Route::post('/login', [UserController::class, 'login'])
@@ -72,32 +72,32 @@ Route::post('/signup', [UserController::class, 'signUp'])
 
 // Session destroyer / Logout handling
 Route::post('/logout', [UserController::class, 'logOut'])
-->middleware('auth', 'verified');
+->middleware('auth');
 
 
 // POST CONTROLLER //
 
 // Create post page
 Route::post('/create', [PostController::class, 'createPost'])
-->middleware('auth', 'verified');
+->middleware('auth');
 
 Route::get('/create', [PostController::class, 'createPostView'])
-->middleware('auth', 'verified');
+->middleware('auth');
 
 // Edit post page
 Route::post('/edit', [PostController::class, 'editPost'])
-->middleware('auth', 'verified');
+->middleware('auth');
 
 Route::get('/edit/{id}', [PostController::class, 'editPostView'])
-->middleware('auth', 'verified');
+->middleware('auth');
 
 //Delete route
 Route::post('/delete-post', [PostController::class, 'deletePost'])
-->middleware('auth', 'verified');
+->middleware('auth');
 
 //Post Managemenent
 Route::get('/post-management', [PostController::class, 'postManagementView'])
-->middleware('auth', 'verified');
+->middleware('auth');
 
 
 // Fortify
