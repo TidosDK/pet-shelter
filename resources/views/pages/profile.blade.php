@@ -24,7 +24,7 @@ $title = 'Profile';
                     posts</a>
                 <button class="btn view-button btn-lg" type="button" id="editBtn">Edit</button>
             </div>
-        
+
         </section>
         <section class="lilita-one-font edit-section-profile" id="editForm">
 
@@ -42,36 +42,39 @@ $title = 'Profile';
             </div>
         </section>
     </form>
-    <div class="card-body">
-        @if (! auth()->user()->two_factor_secret)
-            Ya not enabled
-            <form method="POST" action="{{ url('user/two-factor-authentication') }}">
-                @csrf
-                <button type="submit" class="btn view-button btn-lg">
-                    Enable
-                </button>
-            </form>
-        @else
-            Ya enabled
-            <form method="POST" action="{{ url('user/two-factor-authentication') }}">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn view-button btn-lg">
-                    Disable
-                </button>
-            </form>
-        @endif
+    <section class="lilita-one-font">
+        <div class="card-body">
+            @if (! auth()->user()->two_factor_secret)
+                Two factor authentication is disabled
+                <form method="POST" action="{{ url('user/two-factor-authentication') }}">
+                    @csrf
+                    <button type="submit" class="btn view-button btn-lg">
+                        Enable
+                    </button>
+                </form>
+            @else
+                Two factor authentication is enabled
+                <form method="POST" action="{{ url('user/two-factor-authentication') }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn view-button btn-lg">
+                        Disable
+                    </button>
+                </form>
+            @endif
+    
+            @if(session('status') == 'two-factor-authentication-enabled')
+                <p>You have now enabled two factor authentication - please scan this QR code into your authentication application
+                {!! auth()->user()->twoFactorQrCodeSvg() !!}
+    
+                <p>These are your recovery codes - please keep them in a secure place
+                @foreach (json_decode(decrypt(auth()->user()->two_factor_recovery_codes, true)) as $code)
+                    <br> {{ trim($code) }} <br>
+                @endforeach
+            @endif
+    
+        </div>
 
-        @if(session('status') == 'two-factor-authentication-enabled')
-            <p>Ya now enabled 2fa, ya now scan code to phone auth app
-            {!! auth()->user()->twoFactorQrCodeSvg() !!}
-
-            <p>Store these recovery code safely
-            @foreach (json_decode(decrypt(auth()->user()->two_factor_recovery_codes, true)) as $code)
-                {{ trim($code) }} <br>
-            @endforeach
-        @endif
-
-    </div>
+    </section>
     <script src="{{ asset('js/profile-script.js') }}"></script>
 </x-layout>

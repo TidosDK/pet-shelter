@@ -33,12 +33,20 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
+        Fortify::loginView(function(){
+            return view('pages.auth.login');
+        });
+
+        Fortify::registerView(function(){
+            return view('pages.auth.register');
+        });
+
         Fortify::confirmPasswordView(function(){
-            return view('pages.password-confirm');
+            return view('pages.auth.password-confirm');
         });
 
         Fortify::twoFactorChallengeView(function(){
-            return view('pages.two-factor-challenge');
+            return view('pages.auth.two-factor-challenge');
         });
         // Fortify::loginView(function(){
         //     return view('pages.login');
@@ -47,14 +55,14 @@ class FortifyServiceProvider extends ServiceProvider
         // Fortify::registerView(function(){
         //     return view('pages.signup');
         // });
-        // RateLimiter::for('login', function (Request $request) {
-        //     $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
+        RateLimiter::for('login', function (Request $request) {
+           $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
 
-        //     return Limit::perMinute(5)->by($throttleKey);
-        // });
+            return Limit::perMinute(5)->by($throttleKey);
+        });
 
-        // RateLimiter::for('two-factor', function (Request $request) {
-        //     return Limit::perMinute(5)->by($request->session()->get('login.id'));
-        // });
+        RateLimiter::for('two-factor', function (Request $request) {
+            return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        });
     }
 }

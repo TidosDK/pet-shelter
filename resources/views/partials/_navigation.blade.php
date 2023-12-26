@@ -55,7 +55,7 @@
                     <ul class="navbar-nav">
                         <li>
                             <a class="btn btn-primary nav-bar-link login-button lilita-one-font"
-                                href="{{ url('login') }}">
+                                href="{{ route('login') }}">
                                 <p class="lilita-one-font mb-0">Login</p>
                             </a>
                         </li>

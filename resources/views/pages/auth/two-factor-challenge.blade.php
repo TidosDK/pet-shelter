@@ -15,15 +15,17 @@
                     <h5 class="lilita-one-font card-title text-center">Happy tails make happy tales !</h5>
                     <hr class="form-hr">
                 </article>
+                @if(session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                    @endif
                 <article>
                     <h5 class="playpen-bold-font card-text">Confirm Two Factor Code</h5>
                     <form method="POST" action="{{ url('/two-factor-challenge') }}">
                         @csrf
-                        <label for="password" class="playpen-font card-text">Two Factor code :</label>
-                        <p class="card-error-text">{{ $errors->first('password') }}</p>
-                        <input type="password" class="form-control" name="password">
-
-                        <input type="submit" class="btn btn-primary login-button-card mb-3" value="Log in">
+                        <input type="text" class="playpen-font card-text form-control" name="code"/>
+                        <input type="submit" id="submit" class="btn btn-primary login-button-card mb-3" type="submit" value="Confirm">
                     </form>
                 </article>
             </div>

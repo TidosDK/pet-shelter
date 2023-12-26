@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Route;
 // NAVIGATION CONTROLLER //
 
 // Front page
-Route::get('/', [NavigationController::class, 'frontPageView']);
+// Route::get('/', [NavigationController::class, 'frontPageView']);
+Route::get('/', function(){
+    return view('pages.frontpage');
+});
 
 // Type of pet (Dogs, Cats)
 Route::get('/pets/{type}', [NavigationController::class, 'petsView']);
@@ -33,9 +36,9 @@ Route::get('/aboutUs', [NavigationController::class, 'aboutUsView']);
 // Route::get('/login', [UserController::class, 'loginView'])
 // ->middleware('guest');
 
-Route::get('/login', function(){
-    return view('pages.login');
-})->middleware('guest');
+// Route::get('/login', function(){
+//     return view('pages.login');
+// })->middleware('guest');
 
 // Signup page
 // Route::get('/signup', [UserController::class, 'signupView'])
@@ -62,13 +65,13 @@ Route::post('/profile', [UserController::class, 'profileEdit'])
 ->middleware('auth');
 
 // Authentication/Login handling
-Route::post('/login', [UserController::class, 'login'])
-->name('login')
-->middleware('guest');
+// Route::post('/login', [UserController::class, 'login'])
+// ->name('login')
+// ->middleware('guest');
 
 // User creation handling
-Route::post('/signup', [UserController::class, 'signUp'])
-->middleware('guest');
+// Route::post('/signup', [UserController::class, 'signUp'])
+// ->middleware('guest');
 
 // Session destroyer / Logout handling
 Route::post('/logout', [UserController::class, 'logOut'])
@@ -102,5 +105,6 @@ Route::get('/post-management', [PostController::class, 'postManagementView'])
 
 // Fortify
 Route::get('/home', function(){
-    dd(Auth::user());
-});
+    // dd(Auth::user());
+    return view('pages.profile');
+})->middleware('auth');
