@@ -21,14 +21,25 @@
                     </div>
                     @endif
                 <article>
-                    <h5 class="playpen-bold-font card-text">Confirm Two Factor Code</h5>
-                    <form method="POST" action="{{ url('/two-factor-challenge') }}">
+                    <form id="twoFactorForm" class="hidden" method="POST" action="{{ url('/two-factor-challenge') }}">
+                        <h5 class="playpen-bold-font card-text">Confirm Two Factor Code</h5>
                         @csrf
                         <input type="text" class="playpen-font card-text form-control" name="code"/>
-                        <input type="submit" id="submit" class="btn btn-primary login-button-card mb-3" type="submit" value="Confirm">
+                        <input type="submit" id="submit" class="btn btn-primary login-button-card mb-3" type="submit" value="Submit">
                     </form>
+                      <form id="recoveryCodeForm" class="hidden" method="POST" action="{{ url('/two-factor-challenge') }}">
+                        <h5 class="playpen-bold-font card-text" id="recoveryCodeLabel">Enter Recovery code</h5>
+                        @csrf
+                        <input type="text" class="playpen-font card-text form-control" name="recovery_code"/>
+                        <input type="submit" id="submit" class="btn btn-primary login-button-card mb-3" type="submit" value="Submit">
+                    </form>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault" id="switchText">slide to enter Recovery Code</label>
+                      </div>
                 </article>
             </div>
         </section>
     </section>
+    <script src="{{ asset('js/slider.js') }}"></script>
 </x-layout>

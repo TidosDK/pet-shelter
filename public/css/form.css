@@ -90,3 +90,13 @@
     height: 4px;
     opacity: 1;
 }
+
+.form-switch .form-check-input:checked {
+    background-color: #30D158;
+    border-color: #30D158;
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
