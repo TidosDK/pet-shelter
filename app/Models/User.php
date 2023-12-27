@@ -13,6 +13,7 @@ class User extends Authenticatable {
 		'email',
 		'password',
 		'phone',
+		'isAdmin'
 	];
 
 	protected $hidden = [
@@ -25,6 +26,9 @@ class User extends Authenticatable {
 	];
 
 	public function pets() {
+		if($this->isAdmin){
+			return $this->hasMany(Pets::class);
+		}
 		return $this->hasMany(Pets::class, 'users_id');
 	}
 }

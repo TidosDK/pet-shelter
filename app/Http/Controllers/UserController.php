@@ -106,4 +106,28 @@ class UserController extends Controller {
 		// Redirects user to login page.
 		return redirect('/login')->with('message', 'You have been logged out!');
 	}
+
+	// Signup page
+	public function adminSignupView() {
+		return view('pages.admin-signup');
+	}
+
+	// Admin signup handling
+	public function adminSignup(Request $request) {
+		$credentials = $request->validate([
+			'name' => 'required',
+			'email' => ['required', 'email', Rule::unique('users', 'email')],
+			'password' => 'required|confirmed|min:6',
+		]);
+		$credentials['isAdmin'] = true;
+
+		// Hash password
+		$credentials['password'] = bcrypt($credentials['password']);
+
+		// Save to database
+		$user = User::create($credentials);
+
+		// Signup was successful. Redirects user to frontpage.
+		return redirect('/')->with('message', 'A new admin user has been created');
+	}
 }

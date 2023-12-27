@@ -26,8 +26,17 @@
                 </li>
             </ul>
             @auth
+                
                 <div class="login-button-div">
                     <ul class="navbar-nav">
+                        @if (Auth::user()->isAdmin)
+                            <li class="me-2">
+                                <a class="btn btn-primary nav-bar-link login-button lilita-one-font"
+                                    href="{{ url('admin-signup') }}">
+                                    <p class="lilita-one-font mb-0">admin-signup</p>
+                                </a>
+                            </li>
+                        @endif
                         <li class="me-2">
                             <a class="btn btn-primary nav-bar-link login-button lilita-one-font"
                                 href="{{ url('profile') }}">

@@ -60,6 +60,13 @@ Route::post('/signup', [UserController::class, 'signUp'])
 Route::post('/logout', [UserController::class, 'logOut'])
 ->middleware('auth');
 
+// Admin signup page
+Route::get('/admin-signup', [UserController::class, 'adminSignupView'])
+->middleware('admin');
+
+// admin creation handling
+Route::post('/admin-signup', [UserController::class, 'adminSignup'])
+->middleware('admin');
 
 // POST CONTROLLER //
 

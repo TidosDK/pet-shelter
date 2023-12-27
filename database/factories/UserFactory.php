@@ -18,7 +18,8 @@ class UserFactory extends Factory {
 			'name' => fake()->name(),
 			'email' => fake()->unique()->safeEmail(),
 			'phone' => fake()->phoneNumber(),
-			'password' => bcrypt(fake()->password())
+			'password' => bcrypt(fake()->password()),
+			'isAdmin' => false
 		];
 	}
 }

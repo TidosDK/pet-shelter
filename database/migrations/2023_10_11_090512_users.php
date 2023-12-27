@@ -13,6 +13,7 @@ return new class extends Migration {
 			$table->string('phone')->nullable(true);
 			$table->string('password')->nullable(false);
 			$table->timestamps();
+			$table->boolean('isAdmin')->default(false);
 		});
 	}
 

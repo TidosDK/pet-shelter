@@ -22,7 +22,7 @@ class PostController extends Controller {
     // Edit page
     public function editPostView(string $pet_id) {
         //Checks the authenticated users id against the owner id of the pet
-        if (Pets::find($pet_id)->users_id != Auth::user()->id)
+        if (Pets::find($pet_id)->users_id != Auth::user()->id || Auth::user()->isAdmin)
             return redirect()->back()->with('error', 'You are not the owner of this pet!');
 
         return view('pages.editpost', [
@@ -73,7 +73,7 @@ class PostController extends Controller {
 
     public function editPost(Request $request) {
         //Checks the authenticated users id against the owner id of the pet which was requested to be changed
-        if (Pets::find($request["petId"])->users_id != Auth::user()->id)
+        if (Pets::find($request["petId"])->users_id != Auth::user()->id || Auth::user()->isAdmin)
             return redirect()->back()->with('error', 'You are not the owner of this pet!');
 
         $id = $request["petId"];
@@ -111,7 +111,7 @@ class PostController extends Controller {
 
     public function deletePost(Request $request) {
         //Checks the authenticated users id against the owner id of the pet which was requested for deletion
-        if (Pets::find($request["petId"])->users_id != Auth::user()->id)
+        if (Pets::find($request["petId"])->users_id != Auth::user()->id || Auth::user()->isAdmin)
             return redirect()->back()->with('error', 'You are not the owner of this pet!');
 
         //Delete pet from database
@@ -126,8 +126,13 @@ class PostController extends Controller {
     }
 
     public function postManagementView() {
+        if(Auth::user()->isAdmin){
+            $pets=Pets::all();
+        }else{
+            $pets=Pets::all()->where('users_id', '=', Auth::user()->id);
+        }
         return view('pages.postmanagement', [
-			'pets' => Pets::all()->where('users_id', '=', Auth::user()->id),
+			'pets' => $pets,
 			'breeds' => Breeds::all(),
 			'type_of_pets' => TypesOfPets::all(),
 			'type' => 'all',
