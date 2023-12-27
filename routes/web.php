@@ -106,5 +106,5 @@ Route::get('/post-management', [PostController::class, 'postManagementView'])
 // Fortify
 Route::get('/home', function(){
     // dd(Auth::user());
-    return view('pages.profile');
+    return view('pages.frontpage');
 })->middleware('auth');

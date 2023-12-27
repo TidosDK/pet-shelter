@@ -65,7 +65,7 @@ $title = 'Profile';
     
             @if(session('status') == 'two-factor-authentication-enabled')
                 <p>You have now enabled two factor authentication - please scan this QR code into your authentication application
-                {!! auth()->user()->twoFactorQrCodeSvg() !!}
+                <br>{!! auth()->user()->twoFactorQrCodeSvg() !!}
     
                 <p>These are your recovery codes - please keep them in a secure place
                 @foreach (json_decode(decrypt(auth()->user()->two_factor_recovery_codes, true)) as $code)
