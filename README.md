@@ -1,2 +1,5 @@
-# pet-shelter
-Project for the "Web Technology" course on the 3rd semester
+# Pet Shelter
+
+This project was developed under the course "Web Technology" for 3rd semester students.
+
+I have since been archived as the course has been finished.
